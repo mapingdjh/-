@@ -17,7 +17,7 @@
 	clientWidth = width + padding
 	clientHeight = height + padding
 	offsetWidth = width + padding + border
-	offsetHeight = width + padding + border
+	offsetHeight = height + padding + border
 
 # jQuery
 ---
