@@ -36,10 +36,13 @@
 * height(): 仅获取元素内容的高度，不包括border、margin、和padding
 * innerHeight(): 获取元素内容和padding的高度，不包括border和margin
 * outerHeight(boolean)：获取第一个元素的当前计算高度值,包括padding，border和选择性的margin
+* scrollTop():设置匹配元素的滚动条的垂直位置,垂直滚动条在最上面，scrollTop()将返回0
 >说明：  outerHeight(boolean)默认值是false，表示当前高度不包含margin，当默认值为true时，高度包含margin
 
 #### 2.2 获取width度
 * width(): 仅获取元素内容的宽度，不包括border、margin、和padding
 * innerWidth(): 获取元素内容和padding的宽度，不包括border和margin
 * outerWidth()(boolean)：获取第一个元素的当前计算宽度值,包括padding，border和选择性的margin
+* scrollLeft():设置匹配元素的滚动条的水平位置，垂直滚动条在最左面，scrollLeft()将返回0
 >说明： outerWidth(boolean)默认值是false，表示当前宽度不包含margin，当默认值为true时，宽度包含margin
+
