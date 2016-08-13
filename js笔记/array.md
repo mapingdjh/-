@@ -152,3 +152,42 @@ console.log(t2-t1) // 计算代码执行时间<br>
     ];<br>
 data.sort(compareObjByPer("age"));<br>
 console.log(data);  <br>
+
+
+## 五、arguments转化为数组
+### 方法一
+    var args = Array.prototype.slice.call(arguments);
+### 方法二
+    var args = [].slice.call(arguments);
+### 方法三
+    var args = []; 
+	for (var i = 1; i < arguments.length; i++) { 
+		args.push(arguments[i]);
+	}
+
+
+## 六、返回数组中最大值
+### 6.1、apply()
+    var arr = [1,2,3,4,5,8];
+    var max = Math.max.apply(null,arr);
+   
+### 6.2、遍历数组
+    var arr = [1,2,3,4,5,8];
+    var max = arr[0];
+    for(var i= 0,len=arr.length; i<len; i+=1){
+        if(max<arr[i]){
+            max = arr[i];
+        }
+    }
+    console.log(max);
+
+## 7、[清空数组](http://www.cnblogs.com/snandy/archive/2011/04/04/2005156.html)
+
+var arr = [1,2,3,4,5,8]; 
+### 7.1 splice()
+    arr.splice(0,arr.length);
+
+### 7.2 length赋值为0
+    arr.length = 0;
+### 7.3 赋值为[ ]，这种方式效率最高
+    arr = []; // 赋值为一个空数组以达到清空原数组
