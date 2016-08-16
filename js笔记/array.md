@@ -191,3 +191,43 @@ var arr = [1,2,3,4,5,8];
     arr.length = 0;
 ### 7.3 赋值为[ ]，这种方式效率最高
     arr = []; // 赋值为一个空数组以达到清空原数组
+## 八、数组去重
+### 8.1、遍历数组法 
+    var arr = ['a','b','c','d','b','c','a','g','d'];
+    Array.prototype.delRepeat = function(){
+        var newArr = [];
+        for(var i= 0,len=this.length; i<len;i++){
+            if(newArr.indexOf(arr[i]) == -1){
+                newArr.push(this[i]);
+            }
+        }
+        return newArr;
+    };
+
+### 8.2、数组下标判断法
+     Array.prototype.delRepeat = function(){
+        var newArr = [];
+        for(var i= 0,len=this.length; i<len;i++){
+            // 如果当前数组的第i项在当前数组中第一次出现的位置不是i，那么表示第i项是重复的，忽略掉，否则存入结果数组
+            if (this.indexOf(this[i]) == i) newArr.push(this[i]);
+        }
+        return newArr;
+    };
+
+
+### 8.3、对象键值对法(效率最高)
+    /** 这种方法效率最高*/
+    Array.prototype.delRepeat = function(){
+        var obj     = {},              // hash表
+             newArr = [],              // 新数组
+             len    = this.length;     // 需要去重的数组长度
+        for(var i=0; i<len; i+=1){
+            //如果hash表中没有当前项
+            if(!obj[this[i]]){
+                obj[this[i]] = true;  //存入hash表
+                newArr.push(this[i]);  //把当前数组的当前项push到临时数组里面
+            }
+        }
+        return newArr;
+    };
+    console.log(arr.delRepeat());	
