@@ -45,7 +45,7 @@
     console.log(arr);
 
 ## 二、查找数组元素
-    
+### 2.1、IE8及其以下查找    
     Array.prototype.indexOf = function(){
         //重写的函数只接收一个参数，否则抛出异常
         if(arguments.length != 1){
@@ -65,6 +65,39 @@
 > 测试代码：<br>
 > var arr = [0,1,3,5,8]; <br>
 > console.log(arr.indexOf(5,6));
+
+### 2.2、ES5 indexOf()方法(用法同string的indexOf()方法)
+    var arr = [1,2,3,4,5,6];
+	var index = arr.indexOf(1);  // 如果找不到返回-1，
+
+### 2.3 折半查找字符在数组中的位置
+        /**
+	     * 折半查找字符在数组中的位置(有序列表)
+	     * @param arr 被检索的数组
+	     * @param value 要查找的字符
+	     * @type int
+	     * @returns 字符在数组中的位置，没找到返回-1
+	     */
+		function binarySearch(arr,value){
+			var startIndex = 0,               // 起点位置
+				endIndex    = arr.length-1,    // 结束位置
+				midIndex    = Math.floor((endIndex + startIndex) / 2);  // 中间点位置
+			while((arr[midIndex] != value) && (startIndex <endIndex )){
+				if(arr[midIndex] < value){
+					// 要查找的元素大于中间点元素，到数组下半段去查找
+					startIndex = midIndex + 1;
+				}
+				if(arr[midIndex] > value) {
+					// 要查找的元素小于中间点元素，到数组上半段去查找
+					endIndex = midIndex - 1;
+				}
+				midIndex = Math.floor((endIndex + startIndex) / 2);
+			}
+		   return (value == arr[midIndex]) ? midIndex : -1;
+		}
+		var array2=[1,2,3,4,5,6,7,8,9,100,109];
+		console.log(binarySearch(array2,109));
+		
 
 ## 三、数组随机排序
 ### 3.1 使用数组sort方法对数组元素随机排序
@@ -231,3 +264,4 @@ var arr = [1,2,3,4,5,8];
         return newArr;
     };
     console.log(arr.delRepeat());	
+	

@@ -1,6 +1,6 @@
 # 字符串 #
 ## 一、统计字符串中每个字符出现的次数
-### 1、1 
+### 1.1 
     /** 统计每个字符出现的次数*/ 
 	var str = "hello world",
 	    char,
@@ -53,8 +53,10 @@
 	console.log(result)
 
 ## 二、将单词首字母转成大写
+
 ### 2.1 字符串首字母转为大写
     str.replace(/(\w)/,function(v){return v.toUpperCase()});
+
 ### 2.2 每个单词首字母转换为大写
     var str = "you can you up";
     function initialsToCapitals(str){
@@ -172,4 +174,25 @@
 
     函数功能： 使用formate()参数替换{0}，{1}，{2}；
     说明： return arg[b] || '';  中的b表示模式匹配在字符串中索引，这里由于模式匹配/{(\d+)}/g用()括起来了，这里b表示0,1,3，即第几个子串
-    	
+
+## 六、返回字符的字节长度（汉字算2个字节）
+        /**
+		 * 返回字符的字节长度（汉字算2个字节）
+		 * @param {string}
+		 * @returns {number}
+		 */
+		
+		var getByteLen = function (val) {
+		    var len = 0;
+		    for (var i = 0; i < val.length; i++) {
+		        if (val[i].match(/[^\x00-\xff]/ig) != null) //全角
+		            len += 2;
+		        else
+		            len += 1;
+		    };
+		    return len;
+		}
+		var sAbc = '1a啊啊22飞3地方a';
+		var ol = getByteLen(sAbc);
+		alert('直接用length取得的字节长度：' + sAbc.length);
+		alert('通过getByteLen()方法取得的字节长度：' + ol);    	
