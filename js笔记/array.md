@@ -62,6 +62,39 @@
         }
     }
 
+<br>
+
+    Array.prototype.indexOf = Array.prototype.indexOf || function (searchElement, fromIndex) {
+	if ( this === undefined || this === null ) {
+		throw new TypeError( '"this" is null or not defined' );
+	}
+
+	var length = this.length >>> 0; // Hack to convert object.length to a UInt32
+
+	fromIndex = +fromIndex || 0;
+
+	if (Math.abs(fromIndex) === Infinity) {
+		fromIndex = 0;
+	}
+
+	if (fromIndex < 0) {
+		fromIndex += length;
+
+		if (fromIndex < 0) {
+		  fromIndex = 0;
+		}
+	}
+
+	for (; fromIndex < length; fromIndex++) {
+		if (this[fromIndex] === searchElement) {
+			return fromIndex;
+		}
+	}
+
+	return -1;
+    };
+
+
 > 测试代码：<br>
 > var arr = [0,1,3,5,8]; <br>
 > console.log(arr.indexOf(5,6));
@@ -264,4 +297,25 @@ var arr = [1,2,3,4,5,8];
         return newArr;
     };
     console.log(arr.delRepeat());	
+
+## 判断是否为数组
+### instancof
+    var arr = [1,2,3,4];
+    console.log(arr instanceof Array);
+
+### call()
+    console.log(Object.prototype.toString.call(arr) === "[object Array]");
+
+### Array.isArray()（ES5方法）
+    console.log(Array.isArray(arr));
+
+### 兼容写法
+	function checkArray(arr){
+	  if(Array.isArray){
+	  	return Array.isArray(arr);
+	  }else{
+	  	return Object.prototype.toString.call(arr) === "[object Array]";
+	  }
+	}
+	console.log(checkArray(arr));
 	

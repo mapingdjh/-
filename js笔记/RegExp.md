@@ -28,4 +28,11 @@
 	    }
 	    var str = '<div><span>123</span><a href="https://www.baidu.com"><button>单击我</button></a></div>';
 	    console.log(delStrLink(str));
+
+## JQery选择器中含有特殊字符
+> JQuery中含有特殊字符如@、.、[ #（等会报错，解决方法是用\\转义<br>
+> 如$("#admin@user") ==》 $("#admin\\\@user")即可
+
+     // JQuery处理选择器中特殊字符 . # @ [ (等
+     var pid = objs.pid.replace(/([@\.#(\[])/g,"\\$1");
 		
