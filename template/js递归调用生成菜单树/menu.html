@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <div id="result"></div>
+</body>
+</html>
+<script>
+    var result = document.getElementById('result')
+    var arr = [
+        {"name": "广东","Id": -1,"parentId": null},
+        {"name": "湖北","Id": -2,"parentId": null},
+        //{"name": "安徽","Id": -3,"parentId": null},
+        {"name": "广州","Id": 44,"parentId": -1},
+        {"name": "武汉","Id": 58,"parentId": -2},
+        {"name": "深圳","Id": 12,"parentId":-1 },
+        {"name": "荆州","Id": 59,"parentId":-2 },
+       // {"name": "合肥","Id": 31,"parentId":-3 },
+       // {"name": "肥西","Id": 311,"parentId":31 },
+        //{"name": "肥东","Id": 312,"parentId":31 },
+        //{"name": "巢湖","Id": 313,"parentId":31 },
+        //{"name": "滁州","Id": 32,"parentId":-3 },
+        //{"name": "明光","Id": 321,"parentId":32 },
+        //{"name": "定远","Id": 322,"parentId":32 },
+        //{"name": "天长","Id": 323,"parentId":32 },
+        //{"name": "来安","Id": 324,"parentId":32 },
+        //{"name": "凤阳","Id": 325,"parentId":32 },
+        //{"name": "全椒","Id": 326,"parentId":32 },
+        {"name": "白云","Id": 741,"parentId": 44}
+    ];
+    var tree = {};  // 保存所有节点，构成一个菜单树
+    var count = 0;  // 计算已经遍历到的菜单个数(从顶层菜单开始查找)
+    array2Object(arr, tree, null);
+    function array2Object (array, node, id) {
+        var storage = [];
+        var newArray = [];
+        var newNode, newId;
+        // 在传来的array中查找id菜单的子元素
+        for (var i = 0; i < array.length; i++) {
+            // 查找id菜单的子菜单
+            if (array[i].parentId === id) {
+                node[array[i].name] = {};
+                storage.push(i);   // 每轮查找到的菜单在array中的索引
+                count++;           // 已经遍历查找到菜单的个数
+            } else {
+             // 本轮查找没有找到与id菜单下的子菜单
+                newArray.push(array[i]);
+            }
+        }
+
+        /*console.log(count);
+        console.log(storage);
+        console.log(newArray);
+        console.log(node);*/
+
+        // 最外层菜单的个数不等于总菜单个数：说明整个菜单中含有子菜单，需要递归调用遍历出所有子菜单
+        if (count !== arr.length) {
+            // 继续查找当前找到菜单的子菜单
+            for (var i = 0; i < storage.length; i++) {
+               /**
+                * newArray： 待遍历的子对象集合
+                * array[storage[i]].name ==> 父对象的name值 node[name]，就是tree["广东或湖北"]，他是一个对象
+                * array[storage[i]].Id   ==> 父对象的Id值，根据父对象的id来找他的子对象(parentId = id)
+                * */
+               array2Object(newArray, node[array[storage[i]].name], array[storage[i]].Id);
+            }
+        } else {
+            // 所有菜单全部找完，生成一颗菜单书保存在tree对象中，然后再页面上显示出来
+           console.log(tree);
+            object2Html(result, tree);
+        }
+    }
+
+    /**
+     * @description 在页面上显示菜单
+     * @params {obj} node 页面上的id为result的div对象
+     * @params {obj} obj  菜单树对象
+     * */
+    function object2Html (node, obj) {
+        var storage = [];
+        var tpl = node.innerHTML + '<ul>';
+        for (var key in obj) {
+            tpl = tpl + '<li data-name="' + key + '">' + key + '</li>';
+            // 如果obj[key]还是对象,缓存起来，递归调用输出所有的对象
+            if (!isEmptyObject(obj[key])) {
+                storage.push({
+                    name: key,
+                    obj: obj[key]
+                })
+            }
+        }
+        tpl += '</ul>';
+        node.innerHTML = tpl;
+        if (storage.length !== 0) {
+            for (var i = 0; i < storage.length; i++) {
+                console.log(document.querySelector('li[data-name="' + storage[i].name + '"]'))
+                object2Html(document.querySelector('li[data-name="' + storage[i].name + '"]'), storage[i].obj)
+            }
+        }
+    }
+
+    /** 检查是否obj是否是对象*/
+    function isEmptyObject (obj) {
+        for (var key in obj) {
+            return false
+        }
+        return true
+    }
+</script>

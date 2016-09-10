@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+</html>
+<script>
+    var testMenu=[
+        {
+            "name":"一级菜单",
+            "submenu":[
+                {
+                    "name":"二级菜单1",
+                    "url":"http://127.0.0.1"
+                },
+                {
+                    "name":"二级菜单2",
+                    "submenu":[
+                        {
+                            "name":"三级菜单1",
+                            "submenu":[
+                                {
+                                    "name":"四级菜单1",
+                                    "url":"http://127.0.0.1"
+                                }
+                            ]
+                        },
+                        {
+                            "name":"三级菜单2",
+                            "url":"http://127.0.0.1"
+                        }
+                    ]
+                },
+                {
+                    "name":"二级菜单3",
+                    "url":""
+                },
+                {
+                    "name":"二级菜单4",
+                    "submenu":[
+                        {
+                            "name":"三级菜单3",
+                            "submenu":[
+                                {
+                                    "name":"四级菜单2",
+                                    "url":"http://127.0.0.1"
+                                },
+                                {
+                                    "name":"四级菜单3",
+                                    "submenu":[
+                                        {
+                                            "name":"五级菜单1",
+                                            "url":"http://127.0.0.1"
+                                        },
+                                        {
+                                            "name":"五级菜单2",
+                                            "url":"http://127.0.0.1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name":"三级菜单4",
+                            "url":"http://127.0.0.1"
+                        }
+                    ]
+                },
+                {
+                    "name":"二级菜单5",
+                    "url":"http://127.0.0.1"
+                }
+            ]
+        },
+        {
+            "name":"一级菜单",
+            "submenu":[
+                {
+                    "name":"二级菜单1",
+                    "url":""
+                },
+                {
+                    "name":"二级菜单2",
+                    "url":""
+                }
+            ]
+        },
+        {
+            "name":"一级菜单",
+            "submenu":[
+                {
+                    "name":"二级菜单6",
+                    "url":""
+                },
+                {
+                    "name":"二级菜单7",
+                    "url":""
+                },
+                {
+                    "name":"二级菜单8",
+                    "url":""
+                }
+            ]
+        }
+    ];
+
+    /** 思路：
+     * 1、先遍历最外层的几个节点对象
+     * 2、依次判断最外层节点下是否还有子节点
+     * 3、无：直接输出外层节点
+     * 4、有：将当前节点下的子节点传递到createSubMenu函数中，从第二层节点开始遍历，直到当前节点下没有子节点(递归调用createSubMenu函数)，
+     *        然后再遍历下一条节点，从第二层节点开始
+     * */
+
+
+    var ul = document.createElement("ul"),
+        res = document.getElementById("result"),
+        frag = document.createDocumentFragment();
+    for(var i= 0,len=testMenu.length; i<len; i++){
+        // 遍历一级菜单
+        var h4 = document.createElement("h4"),
+            li = document.createElement("li");
+        h4.innerHTML = testMenu[i].name;
+        li.appendChild(h4);
+        frag.appendChild(li);
+        /** 遍历二级菜单 */
+        if(testMenu[i].submenu && testMenu[i].submenu.length > 0){
+            createSubMenu(testMenu[i].submenu,li);
+        }
+    }
+    ul.appendChild(frag);
+    res.appendChild(ul);
+
+
+    /**
+     * @description: 遍历子菜单
+     * @params: {array}   submenu 需要遍历的子菜单对象
+     * @params：{object}  li       保存子菜单的上层li对象
+     * */
+    function createSubMenu(submenu,li){
+        var subUl = document.createElement("ul");
+        for(var i= 0,len=submenu.length; i<len; i+=1){
+           var a = document.createElement("a"),
+               url  = submenu[i].url || 'javascript:void(0)',
+               subLi = document.createElement("li");
+            a.href = url;
+            a.innerHTML = submenu[i].name;
+            subLi.appendChild(a);
+            // 遍历二级菜单下所有子菜单
+            if(submenu[i].submenu && submenu[i].submenu.length > 0){
+                console.log(arguments.callee);
+                // 如果当前菜单含有子菜单，给子菜单前面添加一个小三角图标
+                var img = document.createElement("img");
+                img.src = "verticalMenu/images/blank.gif";
+                subLi.insertBefore(img,subLi.getElementsByTagName("a")[0]);
+                arguments.callee(submenu[i].submenu,subLi);
+            }
+            subUl.appendChild(subLi);
+        }
+        li.appendChild(subUl);
+    }
+</script>

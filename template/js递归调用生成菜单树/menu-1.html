@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="container"></div>
+    <script src="../../jquery-1.10.2.min.js"></script>
+</body>
+</html>
+<script>
+    //模拟数据
+    var jsonData = [
+        {"id":"1","name":"父节点1","url":"www.baidu.com","pid":"0"},
+            {"id":"4","name":"父节点11","url":"","pid":"1"},
+                {"id":"13","name":"父节点111","url":"","pid":"4"},
+                    {"id":"15","name":"父节点131","url":"","pid":"13",isLeaf: true},
+                    {"id":"16","name":"父节点132","url":"","pid":"13",isLeaf: true},
+                    {"id":"17","name":"父节点133","url":"","pid":"13",isLeaf: true},
+                {"id":"14","name":"父节点112","url":"","pid":"4",isLeaf: true},
+            {"id":"5","name":"父节点12","url":"","pid":"1",isLeaf: true},
+            {"id":"6","name":"父节点13","url":"","pid":"1",isLeaf: true},
+        {"id":"2","name":"父节点4","url":"","pid":"0"},
+            {"id":"7","name":"父节点41","url":"","pid":"2",isLeaf: true},
+            {"id":"8","name":"父节点42","url":"","pid":"2",isLeaf: true},
+            {"id":"9","name":"父节点43","url":"","pid":"2",isLeaf: true},
+        {"id":"3","name":"父节点5","url":"","pid":"0"},
+            {"id":"10","name":"父节点51","url":"","pid":"3",isLeaf: true},
+            {"id":"11","name":"父节点52","url":"","pid":"3",isLeaf: true},
+            {"id":"12","name":"父节点53","url":"","pid":"3",isLeaf: true}
+    ] ;
+
+    //主方法，运用递归实现
+    function createTree(jsons,pid){
+        if(jsons != null){
+            var ul = "<ul class=''>";
+            for(var i= 0,len=jsons.length; i<len;i++){
+                console.log(jsons[i]);
+                // 找到菜单
+                if(jsons[i].pid == pid){
+                    ul += '<li>'+jsons[i].name+'</li>';
+                    // 继续查找当前菜单下的所有子菜单
+                    ul += arguments.callee(jsons,jsons[i].id);
+                }
+            }
+            ul += "</ul>";
+        }
+        return ul;
+    }
+
+   /* function createTree(jsons,pid){
+       if(jsons != null){
+           var ul = "<ul class=''>";
+           for(var i= 0,len=jsons.length; i<len;i++){
+               // 找到菜单
+               if(jsons[i].pid == pid){
+                   ul += '<li>'+jsons[i].name+'</li>';
+                   // 继续查找当前菜单下的所有子菜单
+                   ul += arguments.callee(jsons,jsons[i].id);
+               }
+           }
+           ul += "</ul>";
+       }
+        return ul;
+    }*/
+
+
+$(function(){
+
+       var ul = createTree(jsonData,0,$("div"));
+       $("#container").append(ul);
+
+        //控制菜单的隐藏显示
+        $("ul[class] li").each(function(){
+            $(this).click(function(){
+                $(this).next().toggle() ;
+            }) ;
+        }) ;
+});
+
+</script>
