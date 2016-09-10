@@ -1,0 +1,43 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>定时器实现动画</title>
+	<style type="text/css">
+		#div1{ width:100px; height:100px;position:absolute; top:0; left:900px; background:#F00}
+		span{ position:absolute; top:110px; left:20px; background:green; width:50px; margin:10px; height:20px}
+	</style>
+</head>
+
+<body>
+<div id="div1"></div>
+<span id="left">left</span><span id="right" style="left:100px">right</span>
+</body>
+</html>
+<script>
+	var oDiv=document.getElementById("div1");
+	//var nSpeed=50;
+	var target=100;//终点
+	var timer=null;
+	function  move(ele,target){
+		clearTimeout(timer);
+		var nSpeed=(target-ele.offsetLeft)/10;
+		if(nSpeed){
+			nSpeed=nSpeed>0?Math.ceil(nSpeed):Math.floor(nSpeed);
+			ele.style.left=ele.offsetLeft+nSpeed+"px";
+			timer=window.setTimeout(function(){move(ele,target)},60)
+		}else{
+			timer=null;//关键，不然不往右走
+		}
+	}
+	//oDiv.onclick=move;
+	left.onclick=function(){
+		if(!timer)
+			move(oDiv,50)
+	};
+	right.onclick=function(){
+		if(!timer)
+			move(oDiv,900)
+	};
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面跳转方式</title>
+</head>
+<body>
+<h2>页面跳转方法：</h2>
+    <button id="assigin">location.assigin</button>
+    <button id="href">location.href</button>
+    <button id="replace">location.replace</button>
+    <button id="go">history.go(-1)</button>
+    <button id="navigate">window.navigate(IE支持)</button>
+</body>
+</html>
+<script>
+
+	var assigin = document.getElementById("assigin");
+	var href = document.getElementById("href");
+	var replace = document.getElementById("replace");
+	var go = document.getElementById("go");
+	var navi = document.getElementById("navigate");
+
+	assigin.onclick = function(){
+		/**
+		 * location.assign跳转：
+		 * ** 1、可以跳转到绝对路径(http://www.baidu.com)和相对路径(folder.html)
+		 * ** 2、可以使用后退按钮返回到上个页面
+		 * ** 3、新跳转的页面替换原来的页面
+		 * */
+		//location.assign("http://www.baidu.com");
+		//location.assign("folder.html")
+		//window.location = "https://www.baidu.com";
+		location.href = "https://www.baidu.com";
+	}
+
+	href.onclick = function(){
+		/**
+		 * location.href跳转：
+		 * ** 1、可以跳转到绝对路径(http://www.baidu.com)和相对路径(folder.html)
+		 * ** 2、可以使用后退按钮返回到上个页面
+		 * ** 3、新跳转的页面替换原来的页面
+		 * */
+		//location.href = "https://www.baidu.com";
+		//location.href = "folder.html";
+		location.search = "?name=dingjiahua";
+	}
+
+	replace.onclick = function(){
+		/**
+		 * location.replace跳转：
+		 * ** 1、可以跳转到绝对路径(http://www.baidu.com)和相对路径(folder.html)
+		 * ** 2、禁用前进后退按钮
+		 * ** 3、新跳转的页面替换原来的页面
+		 * */
+		//location.replace("https://www.baidu.com");
+		location.replace("folder.html");
+	}
+
+	go.onclick = function(){
+		//3、新跳转的页面替换原来的页面
+		history.go(-1);
+	};
+	navi.onclick = function(){
+		// IE下方法，其他浏览器无效果
+		window.navigate("folder.html");
+	}
+</script>

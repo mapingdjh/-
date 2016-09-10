@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.sliderBar {
+			position: fixed;
+			top: 50%;
+			right: -300px;
+			margin-top: -100px;
+			/*transition: all .4s ;*/
+		}
+		.sliderBar-content, .btn {
+			height: 200px;
+		}
+		.btn {
+			width: 30px;
+			color: #fff;
+			font-size: 14px;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			background-color: #930;
+		}
+		.btn.opened{
+			background-color: #990;
+		}
+		.sliderBar-content {
+           float: right;
+			width: 300px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+    <div class="sliderBar">
+	    <button class="btn">单击展开开</button>
+	    <div class="sliderBar-content">
+		    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid aut culpa delectus deleniti eius et iusto mollitia nesciunt officia perspiciatis placeat quae quos reprehenderit rerum sit, temporibus totam vero!
+	    </div>
+    </div>
+    <script src="../../jquery-1.10.2.min.js"></script>
+</body>
+</html>
+<script>
+	/*$(function(){
+       $(".btn").click(function(){
+	       // 判断当前是展开还是折叠
+           var status = $(this).is(".opened");   // false为折叠
+	       if(!status){
+		      // 展开
+		       $(this).addClass('opened').text("单击隐藏").parent().animate({"right":0},300);
+	       }else{
+		       $(this).removeClass('opened').text("单击展开").parent().animate({"right":-300+"px"},300);
+	       }
+       })
+	});
+    */
+
+	/** 元生js写法 */
+	var btn = document.querySelector(".btn"),
+		speed,
+		timer = null,
+		slider = document.querySelector(".sliderBar");
+
+	btn.onclick = function(){
+       var Opened = queryClassName(this,"opened");    // -1 代表折叠
+	  if(Opened === -1){
+	      // 展开
+		  this.className = "btn opened";
+		  //slider.style.right = 0 + "px";  // 配合css3 transition: all .4s，来实现动画效果
+          move(0);                          // 定时器实现动画
+	  }else{
+		  // 折叠
+		  this.className = "btn";
+		  //slider.style.right = -300 + "px";
+		  move(-300);
+	  }
+	};
+
+	/** 查找一个节点是否含有指定class名称*/
+	function queryClassName(node,value){
+		return node.className.indexOf(value)
+	}
+
+
+	/** 展开方法*/
+	function move(target){
+		clearTimeout(timer);
+	   // 获得当前right值
+       var curRight = parseInt(getComputedStyle(slider,false).right);
+		/** 缓冲 */
+		/*speed = (target-curRight) / 10;
+		speed = speed>0 ? Math.ceil(speed):Math.floor(speed);*/
+
+		/** 匀速*/
+		speed = (curRight < target) ? (speed=20) : (speed=-20);
+		// 剩余需要移动的距离小于speed的距离，直接移动到target处
+		if( Math.abs(target - curRight) < Math.abs(speed) ){    // 缓冲效果结束条件: target == curRight
+			clearTimeout(timer);
+			slider.style.right = target + "px";
+		}else{
+			slider.style.right = curRight + speed + "px";
+			timer = setTimeout(function(){ move(target) },30); // 注意： setTimeout(move(target),30)这种写法定时器
+		}
+	}
+
+
+
+
+
+
+
+</script>
