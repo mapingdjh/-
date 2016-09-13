@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+   <div class="demo">132</div>
+</body>
+</html>
+<script>
+	var div = document.querySelector("div");
+	console.log(div.className);
+	//console.log(div.webkitMatchesSelector(".demo"));
+
+    /**
+     * @description matchesSelector,selector level2规范提出，作用同jquery is();检查调用元素是否与指定选择器匹配
+     * @params {obj} element  dom对象
+     * @params {string} selector 选择器
+     * */
+	function matchesSelector(element,selector){
+		if(element.matchesSelector){
+			return element.matchesSelector(selector);
+		}else if(element.msMatchesSelector){                   // IE9+
+			return element.msMatchesSelector(selector);
+		}else if(element.mozMatchesSelector){                 // firefox36+
+			return element.mozMatchesSelector(selector);
+		}else if(element.webkitMatchesSelector){
+			return element.webkitMatchesSelector(selector);
+		}
+	}
+
+	console.log(matchesSelector(div,".demo"));
+
+</script>

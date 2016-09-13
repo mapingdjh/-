@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>检测浏览器引擎</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+	var client = function(){
+		// 检测呈现引擎、平台设设备
+		var engine = {
+			ie: 0,
+			gecko: 0,
+			webkit: 0,
+			khtml: 0,
+			opera: 0,
+			ver: null    // 存储具体的版本号，其他存储number类型数据
+		};
+
+		// 检测浏览器
+		var browser = {
+			ie: 0,
+			firefox: 0,
+			safari: 0,
+			konqueror: 0,
+			opera: 0,
+			chrome: 0,
+			ver: null    // 存储具体的版本号，其他存储number类型数据
+		};
+
+		// 检测系统平台
+		var system = {
+           win: false,
+		   mac: false,
+		   iphone: false,
+		   ipad: false,
+		   ios: false,
+		   android: false
+		};
+
+		return  {
+			engine: engine,
+			browser: browser,
+			system: system
+		}
+
+	}();
+
+
+	var ua = navigator.userAgent;
+	if(window.opera){
+		// opera
+		client.engine.ver = window.opera.version();
+		client.engine.opera = parseFloat(client.engine.var);
+	}else if(/AppleWebKit\/(\S+)/.test(ua)){
+		/**
+		 * 判断是否webkit呈现引擎
+		 * /AppleWebKit\/(\S+)/取AppleWebKit/后非空字符(可能包含数字、字符、小数点)
+		 * 例如: AppleWebKit/537.36（chrom）
+		 * \S表示非空字符
+		 * */
+		client.engine.ver = RegExp["$1"];
+		client.engine.webkit = parseFloat(client.engine.ver);
+		// 确定是chrome还是safari
+		if(/Chrome\/(\S+)/.test(ua)){
+			client.browser.ver = RegExp["$1"];
+			client.browser.chrome = parseFloat(client.browser.ver);
+		}else if(/Version\/(\S+)/.test(ua)){
+			client.browser.ver = RegExp["$1"];
+			client.browser.safari = parseFloat(client.browser.ver);
+		}
+
+	}else if(/KHTML\/(\S+)/.test(ua) || /Konqueror\/([^;]+)/.test(ua)){
+		// KHTML
+		client.engine.ver = RegExp["$1"];
+		client.engine.webkit = parseFloat(client.engine.ver);
+	}else if(/rv:([^\)]+)\) Gecko\/\d{8}/.test(ua)){
+		/**
+		 * 判断是否Gecko呈现引擎
+		 * "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0"
+		 * Gecko版本号位于字符串rv:和）之间
+		 * 1、查找rv:后所有不是）的字符
+		 * 2、查找Gecko/后跟8个数字
+		 *  /rv:([^\)]+) Gecko\/\d{8}/
+		 * */
+		client.engine.ver = RegExp["$1"];
+		client.engine.gecko = parseFloat(client.engine.ver);
+		// 判断是否是火狐浏览器
+		if(/Firefox\/(\S+)/.test(ua)){
+			client.browser.ver = RegExp["$1"];
+			client.browser.firefox = parseFloat(client.browser.ver);
+		}
+	}else if(/MSIE ([^;]+)/.test(ua)){
+
+		/**
+		 * 判断是否IE
+		 * "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)"
+		 * IE版本号位于MSIE后面,;前面
+		 *  /MSIE ([^;]+)/
+		 * */
+		client.engine.ver = client.browser.var = RegExp["$1"];
+	    client.engine.ie = client.browser.ie = parseFloat(client.engine.ver);
+	}
+	console.log(client.engine.ie);
+	console.log(client.browser.ie);
+
+	// 检测当前程序运行平台
+	var platform = window.navigator.platform;
+	client.system.win = platform.indexOf("Win") == 0;
+	client.system.mac = platform.indexOf("Mac") == 0;
+	alert(client.system.mac);
+
+	client.system.iphone = ua.indexOf("iPhone") > -1;
+	client.system.ipad = ua.indexOf("iPad") > -1;
+	// 检测ios版本
+	if(client.system.mac && ua.indexOf("Mobile") > -1){
+	alert(123);
+		if(/CPU (?:iPhone)?OS (\d+_\d+)/.test(ua)){
+			client.system.ios = parseFloat(RegExp.$1.replace("_","."));
+				alert("1322--:"+client.system.iso);
+		}else{
+			client.system.ios = 2;
+		}
+	}
+
+	// android
+	if(/Android (\d+\.\d+)/.test(ua)){
+		client.system.android = parseFloat(RegExp.$1);
+	}
+	
+	alert(client.system.ios);
+
+</script>

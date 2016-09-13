@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>模板</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<style>
+	    div {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+			width: 80%;
+			margin: 0 auto;
+        }
+		.search {
+		   -webkit-appearance: none;
+		}
+		
+.main {
+	width: 90%;
+	margin: 0 auto;
+	background: #050;
+	position: absolute;
+    top: 30px;
+    left: 0px;
+    right: 0px;
+    height: 627px;
+}
+
+.btn {
+	position: absolute;
+	bottom: 0;
+	left: 20%;
+	z-index: 10;
+	border: 1px solid #e4393c;
+	background: transparent;
+	color: #e4393c;
+	font-size: 14px;
+	outline: none;
+	padding: 6px 10px;
+	width: 60%;
+	margin: 0 auto;
+	border-radius: 6px;
+}
+    </style>
+	</style>
+</head>
+
+<body>
+<!-- 
+  1、input获得焦点弹出虚拟键盘问题 
+  2、ios中正常，android中虚拟键盘弹出会把页面底部的元素全都顶上去
+  解决： 底部按钮相对于body决对定位，按钮的父元素也相对于body绝对定位
+-->
+   <form id="searchValue" action="lineeclli.html" method="get"> 
+      <input type="text" name="key" value="" class="search" />
+	  <input type="hidden" name="default" value="2">
+   </form>
+ 
+     <div class="main">
+		<button class="btn">单击我1</button>
+	 </div>  
+</body>
+
+</html>

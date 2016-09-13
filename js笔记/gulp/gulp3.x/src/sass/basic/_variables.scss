@@ -1,0 +1,33 @@
+/**
+ * @description: 项目变量定义
+ * @author: maping (16/03/28)
+ * @update:
+ */
+
+
+// font相关
+//-----------------------------------------------------
+$fontSize:                       14px !default;
+$fontLineHeight:                 1.5 !default;
+$fontFamily:                     "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif !default;
+
+// 系统用色 
+//-----------------------------------------------------
+$primary:                        #d0d1d1 !default;
+$disabled:                       #c8c8c8 !default;
+$error:                          #e00077 !default;
+$white:                          #fff !default;
+$gray:                           #c0c0c0 !default;
+$gray2:                          #595757 !default;
+
+// 背景色，文本色，边框色，链接色
+//-----------------------------------------------------
+$colorText:                      #4b4848 !default;
+$colorBg:                        #eaebef  !default;
+$colorBorder:                    #dddddd !default;
+$colorPlaceholder:               #999 !default; // input plac, eholder color
+$colorLink:                      #eee !default;;
+
+// radius
+//-----------------------------------------------------
+$radiusBase:                     6px !default;
