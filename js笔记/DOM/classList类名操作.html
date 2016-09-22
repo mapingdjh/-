@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class类名操作</title>
+	<style>
+		div{
+			width: 400px;
+			white-space: normal;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container wrap">Lorem loremloremloremLorem loremloremloremLorem loremloremlorem</div>
+    <button id="btn">切换样式属性</button>
+</body>
+</html>
+<script>
+
+	var nodeObj = document.querySelector(".container");
+	/** 第一种方式：
+	 * @description: 删除指定的class名
+	 * @params {NodeList} nodeObj 节点对象
+	 * @params {string} className  需要删除的class名称
+	 * */
+	function removeClassName(nodeObj,className){
+		var classList = nodeObj.className,        // 获取nodeObj的class属性
+			pos;                                   // 需要删除属性对应的下标
+		// 按空格拆分className
+		var classArr = classList && classList.split(/\s+/);
+		for(var i= 0,len=classArr.length; i<len; i+=1){
+		  // 查找需要删除的属性
+          if(classArr[i] === className){
+	          pos = i;
+	          // 找到删除位置后就退出循环
+	          break;
+          }
+		}
+		// 找到目标位置才删除: splice()如果第一个参数不是number类型（undefined、null、false、"", NaN），会删除数组第一个元素
+		pos && classArr.splice(pos,1);
+		// 重新设置节点的class属性
+         nodeObj.className = classArr.join("");
+	}
+	// removeClassName(nodeObj,"wrap");
+
+
+	/**
+	 *  第二种方式
+	 *  DOM中对HTML5的扩展属性： classList
+	 *  兼容性： IE10及以上，谷歌、火狐3.6+
+	 * */
+
+	// 移除class中某个样式
+	nodeObj.classList.remove("wrap");
+
+	// 添加某个class样式: 如果已经存在，不添加
+	nodeObj.classList.add("btn");
+
+	// 切换某个class属性： 如果存在则删除，如果不存在则添加
+    document.getElementById("btn").onclick = function(){
+	    nodeObj.classList.toggle("btn-primary");
+    };
+
+	// 验证class列表中是否存在给定的class样式名称： true存在 false：不存在
+    var isHasBtn = nodeObj.classList.contains("btn");
+	console.log(isHasBtn);
+
+	// 清空所有class样式属性
+	//nodeObj.classList = [];
+
+
+</script>

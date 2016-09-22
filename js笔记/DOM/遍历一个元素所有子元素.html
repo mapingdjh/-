@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+    <h2>查询body所有子节点通用写法</h2>
+    <div class="main">132</div>
+
+
+</body>
+</html>
+
+<script>
+	console.log(document.body.lastChild);
+	console.log(document.body.firstChild);
+	console.log(document.body.childElementCount);
+	console.log(document.body.children);
+	console.log(document.body.childNodes);
+
+	/**
+	 * 遍历一个元素所有子元素（不包括文本节点，IE8及其以下换行不解析成文本，其他浏览换行也是文本）
+	 *
+	 * */
+
+	function processChild(element){
+		var nodeArr = [],
+		     child = element.firstChild;
+		while(child != element.lastChild){
+			if(child.nodeType == 1){
+				nodeArr.push(child);
+			}
+			child = child.nextSibling;
+		}
+		return nodeArr;
+	}
+
+	var arr = processChild(document.body);
+    console.log(arr);
+
+</script>
