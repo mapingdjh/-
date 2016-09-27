@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>orientation</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<style>
+	    #arrow {
+			width: 200px;
+			height: 100px;
+			text-align: center;
+			color: #f00;
+			border: 2px solid #ddd;
+			margin: 30px auto;
+		}
+	</style>
+</head>
+<body>
+    <p>摇一摇播放音乐吧</p>
+    <audio id="musicBox" controls="true" src="">
+</body>
+</html>
+<script>
+	window.onload = function(){
+		init();
+	};
+	
+	var SHAKE_THRESHOLD=3000;		   //定义一个摇动的阈值，为了防止正常移动的误判，需要给该变化率设置一个合适的临界值
+    var last_update=0;				   //定义一个变量记录上一次摇动的时间
+    var x=y=z=last_x=last_y=last_z=0;  //定义x、y、z记录三个轴的数据以及上一次触发的时间
+	
+    function init(){
+	    /** 检测浏览器是否支持devicemotion事件 */
+		if(window.DeviceMotionEvent){
+			window.addEventListener("devicemotion",deviceMotionHandler,false)
+		}else{
+			alert("not suppert!");
+		}
+	}
+	
+	function deviceMotionHandler(e){
+	    // 获取包含重力加速度对象
+		var accelerate = e.accelerationIncludingGravity,
+		    curTime   = new Date().getTime(),                      // 获取当前时间
+			diffTime  = curTime - last_update;                     // 
+		if(diffTime > 100){
+		    // 记录上次摇动时间
+			last_update = curTime;
+			// 获取摇动时x,y,z坐标
+			x = accelerate.x;
+			y = accelerate.y;
+			z = accelerate.z;
+			var speed=Math.abs(x+y+z-last_x-last_y-last_z)/diffTime*10000;//计算阈值
+			if(speed > SHAKE_THRESHOLD){
+				alert("摇动了");
+				 var media=document.getElementById("musicBox");//获取音频控件
+				media.setAttribute("src","1.mp3");
+				media.load();//加载音频
+				media.play();//播放音频
+			}
+			
+			//记录上一次加速度
+			last_x=x;
+			last_y=y;
+			last_z=z;
+
+		}	
+	}
+</script>
