@@ -10,51 +10,32 @@
 </body>
 </html>
 <script>
-	/** 1、获取手指放在屏幕上时的起始坐标 */
-	var startX,startY;
-	document.addEventListener("touchstart",function(e){
-		startX = e.touches[0].pageX;
-		startY = e.touches[0].pageY;
-	},false);
+var TouchSlide = function(){
+	this.startX = 0;
+	this.startY = 0;
+	this.endX   = 0;
+	this.endY   = 0;
+	this.initEvent();
+};
 
-	document.addEventListener("touchend",function(e){
-		/** 2、获取手指离开屏幕时的坐标 */
-		var endX, endY;
-
-		// 当手指离开屏幕后，touches集合中就没有任何touch对象了，因为不存在活动的触摸操作，此时必须使用changeTouches集合；
-		endX= e.changedTouches[0].pageX;
-		endY= e.changedTouches[0].pageY;
-
-		/** 3、根据起始坐标和结束坐标来判断滑动的方向 */
-       var direction = GetSlideDirection(startX,startY,endX,endY);
-       switch (direction){
-	       case 0: alert("no slider"); break;
-	       case 1: alert("up"); break;
-	       case 2: alert("bottom"); break;
-	       case 3: alert("left"); break;
-	       case 4: alert("right"); break;
-       }
-	},false);
-
-
-	/**
-	 * @description: 根据起始坐标和结束坐标来判断滑动的方向
-	 * @params: startX,startY: 起始坐标
-	 * @params: endX, endY:    结束坐标
-	 * @returns: result,返回滑动的方向；0滑动，1向上，2向下，3向左，4向右滑动
-	 * */
-	//根据起点和终点返回方向 1：向上，2：向下，3：向左，4：向右,0：未滑动
-	function GetSlideDirection(startX, startY, endX, endY) {
-		var dy = startY - endY;
+/**
+  * @description: 根据起始坐标和结束坐标来判断滑动的方向
+  * @params: startX,startY: 起始坐标
+  * @params: endX, endY:    结束坐标
+  * @returns: result,返回滑动的方向；0滑动，1向上，2向下，3向左，4向右滑动
+  */
+//根据起点和终点返回方向 1：向上，2：向下，3：向左，4：向右,0：未滑动
+TouchSlide.prototype.GetSlideDirection = function(startX, startY, endX, endY){
+	    var dy = startY - endY;
 		var dx = endX - startX;
-		var result = 0;
+		var result = 0,self = this;
 
 		//如果滑动距离太短
 		if(Math.abs(dx) < 2 && Math.abs(dy) < 2) {
 			return result;
 		}
 
-		var angle = GetSlideAngle(dx, dy);
+		var angle = self.GetSlideAngle(dx, dy);
 		if(angle >= -45 && angle < 45) {
 			result = 4;
 		}else if (angle >= 45 && angle < 135) {
@@ -67,18 +48,48 @@
 		}
 
 		return result;
-	}
+}
 
-	/**
-	 * @description: 根据dx，dy来获取滑动角度
-	 * @params: dx: endX - startX;  dy: endY - startX
-	 * @returns: 返回滑动角度
-	 * */
-	function GetSlideAngle(dx,dy){
-		// Math.atan2: 获取x轴到点(dx,dy)之间的弧度，返回的是弧度值;
-		// 180度 = πrad
-		// 1度 = π/180rad
-		// 1rad = 180/π度
-		return Math.atan2(dy, dx) * 180 / Math.PI;
-	}
+/**
+  * @description: 根据dx，dy来获取滑动角度
+  * @params: dx: endX - startX;  dy: endY - startX
+  * @returns: 返回滑动角度
+  * */
+TouchSlide.prototype.GetSlideAngle = function(dx,dy){
+	// Math.atan2: 获取x轴到点(dx,dy)之间的弧度，返回的是弧度值;
+	// 180度 = πrad
+	// 1度 = π/180rad
+	// 1rad = 180/π度
+	return Math.atan2(dy, dx) * 180 / Math.PI;
+}
+
+
+TouchSlide.prototype.initEvent = function(){
+   var self = this;
+	/** 1、获取手指放在屏幕上时的起始坐标 */
+	document.addEventListener("touchstart",function(e){
+		self.startX = e.touches[0].pageX;
+		self.startY = e.touches[0].pageY;
+	},false);
+	
+	document.addEventListener("touchend",function(e){
+		/** 2、获取手指离开屏幕时的坐标 */
+		// 当手指离开屏幕后，touches集合中就没有任何touch对象了，因为不存在活动的触摸操作，此时必须使用changeTouches集合；
+		self.endX= e.changedTouches[0].pageX;
+		self.endY= e.changedTouches[0].pageY;
+
+		/** 3、根据起始坐标和结束坐标来判断滑动的方向 */
+       var direction = self.GetSlideDirection(self.startX,self.startY,self.endX,self.endY);
+       switch (direction){
+	       case 0: alert("no slider"); break;
+	       case 1: alert("up"); break;
+	       case 2: alert("bottom"); break;
+	       case 3: alert("left"); break;
+	       case 4: alert("right"); break;
+       }
+	},false);
+}		
+
+// 调用
+new TouchSlide();
 </script>
