@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>form表单</title>
+</head>
+<body>
+<form id="form1" name="myfirstForm" action="../touchjs/drag.html" method="get">
+	<p>name: <input type="text" name="username"  size="10" maxlength="10" value="mapingdingjiahua"/></p>
+	<p>pwd: <input type="password" /></p>
+</form>
+</body>
+</html>
+<script>
+	/** 文本框内容部分选取 */
+	var form  = document.forms.myfirstForm;
+	var username = form.elements.username;
+
+    // var txt = username.setSelectionRange(0,5);
+	function selectText(textbox,startIndex,endIndex){
+		if(textbox.setSelectionRange){
+			username.setSelectionRange(startIndex,endIndex);
+		}else if(textbox.createTextRange){
+			var range = textbox.createTextRange();
+			// 将插入点移到开始位置
+			range.collapse(true);
+			// 更改范围的开始位置
+			range.moveStart("character",startIndex);
+			// 更改范围的结束位置
+			range.moveEnd("character",endIndex - startIndex);
+			// 将当前选择区置为当前对象
+			range.select();
+		}
+	}
+
+    selectText(username,0,5);
+</script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.colorbox {
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+    <h2>拖动滑块，改变div背景色</h2>
+	<div class="colorbox"></div>
+	<p><input type="range" class="colorR" min="0" max="255" value="0"/></p>
+	<p><input type="range" class="colorG" min="0" max="255" value="0"/></p>
+	<p><input type="range" class="colorB" min="0" max="255" value="0"/></p>
+</body>
+</html>
+<script>
+	/*window.onload = function(){
+		var colorbox = document.querySelector(".colorbox"),
+				colorR = document.querySelector(".colorR"),
+				colorG = document.querySelector(".colorG"),
+				colorB = document.querySelector(".colorB");
+		// 存储rgb
+		var getRGB = {
+			R: colorR.value,
+			G: colorG.value,
+			B: colorB.value
+		};
+		// 页面加载执行
+		setRGB(getRGB);
+
+		colorR.onchange = function(){
+			getRGB.R = this.value;
+			setRGB(getRGB)
+		};
+		colorG.onchange = function(){
+			getRGB.G = this.value;
+			setRGB(getRGB)
+		};
+		colorB.onchange = function(){
+			getRGB.B = this.value;
+			setRGB(getRGB)
+		};
+
+		function setRGB(getRGB){
+			colorbox.style.backgroundColor = "RGB(" + getRGB.R + "," + getRGB.G + ","+  getRGB.B + ")";
+		}
+	};*/
+
+(function(){
+	var colorbox = document.querySelector(".colorbox"),
+			colorR = document.querySelector(".colorR"),
+			colorG = document.querySelector(".colorG"),
+			colorB = document.querySelector(".colorB");
+
+	var SlierColor = function(options){
+		this.options = options;
+		this.init();
+	};
+
+	SlierColor.prototype.init = function(){
+		this.setRGB();
+		this.initEvent();
+	};
+
+	SlierColor.prototype.setRGB = function(){
+		this.options.colorbox.style.backgroundColor = "RGB(" + this.options.colorR.value + "," + this.options.colorG.value + ","+  this.options.colorB.value + ")";
+	};
+
+	SlierColor.prototype.initEvent = function(){
+		var self = this;
+		self.options.colorR.onchange = function(){
+			self.setRGB();
+		};
+		self.options.colorG.onchange = function(){
+			self.setRGB();
+		};
+		self.options.colorB.onchange = function(){
+			self.setRGB();
+		};
+	};
+
+	// 调用插件
+	new SlierColor({
+		colorbox: colorbox,
+		colorR:   colorR,
+		colorG:   colorG,
+		colorB:   colorB
+	});
+
+})();
+
+
+
+
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h2>自动切换焦点</h2>
+
+	<form action="" name="form1">
+		<input type="text" name="tel1" id="txtTel1" maxlength="3" />
+		<input type="text" name="tel2" id="txtTel2" maxlength="3" />
+		<input type="text" name="tel3" id="txtTel3" maxlength="4" />
+	</form>
+
+</body>
+</html>
+<script>
+	// 自动切换焦点实现
+	var tel1 = document.getElementById("txtTel1");
+	var tel2 = document.getElementById("txtTel2");
+	var tel3 = document.getElementById("txtTel3");
+
+	function tabForward(e){
+		// maxLength中L是大写，在html中l是小写
+		if(this.value.length == this.maxLength){
+			var form = this.form,
+				elements = form.elements,
+			    len = elements.length;
+			for(var i= 0; i < len; i+=1){
+				// 判断表单控件是当前控件且当前控件的下一个控件存在
+				if((form.elements[i] === this) &&  elements[i+1] ){
+					elements[i+1].focus();
+					return;
+				}
+			}
+		}
+	}
+	tel1.addEventListener("keyup",tabForward,false);
+	tel2.addEventListener("keyup",tabForward,false);
+	tel3.addEventListener("keyup",tabForward,false);
+
+</script>
