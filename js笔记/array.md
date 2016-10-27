@@ -159,21 +159,8 @@ t2 = new Date <br>
 console.log(t2-t1) // 计算代码执行时间<br>
 
 ### 3.2 随机交换数组内的元素（个人偏好这种方法） 
-    Array.prototype.shuffle = function(n) {
-      var arr = this,
-          len = this.length,
-          num  = n ? Math.min(n,len): len,
-          newArr = [],
-          rnd;
-      for(var i=0; i<num; i+=1){
-         rnd = getRandom(0,num-1);
-         newArr.push(arr[rnd]);
-      }
-      return newArr.slice(0,num-1)
-    };
-
-### 3.3 随机从原数组抽取一个元素,加入到新数组
-    Array.prototype.shuffle = function(n){
+  
+     Array.prototype.shuffle = function(n){
         var arr = this,
                 len = this.length,
                 num  = n ? Math.min(n,len): len,
@@ -192,6 +179,21 @@ console.log(t2-t1) // 计算代码执行时间<br>
     function getRandom(min,max){
         return min + Math.floor(Math.random()*(max-min+1));
     }
+
+### 3.3 随机从原数组抽取一个元素,加入到新数组
+
+    Array.prototype.shuffle = function(n) {
+      var arr = this,
+          len = this.length,
+          num  = n ? Math.min(n,len): len,
+          newArr = [],
+          rnd;
+      for(var i=0; i<num; i+=1){
+         rnd = getRandom(0,num-1);
+         newArr.push(arr[rnd]);
+      }
+      return newArr.slice(0,num-1)
+    };
 
 ## 四、数组对象根据指定的属性排序
 
