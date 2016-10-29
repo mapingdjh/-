@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas画圆弧</title>
+	<style>
+	   #cvs {
+	   	border: 1px solid #ddd;
+	   }
+	</style>
+</head>
+<body>
+	<canvas id="cvs" width="400" height="300"></canvas>
+</body>
+</html>
+<script>
+	var cvs = document.getElementById("cvs"),
+	    ctx = cvs.getContext("2d");
+	if(cvs.getContext){
+		var ctx = cvs.getContext("2d");
+		ctx.beginPath();
+		var p = {
+ 			x: 200,
+ 			y: 150,
+ 			r: 100
+		};
+
+        /** 画0-30度之间的圆弧*/
+
+        
+        // 1、移动到圆心
+		ctx.moveTo(p.x,p.y);
+		// 2、画圆弧(每个圆弧30度)
+		ctx.arc(p.x,p.y,p.r,0,Math.PI/6);
+        // 3、划线到圆心
+        ctx.lineTo(p.x, p.y);
+        // 4、填充
+        ctx.fill();
+
+
+		/*
+		// 每个圆弧大小
+		var perR = Math.PI*2/10;
+		var startR = 0,
+		    endR = startR+perR;
+		for(var i=0; i<10; i++){
+			if(i == 9){break;}
+			ctx.arc(p.x,p.y,p.r,startR,endR ,false);
+			ctx.fill();
+			startR = endR;
+			endR = startR+perR;
+		}*/
+		
+		
+	}    
+</script>

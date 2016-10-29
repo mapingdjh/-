@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas画布</title>
+	<style>
+	   #cvs {
+	   	border: 1px solid #ddd;
+	   }
+	</style>
+</head>
+<body>
+	<button id="stopAnimate">停止动画</button>
+	<canvas id="cvs" width="800" height="600"></canvas>
+	
+</body>
+</html>
+<script>
+	var cvs   = document.getElementById("cvs"),
+	    btn   = document.getElementById("stopAnimate"),
+	    ctx   = cvs.getContext("2d"),
+	    x     = 0,
+	    isPlay = true;
+	    speed = 1;
+	//var timer = setInterval(draw,20);   // 每秒60帧，60ftps= 1000/60 约等于20ms
+	function draw(){
+		// 1、清空画布
+		ctx.clearRect(0,0,cvs.width,cvs.height);
+		// 2、修改坐标
+		x += 1;
+		// 3、重新绘制
+		ctx.fillRect(x,125,50,50);
+	}    
+    
+    btn.onclick = function(){
+    	if(isPlay){
+    		clearInterval(timer);
+    		isPlay = false;
+    		this.innerHTML = "开始动画";
+    	}else
+    		timer = setInterval(draw,20);
+    		isPlay	 = true;
+    		this.innerHTML = "停止动画";
+    	}
+    }
+</script>

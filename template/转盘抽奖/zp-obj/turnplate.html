@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no"/>
+	<title>大转盘</title>
+	<style>
+		body {
+			background: #f00;
+		}
+		.wrapper {
+			width: 95%;
+			margin: 30px auto;
+		}
+		.turnplate {
+			position: relative;
+			width: 100%;
+			background: url("images/turnplate-bg.png") no-repeat center;
+			background-size: 100% auto;
+		}
+		.wrapper .pointer {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-48%,-64%);
+			width: 32%;
+			height: auto;
+		}
+		#wheelcanvas {
+			width: 100%;
+		}
+
+	</style>
+</head>
+<body id="turnplate">
+    <!-- 奖品背景 -->
+	<img src="images/1.png" alt="" id="shan-img" style="display: none;"/>
+	<img src="images/2.png" alt="" id="sorry-img"  style="display: none;"/>
+     <div class="wrapper">
+	     <!-- 转盘背景层 -->
+	     <div class="turnplate">
+		     <canvas id="wheelcanvas" width="422" height="422">您的浏览器不支持</canvas>
+		     <img class="pointer" src="images/turnplate-pointer.png" alt=""/>
+	     </div>
+     </div>
+	 <script src="js/jquery-1.8.3.min.js"></script>
+	 <script src="js/awardRotate.js"></script>
+	 <script src="js/turnplate.js"></script>
+</body>
+</html>
+<script>
+/**
+ * 此处不能用$(document).ready(function(){})
+ * 否则当奖品图标资源没加载完导致canvas绘图时图片出不来
+ */
+window.onload = function(){
+   //TODO: 加载轮盘数据，id唯一，prize代表是否是中奖的。
+   var dataArr = [
+   	   {id: "0", prizeName: "50M免费流量包", prize: true},	
+   	   {id: "1", prizeName: "10闪币", prize: true},	
+   	   {id: "2", prizeName: "谢谢参与"},	
+   	   {id: "3", prizeName: "5闪币", prize: true},	
+   	   {id: "4", prizeName: "10M免费流量包", prize: true},	
+   	   {id: "5", prizeName: "20M免费流量包", prize: true},	
+   	   {id: "6", prizeName: "20闪币", prize: true},	
+   	   {id: "7", prizeName: "30M免费流量包", prize: true},	
+   	   {id: "8", prizeName: "100M免费流量包", prize: true},	
+   	   {id: "9", prizeName: "2闪币", prize: true}
+   ];
+   
+   // TODO 后台获取抽奖次数 
+   var count = 2;
+   
+   turnplate.init("turnplate",{
+   	dataArr: dataArr,
+   	onLottery: function(){
+   		var self = this;
+   		// 没有抽奖次数
+   		if(count == 0){
+   			alert("没有抽奖次数了！");
+            self.bRotate = !self.bRotate;
+            return;
+   		}
+   		// 单击抽奖按钮先旋转-防止后台数据接口慢导致转盘旋转有延迟
+        $('canvas').rotate({
+            angle:0,
+            animateTo:360000,
+            duration:1420000
+       });
+
+       setTimeout(function() {
+            //todo: 后台获取奖品名称，并将抽奖次数更新（-1）
+            var prize = dataArr[getPrize(1,dataArr.length)].prizeName;
+            console.log(prize);
+            count -= 1;
+            updateCount(count);
+            //传入ID 转动表盘
+            self.rotateWheel(prize);
+        }, 1200); 
+   	},
+   	stop: function(prizeName){
+   		alert(prizeName);
+   	}
+   });
+
+   // 更新count
+   function updateCount(count){
+   	  // 页面上显示count
+   }
+   
+   // 模拟中奖算法
+   function getPrize(min,max){
+	  return Math.floor(Math.random()*(max - min + 1)+ min);
+   }	
+  
+ }    
+	
+</script>

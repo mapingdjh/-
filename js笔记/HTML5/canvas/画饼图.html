@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>饼图</title>
+	<style>
+        #cvs {
+	   		border: 1px solid #ddd;
+	   }
+	</style>
+</head>
+
+<body>
+	<canvas id="cvs" width="600" height="300">
+		您的浏览器不支持canvas
+	</canvas>
+</body>
+</html>
+<script>
+    /** 统计某公司2015销售业绩 */
+	var cvs   = document.getElementById("cvs");
+	if(cvs.getContext){
+		var ctx = cvs.getContext("2d");
+        
+        // 标示季度
+        ctx.fillStyle = "#f00";
+        ctx.fillRect(400,80,30,15); 
+        ctx.fillText("第一季度",440,90);
+
+        ctx.fillStyle = "#0f0";
+        ctx.fillRect(400,105,30,15); 
+        ctx.fillText("第二季度",440,115);
+
+        ctx.fillStyle = "#00f";
+        ctx.fillRect(400,130,30,15); 
+        ctx.fillText("第三季度",440,140);
+
+        ctx.fillStyle = "cyan";
+        ctx.fillRect(400,155,30,15); 
+        ctx.fillText("第四季度",440,165);
+
+		var data = {
+			score: [10,20,30,8,15],      // 业绩
+			colors: ["#f00","#0f0","#00f","cyan"],  // 每个扇形填充颜色
+			// 圆心半径
+            x: 200,
+            y: 150,
+            r: 100 
+		}
+		
+		// 销售季度个数
+		var len = data.score.length,
+		    startAngle = 0,       // 起始弧度
+		    scoreAll = 0;         // 总业绩
+
+		// 1、计算总业绩   
+		for(var i=0; i<len; i++){
+			scoreAll += data.score[i];
+		}   
+
+		for(var i=0; i<len; i++){
+
+			// 2、计算每个扇形所占的角度：(data.score[i] / scoreAll)*360，
+			var angleP = degreeToArc(( data.score[i] / scoreAll) *360 );
+			// 3、计算结束点： 后一个扇形的起点是前一个结束点
+			var endAngle = startAngle + angleP;
+            
+            // 4、画扇形
+            ctx.beginPath();
+            ctx.fillStyle = data.colors[i];   // 每个扇形的填充颜色
+		    ctx.moveTo(data.x,data.y);
+		    ctx.arc(data.x,data.y,data.r,startAngle,endAngle);
+		    ctx.fill();
+
+		    // /5、计算下一个扇形起点
+		    startAngle = startAngle + angleP;
+		}
+	}
+
+
+	/** 角度转弧度 */
+	function degreeToArc(degree){
+		return degree*Math.PI/180;
+	}	
+</script>

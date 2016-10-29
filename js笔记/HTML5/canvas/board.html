@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas绘制画板</title>
+	<style>
+	   #cvs {
+	   	border: 1px solid #ddd;
+	   }
+	</style> 
+</head>
+<body>
+	<canvas id="cvs" width="400" height="300"></canvas>
+</body>
+</html>
+<script>
+   var cvs = document.getElementById("cvs"),
+        isMouseDown,   // 标示鼠标是否被按下
+       ctx;
+   if(cvs.getContext){
+	 	ctx = cvs.getContext("2d");
+        /** 绘制画板： 按下鼠标准备开始画画 */
+        cvs.onmousedown = function(e){
+        	ctx.beginPath();
+        	// 移动到鼠标相对于事件源元素的X,Y坐标
+        	ctx.moveTo(e.offsetX,e.offsetY);
+        	// 标示鼠标被按下
+        	isMouseDown = true;
+        }
+        /* 移动鼠标 */
+        cvs.onmousemove = function(e){
+        	// 鼠标没有被按下，移动鼠标不会绘画
+        	if(!isMouseDown) return; 
+        	ctx.strokeStyle = "#f00";
+        	ctx.lineTo(e.offsetX,e.offsetY);
+        	ctx.stroke();
+        }
+        /* 松开鼠标 */
+        cvs.onmouseup = function(e){
+        	ctx.closePath();
+        	// 标示鼠标被松开
+        	isMouseDown = false;
+        }
+   }
+</script>
