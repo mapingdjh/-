@@ -73,7 +73,12 @@ TouchSlide.prototype.initEvent = function(){
 	},false);
 	/** 用来解决Android4.x版本中touchend不触发问题 */
 	document.addEventListener("touchmove",function(e){
-		e.preventDefault();
+		var xx = ev.touches[0].pageX - startX;
+		var yy = ev.touches[0].pageY - startY;
+		// 仅在水平滑动时阻止默认行为: 否则垂直方法不能滑动滚动条
+		if(Math.abs(xx) > Math.abs(yy)){
+		    ev.preventDefault();
+		}
 	});
 	document.addEventListener("touchend",function(e){
 		/** 2、获取手指离开屏幕时的坐标 */
