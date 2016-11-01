@@ -71,7 +71,10 @@ TouchSlide.prototype.initEvent = function(){
 		self.startX = e.touches[0].pageX;
 		self.startY = e.touches[0].pageY;
 	},false);
-	
+	/** 用来解决Android4.x版本中touchend不触发问题 */
+	document.addEventListener("touchmove",function(e){
+		e.preventDefault();
+	});
 	document.addEventListener("touchend",function(e){
 		/** 2、获取手指离开屏幕时的坐标 */
 		// 当手指离开屏幕后，touches集合中就没有任何touch对象了，因为不存在活动的触摸操作，此时必须使用changeTouches集合；
