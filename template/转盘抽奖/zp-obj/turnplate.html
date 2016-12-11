@@ -58,14 +58,14 @@ window.onload = function(){
    var dataArr = [
    	   {id: "0", prizeName: "50M免费流量包", prize: true},	
    	   {id: "1", prizeName: "10闪币", prize: true},	
-   	   {id: "2", prizeName: "谢谢参与"},	
-   	   {id: "3", prizeName: "5闪币", prize: true},	
-   	   {id: "4", prizeName: "10M免费流量包", prize: true},	
+   	   //{id: "2", prizeName: "谢谢参与"},	
+   	   //{id: "3", prizeName: "5闪币", prize: true},	
+   	   //{id: "4", prizeName: "10M免费流量包", prize: true},	
    	   {id: "5", prizeName: "20M免费流量包", prize: true},	
-   	   {id: "6", prizeName: "20闪币", prize: true},	
-   	   {id: "7", prizeName: "30M免费流量包", prize: true},	
-   	   {id: "8", prizeName: "100M免费流量包", prize: true},	
-   	   {id: "9", prizeName: "2闪币", prize: true}
+   	   //{id: "6", prizeName: "20闪币", prize: true},	
+   	   //{id: "7", prizeName: "30M免费流量包", prize: true},	
+   	   //{id: "8", prizeName: "100M免费流量包", prize: true},	
+   	   //{id: "9", prizeName: "2闪币", prize: true}
    ];
    
    // TODO 后台获取抽奖次数 
@@ -87,15 +87,17 @@ window.onload = function(){
             animateTo:360000,
             duration:1420000
        });
-
+          
        setTimeout(function() {
             //todo: 后台获取奖品名称，并将抽奖次数更新（-1）
-            var prize = dataArr[getPrize(1,dataArr.length)].prizeName;
+            var prize = dataArr[getPrize(0,dataArr.length-1)].prizeName;
             console.log(prize);
             count -= 1;
             updateCount(count);
-            //传入ID 转动表盘
-            self.rotateWheel(prize);
+            //传入奖品名称抽奖
+            //self.rotateWheel(prize);
+			// 模拟未中奖传入-1
+			self.rotateWheel(-1);
         }, 1200); 
    	},
    	stop: function(prizeName){
