@@ -299,6 +299,18 @@ var arr = [1,2,3,4,5,8];
         return newArr;
     };
     console.log(arr.delRepeat());	
+### 8.4、ES5 filter()
+
+	var r;
+ 	var arr = ['apple', 'straw', 'banana', 'pear', 'apple', 'orange', 'orange', 'straw'];
+	r = arr.filter(function (element, index, self) {
+	 return self.indexOf(element) === index;
+	});
+	console.log(r);
+**说明：**<br>
+
+- 去除重复元素依靠的是 indexOf 总是返回第一个元素的位置，后续的重复元素位置与 indexOf 返回的位置不相等，因此被 filter 滤掉了。
+- [参考网址](http://www.jb51.net/article/99038.htm) http://www.jb51.net/article/99038.htm
 
 ## 判断是否为数组
 ### instancof
