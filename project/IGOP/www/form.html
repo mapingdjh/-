@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <link rel="stylesheet" href="../css/igop.min.css">
+</head>
+<body>
+<div style="margin-left:50px;">
+
+    <br/><br/>
+    <h2>一、基本表单</h2><hr>
+    <input class="mg-form-control mg-form-xs" type="text" value="基本表单1" />
+    <br/><br/>
+    <input class="mg-form-control mg-form-sm" type="text" value="基本表单2" />
+    <br/><br/>
+    <input class="mg-form-control mg-form-md" type="text" value="基本表单3" />
+    <br/><br/>
+    <input class="mg-form-control mg-form-lg" type="text" value="基本表单4" />
+    <br/><br/>
+    <input class="mg-form-control mg-form-sm mg-form-check" type="text" value="基本表单5" />
+    <div>对应的代码：</div>
+    <xmp>
+        <input class="mg-form-control mg-form-xs" type="text" value="基本表单1" />
+        <input class="mg-form-control mg-form-sm" type="text" value="基本表单2" />
+        <input class="mg-form-control mg-form-md" type="text" value="基本表单3" />
+        <input class="mg-form-control mg-form-lg" type="text" value="基本表单4" />
+        <input class="mg-form-control mg-form-sm mg-form-check" type="text" value="基本表单5" />
+    </xmp>
+
+    <br/><br/>
+    <h2>二、禁用表单</h2><hr>
+    <input class="mg-form-control mg-form-disabled mg-form-xs" type="text" readonly value="禁用表单1" />
+    <br/><br/>
+    <input class="mg-form-control mg-form-disabled mg-form-sm" type="text" readonly value="禁用表单2" />
+    <br/><br/>
+    <input class="mg-form-control mg-form-disabled mg-form-md" type="text" readonly value="禁用表单3" />
+    <br/><br/>
+    <input class="mg-form-control mg-form-disabled mg-form-lg" type="text" readonly value="禁用表单4" />
+    <div>对应的代码：</div>
+    <xmp>
+        <input class="mg-form-control mg-form-disabled mg-form-xs" type="text" readonly value="禁用表单1" />
+        <input class="mg-form-control mg-form-disabled mg-form-sm" type="text" readonly value="禁用表单2" />
+        <input class="mg-form-control mg-form-disabled mg-form-md" type="text" readonly value="禁用表单3" />
+        <input class="mg-form-control mg-form-disabled mg-form-lg" type="text" readonly value="禁用表单4" />
+    </xmp>
+
+
+
+
+    <br/><br/>
+    <h2>三、组合表单</h2><hr>
+    <div class="mg-form-item mg-form-xs">
+        <p class="item-label mg-form-xs">
+            <span class="mg-item-redWine">*</span>
+            游戏名称：
+        </p>
+        <input class="mg-form-control  mg-form-xs" type="text" value="组合表单1" />
+    </div>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm">
+            <span class="mg-item-redWine">*</span>
+            游戏名称<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+            <span class="mg-error">请输入名称</span>
+        </p>
+        <input class="mg-form-control  mg-form-sm" type="text" value="组合表单2" />
+    </div>
+    <div class="mg-form-item mg-form-md">
+        <p class="item-label mg-form-md">
+            <span class="mg-item-redWine">*</span>
+            游戏名称<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+            <span class="mg-error">请输入名称</span>
+        </p>
+        <input class="mg-form-control  mg-form-md" type="text" value="组合表单3" />
+    </div>
+    <div class="mg-form-item mg-form-lg">
+        <p class="item-label mg-form-lg">
+            <span class="mg-item-redWine">*</span>
+            游戏名称<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+            <span class="mg-error">请输入名称</span>
+        </p>
+        <input class="mg-form-control  mg-form-lg" type="text" value="组合表单4" />
+    </div>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm">
+            <span class="mg-item-redWine">*</span>
+            游戏名称<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+            <span class="mg-error">请输入名称</span>
+        </p>
+        <input class="mg-form-control  mg-form-sm mg-form-check" type="text" value="组合表单5" />
+    </div>
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-xs">
+            <p class="item-label mg-form-xs">
+                <span class="mg-item-redWine">*</span>
+                游戏名称：
+            </p>
+            <input class="mg-form-control  mg-form-xs" type="text" value="组合表单1" />
+        </div>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm">
+                <span class="mg-item-redWine">*</span>
+                游戏名称<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+                <span class="mg-error">请输入名称</span>
+            </p>
+            <input class="mg-form-control  mg-form-sm" type="text" value="组合表单2" />
+        </div>
+        <div class="mg-form-item mg-form-md">
+            <p class="item-label mg-form-md">
+                <span class="mg-item-redWine">*</span>
+                游戏名称<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+                <span class="mg-error">请输入名称</span>
+            </p>
+            <input class="mg-form-control  mg-form-md" type="text" value="组合表单3" />
+        </div>
+        <div class="mg-form-item mg-form-lg">
+            <p class="item-label mg-form-lg">
+                <span class="mg-item-redWine">*</span>
+                游戏名称<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+                <span class="mg-error">请输入名称</span>
+            </p>
+            <input class="mg-form-control  mg-form-lg" type="text" value="组合表单4" />
+        </div>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm">
+                <span class="mg-item-redWine">*</span>
+                游戏名称<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+                <span class="mg-error">请输入名称</span>
+            </p>
+            <input class="mg-form-control  mg-form-sm mg-form-check" type="text" value="组合表单5" />
+        </div>
+    </xmp>
+
+
+
+
+
+
+    <br/><br/>
+    <h2>四、下拉表单</h2><hr>
+    <div class="mg-form-item mg-form-xs">
+        <p class="item-label mg-form-xs">
+            <span class="mg-item-redWine">*</span>1下拉表单：
+        </p>
+        <div class=" div_radius">
+            <input class="mg-form-control mg-form-xs tag_has" type="text" value="投资项目" readonly />
+            <i class="iconfont icon-triangle-down downbig down"></i>
+            <ul class="dropdown">
+                <li>投资项目</li>
+                <li>投资动态</li>
+                <li>独家发布</li>
+                <li>机构中心</li>
+            </ul>
+        </div>
+    </div>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm">
+            <span class="mg-item-redWine">*</span>2下拉表单：
+        </p>
+        <div class="div_radius">
+            <input class="mg-form-control mg-form-sm tag_has" type="text" value="投资项目" readonly />
+            <i class="iconfont icon-triangle-down downbig down"></i>
+            <ul class="dropdown">
+                <li>投资项目</li>
+                <li>投资动态</li>
+                <li>独家发布</li>
+                <li>机构中心</li>
+            </ul>
+        </div>
+    </div>
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-xs">
+            <p class="item-label mg-form-xs">
+                <span class="mg-item-redWine">*</span>1下拉表单：
+            </p>
+            <div class=" div_radius">
+                <input class="mg-form-control mg-form-xs tag_has" type="text" value="投资项目" readonly />
+                <i class="iconfont icon-triangle-down downbig down"></i>
+                <ul class="dropdown">
+                    <li>投资项目</li>
+                    <li>投资动态</li>
+                    <li>独家发布</li>
+                    <li>机构中心</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm">
+                <span class="mg-item-redWine">*</span>2下拉表单：
+            </p>
+            <div class="div_radius">
+                <input class="mg-form-control mg-form-sm tag_has" type="text" value="投资项目" readonly />
+                <i class="iconfont icon-triangle-down downbig down"></i>
+                <ul class="dropdown">
+                    <li>投资项目</li>
+                    <li>投资动态</li>
+                    <li>独家发布</li>
+                    <li>机构中心</li>
+                </ul>
+            </div>
+        </div>
+    </xmp>
+    <div>对应的 js 如下（如下这段 js 全部封装在 form.js 中，不需要重新写）：</div>
+    <xmp>
+        $(function(){
+        /*下拉选择绑定数据在input中--- start*/
+        $(".dropdown li").click(function(){
+        var tag_text = $(this).text();
+        $(this).parents('.div_radius').find(".tag_has").val(tag_text);
+        $parent = $(this).parents(".div_radius");
+        hideDrop($parent);
+        });
+        $(".tag_has,.downbig").on("click", function(){
+        var $parent = $(this).parents(".div_radius");
+        $downbig = $parent.find(".downbig");
+        $li = $parent.find(".dropdown li");
+        if($downbig.hasClass("down")){
+        hideDrop($('.div_radius'));
+        showDrop($parent);
+        }else{
+        hideDrop($parent);
+        }
+        $("html").on('click', function(e){
+        var $target = $(e.target);
+        if($target.is(".tag_has") || $target.is(".dropdown li") || $target.is(".downbig")){
+        return false;
+        }else{
+        hideDrop($parent);
+        }
+        });
+        });
+        //下拉框 展开
+        function showDrop(elm){
+        var $dropdown = elm.find(".dropdown"),
+        $downbig = elm.find(".downbig");
+        $dropdown.slideDown(200);
+        $downbig.removeClass("down");
+        // $downbig.removeClass("down").addClass("up");
+        }
+        //下拉框 收起
+        function hideDrop(elm){
+        var $dropdown = elm.find(".dropdown"),
+        $downbig = elm.find(".downbig");
+        $dropdown.slideUp(200);
+        $downbig.addClass("down");
+        //$downbig.removeClass("up").addClass("down");
+        }
+        });
+    </xmp>
+
+    <br/><br/>
+    <h2>五、文件域</h2><hr>
+
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm">
+            <span class="mg-item-redWine">*</span>权益道具<span class="mg-item-redWine">（支持DOC/PDF/RAR/ZIP/JPG/JPEG等格式）</span>:
+        </p>
+        <div class="mg_plus_hj">
+            <input class="mg-form-control mg-form-sm" value="701001" readonly />
+            <div class="uploadFileBtn tbiFile_hj">
+                <i class="iconfont icon-plus copyFile"></i>
+            </div>
+        </div>
+    </div>
+    <div class="mg-form-item mg-form-sm">
+        <div>
+            <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>1数字版权文件<span class="mg-item-redWine">（支持DOC/PDF/RAR/ZIP/JPG/JPEG等格式）</span>:</p>
+            <div class="attachment1File">
+                <div class="mg-form-control mg-form-sm" style="margin-top: 5px; position: relative">
+                    <div id="pluspic" class="uploadFileBtn tbiFile tbiFile_ting yiyiyi" filenum="1" filetype="yiyiyi"
+                         style="left: inherit !important; top: 5px !important; right: 3px">
+                        <i class="iconfont icon-plus copyFile"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="yiyiyi" style="margin-left: 10px; clear: both"></div>
+    </div>
+    <div class="mg-form-item mg-form-md">
+        <div>
+            <p class="item-label mg-form-md"><span class="mg-item-redWine">*</span>1数字版权文件<span class="mg-item-redWine">（支持DOC/PDF/RAR/ZIP/JPG/JPEG等格式）</span>:</p>
+            <div class="attachment1File">
+                <div class="mg-form-control mg-form-md" style="margin-top: 5px; position: relative">
+                    <div id="pluspic" class="uploadFileBtn tbiFile tbiFile_ting yiyiyi" filenum="1" filetype="yiyiyi"
+                         style="left: inherit !important; top: 5px !important; right: 3px">
+                        <i class="iconfont icon-plus copyFile"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="yiyiyi" style="margin-left: 10px; clear: both"></div>
+    </div>
+
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm">
+                <span class="mg-item-redWine">*</span>权益道具<span class="mg-item-redWine">（支持DOC/PDF/RAR/ZIP/JPG/JPEG等格式）</span>:
+            </p>
+            <div class="mg_plus_hj">
+                <input class="mg-form-control mg-form-sm" value="701001" readonly />
+                <div class="uploadFileBtn tbiFile_hj">
+                    <i class="iconfont icon-plus copyFile"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mg-form-item mg-form-sm">
+            <div>
+                <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>1数字版权文件<span class="mg-item-redWine">（支持DOC/PDF/RAR/ZIP/JPG/JPEG等格式）</span>:</p>
+                <div class="attachment1File">
+                    <div class="mg-form-control mg-form-sm" style="margin-top: 5px; position: relative">
+                        <div id="pluspic" class="uploadFileBtn tbiFile tbiFile_ting yiyiyi" filenum="1" filetype="yiyiyi"
+                             style="left: inherit !important; top: 5px !important; right: 3px">
+                            <i class="iconfont icon-plus copyFile"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="yiyiyi" style="margin-left: 10px; clear: both"></div>
+        </div>
+        <div class="mg-form-item mg-form-md">
+            <div>
+                <p class="item-label mg-form-md"><span class="mg-item-redWine">*</span>1数字版权文件<span class="mg-item-redWine">（支持DOC/PDF/RAR/ZIP/JPG/JPEG等格式）</span>:</p>
+                <div class="attachment1File">
+                    <div class="mg-form-control mg-form-md" style="margin-top: 5px; position: relative">
+                        <div id="pluspic" class="uploadFileBtn tbiFile tbiFile_ting yiyiyi" filenum="1" filetype="yiyiyi"
+                             style="left: inherit !important; top: 5px !important; right: 3px">
+                            <i class="iconfont icon-plus copyFile"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="yiyiyi" style="margin-left: 10px; clear: both"></div>
+        </div>
+    </xmp>
+
+
+    <br/><br/>
+    <h2>六、日历文本框</h2><hr>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>版权生效日期:</p>
+        <input type="text" class="mg-form-control mg-form-sm Wdate" value="" readonly onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+    </div>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>版权失效日期:</p>
+        <input type="text" class="mg-form-control mg-form-sm Wdate Wdate1" value="" readonly onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+        <div class="addradio">
+            <img src="../img/quan.png"/>
+            <label>是永久</label>
+        </div>
+    </div>
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>版权生效日期:</p>
+            <input type="text" class="mg-form-control mg-form-sm Wdate" value="" readonly onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+        </div>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>版权失效日期:</p>
+            <input type="text" class="mg-form-control mg-form-sm Wdate Wdate1" value="" readonly onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+            <div class="addradio">
+                <img src="../img/icon_table2.png"/>
+                <label>是永久</label>
+            </div>
+        </div>
+    </xmp>
+    <div>注意事项：</div>
+    <xmp>
+        注意：页面需要用到 “ 日历文本框 ” 的地方都需要添加 “jquery.min.js” 和 “WdatePicker.js” 文件 , 文件需加在页面的后面
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!--  日历 -->
+        注意：页面需要用到 “ 日历文本框 + 复选框 ” 的地方都需要添加 “jquery.min.js” 和 “WdatePicker.js” 和 “form.js” 文件 , 文件需加在页面的后面
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!--  日历 -->
+        <script type="text/javascript" src="../js/form.js"></script>
+    </xmp>
+    <div>对应的 js 如下（如下这段 js 全部封装在 form.js 中，不需要重新写）：</div>
+    <xmp>
+        /*“ 是永久 ” 前面的按钮换图片 */
+        $(".addradio img").on("click",function (){
+            var src = $(this).attr("src");
+            var a = src=="../img/quan_focus.png"?"../img/quan.png":"../img/quan_focus.png";
+            $(this).attr("src",a);
+        });
+    </xmp>
+
+
+    <br/><br/>
+    <h2>七、文本框+单选按钮</h2><hr>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>radio形式的：</p>
+        <div class="mg-form-control mg-form-sm">
+            <label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;是</label>
+            <label><input class="opt" type="radio" name="RadioGroup" value=""  checked="checked" />&nbsp;否</label>
+        </div>
+    </div>
+
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>图片形式的：</p>
+        <div class="mg-form-control mg-form-sm">
+            <label><div class="opts"><img class="imgClick" src="../img/quan.png" /></div>&nbsp;是</label>
+            <label><div class="opts"><img class="imgClick" src="../img/quan_focus.png" /></div>&nbsp;否</label>
+        </div>
+    </div>
+
+    <div class="mg-form-item mg-form-sm">
+        <div>
+            <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>数字版权文件<span class="mg-item-redWine">（支持DOC/PDF/RAR/ZIP/JPG/JPEG等格式）</span>:</p>
+            <div class="attachment1File">
+                <div class="mg-form-control mg-form-sm" style="margin-top: 5px; position: relative">
+                    <label><div class="opts"><img class="imgClick" src="../img/quan.png" /></div>&nbsp;是</label>
+                    <label><div class="opts"><img class="imgClick" src="../img/quan_focus.png" /></div>&nbsp;否</label>
+                    <div id="pluspic" class="uploadFileBtn tbiFile tbiFile_ting attachment1File"
+                         filenum="1" filetype="attachment1File"
+                         style="left: inherit !important; top: 5px !important; right: 3px">
+                        <i class="iconfont icon-plus copyFile"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="attachment1File" style="margin-left: 10px; clear: both"></div>
+    </div>
+
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>radio形式的：</p>
+            <div class="mg-form-control mg-form-sm">
+                <label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;是</label>
+                <label><input class="opt" type="radio" name="RadioGroup" value=""  checked="checked" />&nbsp;否</label>
+            </div>
+        </div>
+
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>图片形式的：</p>
+            <div class="mg-form-control mg-form-sm">
+                <label><div class="opts"><img class="imgClick" src="../img/quan.png" /></div>&nbsp;是</label>
+                <label><div class="opts"><img class="imgClick" src="../img/quan_focus.png" /></div>&nbsp;否</label>
+            </div>
+        </div>
+
+        <div class="mg-form-item mg-form-sm">
+            <div>
+                <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>数字版权文件<span class="mg-item-redWine">（支持DOC/PDF/RAR/ZIP/JPG/JPEG等格式）</span>:</p>
+                <div class="attachment1File">
+                    <div class="mg-form-control mg-form-sm" style="margin-top: 5px; position: relative">
+                        <label><div class="opts"><img class="imgClick" src="../img/quan.png" /></div>&nbsp;是</label>
+                        <label><div class="opts"><img class="imgClick" src="../img/quan_focus.png" /></div>&nbsp;否</label>
+                        <div id="pluspic" class="uploadFileBtn tbiFile tbiFile_ting attachment1File"
+                             filenum="1" filetype="attachment1File"
+                             style="left: inherit !important; top: 5px !important; right: 3px">
+                            <i class="iconfont icon-plus copyFile"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="attachment1File" style="margin-left: 10px; clear: both"></div>
+        </div>
+    </xmp>
+    <div>对应的 js 如下（如下这段 js 全部封装在 form.js 中，不需要重新写）：</div>
+    <xmp>
+        /* 给用 div 写的框加个鼠标样式 */
+        $(function () {
+        $("div.mg-form-control").mouseover(function(){
+        $(this).css("border","1px solid #6cb92b")
+        });
+        $("div.mg-form-control").mouseout(function(){
+        $(this).css("border","1px solid #d1d3d2")
+        });
+        });
+        //图片样式的单选按钮
+        $(".imgClick").click(function(){
+        $(this).attr("src","../img/quan_focus.png").parents("label").siblings().find("div.opts .imgClick").attr("src","../img/quan.png");
+        });
+    </xmp>
+
+    <br/><br/>
+    <h2>八、文本框+复选框</h2><hr>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>适配平台的终端组：</p>
+        <div class="mg-form-control mg-form-sm mg-form-boxs">
+            <label><input class="boxs" name="" type="checkbox" value="" />复选框1</label>
+            <label><input class="boxs" name="" type="checkbox" value="" />复选框2</label>
+            <label><input class="boxs" name="" type="checkbox" value="" />复选框3</label>
+            <label><input class="boxs" name="" type="checkbox" value="" />复选框4</label>
+            <label><input class="boxs" name="" type="checkbox" value="" />复选框5</label>
+            <label><input class="boxs" name="" type="checkbox" value="" />复选框6</label>
+            <label><input class="boxs" name="" type="checkbox" value="" />复选框7</label>
+        </div>
+    </div>
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm"><span class="mg-item-redWine">*</span>适配平台的终端组：</p>
+            <div class="mg-form-control mg-form-sm mg-form-boxs">
+                <label><input class="boxs" name="" type="checkbox" value="" />复选框1</label>
+                <label><input class="boxs" name="" type="checkbox" value="" />复选框2</label>
+                <label><input class="boxs" name="" type="checkbox" value="" />复选框3</label>
+                <label><input class="boxs" name="" type="checkbox" value="" />复选框4</label>
+                <label><input class="boxs" name="" type="checkbox" value="" />复选框5</label>
+                <label><input class="boxs" name="" type="checkbox" value="" />复选框6</label>
+                <label><input class="boxs" name="" type="checkbox" value="" />复选框7</label>
+            </div>
+        </div>
+    </xmp>
+    <div>对应的 js 如下（如下这段 js 全部封装在 form.js 中，不需要重新写）：</div>
+    <xmp>
+        /* 给用 div 写的框加个鼠标样式 */
+        $(function () {
+        $("div.mg-form-control").mouseover(function(){
+        $(this).css("border","1px solid #6cb92b")
+        });
+        $("div.mg-form-control").mouseout(function(){
+        $(this).css("border","1px solid #d1d3d2")
+        });
+        });
+    </xmp>
+
+    <br/><br/>
+    <h2>九、多行文本域</h2><hr>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm">
+            <span class="mg-item-redWine">*</span>
+            游戏介绍<span class="mg-item-redWine">（介绍游戏的内容、特色等）</span>：
+        </p>
+        <textarea class="mg-form-control mg-form-sm text_area">1、手机&#xd;2、合作&#xd;3、描件&#xd;4、如果&#xd;5、如果&#xd;6、如果</textarea>
+    </div>
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm">
+                <span class="mg-item-redWine">*</span>
+                游戏介绍<span class="mg-item-redWine">（介绍游戏的内容、特色等）</span>：
+            </p>
+            <textarea class="mg-form-control mg-form-sm text_area">1、手机&#xd;2、合作&#xd;3、描件&#xd;4、如果&#xd;5、如果&#xd;6、如果</textarea>
+        </div>
+    </xmp>
+
+    <br/><br/>
+    <h2>十、多行文本域+模板下载</h2><hr>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm">
+            <span class="mg-item-redWine">*</span>
+            数字版权文件说明<span class="mg-item-redWine">（介绍游戏的内容、特色、优势等）</span>：
+        </p>
+        <textarea class="mg-form-control mg-form-sm text_area">1、手机&#xd;2、合作&#xd;3、描件&#xd;4、如果</textarea>
+        <a href="javascript:;" class="mg_xiazai" >模板下载</a>
+    </div>
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm">
+                <span class="mg-item-redWine">*</span>
+                数字版权文件说明<span class="mg-item-redWine">（介绍游戏的内容、特色、优势等）</span>：
+            </p>
+            <textarea class="mg-form-control mg-form-sm text_area">1、手机&#xd;2、合作&#xd;3、描件&#xd;4、如果</textarea>
+            <a href="javascript:;" class="mg_xiazai" >模板下载</a>
+        </div>
+    </xmp>
+
+
+    <br/><br/>
+    <h2>十一、有图片的文本框</h2><hr>
+    <div class="mg-form-item mg-form-sm">
+        <p class="item-label mg-form-sm">
+            <span class="mg-item-redWine">*</span>
+            游戏名称22<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+            <span class="mg-error">请输入名称</span>
+        </p>
+        <input class="mg-form-control  mg-form-sm" type="text" value="组合表单2" />
+        <div class="mg-img">
+            <div><img src="../img/file_type.png" /><span>1.jpg</span></div>
+            <div><img src="../img/file_type.png" /><span>1.jpg</span></div>
+            <div><img src="../img/file_type.png" /><span>1.jpg</span></div>
+            <div><img src="../img/file_type.png" /><span>1111111111111111.jpg</span></div>
+        </div>
+    </div>
+    <div>对应的代码：</div>
+    <xmp>
+        <div class="mg-form-item mg-form-sm">
+            <p class="item-label mg-form-sm">
+                <span class="mg-item-redWine">*</span>
+                游戏名称22<span class="mg-item-redWine">(与版权授权书中的游戏名称一致)</span>：
+                <span class="mg-error">请输入名称</span>
+            </p>
+            <input class="mg-form-control  mg-form-sm" type="text" value="组合表单2" />
+            <div class="mg-img">
+                <div><img src="../img/file_type.png" /><span>1.jpg</span></div>
+                <div><img src="../img/file_type.png" /><span>1.jpg</span></div>
+                <div><img src="../img/file_type.png" /><span>1.jpg</span></div>
+                <div><img src="../img/file_type.png" /><span>1111111111111111.jpg</span></div>
+            </div>
+        </div>
+    </xmp>
+
+    <br/><br/><br/><br/><br/><br/><br/>
+
+</div>
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!-- 日历 -->
+<script type="text/javascript" src="../js/form.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增套餐权益展示配置</title>
+    <link rel="stylesheet" href="../css/igop.min.css"/>
+    <link rel="stylesheet" href="../css/package.css"/>
+</head>
+<body>
+<div id="rightMain">
+<div class="package">
+    <div class="mg-breadnav">
+        新增套餐权益展示配置<div class="breadnav-triangle"></div>
+    </div>
+    <div class="package_hed">
+        <div class="package_form_fl">
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label mg-form-sm">
+                    <span class="mg-item-redWine">*</span>权益道具:
+                </p>
+                <div class="mg_plus_hj">
+                    <input class="mg-form-control mg-form-sm" value="" readonly >
+                    <div class="uploadFileBtn tbiFile_hj">
+                        <i class="iconfont icon-plus copyFile tan1" ></i>
+                    </div>
+                </div>
+            </div>
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label mg-form-sm">
+                    <span class="mg-item-redWine">*</span>套餐:
+                </p>
+                <div class="mg_plus_hj">
+                    <input class="mg-form-control mg-form-sm" value="" readonly >
+                    <div class="uploadFileBtn tbiFile_hj">
+                        <i class="iconfont icon-plus copyFile tan2"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="mg-form-item mg-form-sm">
+                <div>
+                    <p class="item-label mg-form-sm">授权书<span class="mg-item-redWine">(支持JPG/JPEG/PNG格式,200k以内)</span>：<span class="mg-error">如选择其他合作伙伴的套餐包，请填写授权书</span></p>
+                    <div class="attachment1File">
+                        <div class="mg-form-control mg-form-sm"
+                             style="margin-top: 5px; position: relative">
+                            <div id="pluspic" class="uploadFileBtn tbiFile tbiFile_ting attachment1File" filenum="1" filetype="attachment1File"
+                                 style="left: inherit !important; top: 5px !important; right: 0px;margin-right:0;">
+                                <i class="iconfont icon-plus copyFile"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="attachment1File" style="margin-left: 10px; clear: both"></div>
+                <a href="javascript:;" class="mg_xiazai" >模板下载</a>
+            </div>
+        </div>
+        <div class="package_form_fr">
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label mg-form-sm">
+                    <span class="mg-item-redWine">*</span>渠道:
+                </p>
+                <div class="mg_plus_hj">
+                    <input class="mg-form-control mg-form-sm" value="" readonly >
+                    <div class="uploadFileBtn tbiFile_hj">
+                        <i class="iconfont icon-plus copyFile tan3"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="mg-form-item mg-form-sm">
+                <div>
+                    <p class="item-label mg-form-sm">
+                    	<span class="mg-item-redWine">*</span>权益折扣表:<span class="mg-item-redWine">（支持EXCEL,200K以内）</span>
+                    </p>
+                    <div class="attachment1File">
+                        <div class="mg-form-control mg-form-sm"
+                             style="margin-top: 5px; position: relative">
+                            <div id="pluspic1" class="uploadFileBtn tbiFile tbiFile_ting attachment1File" filenum="1" filetype="attachment1File1"
+                                 style="left: inherit !important; top: 5px !important; right: 0px;margin-right:0;">
+                                <i class="iconfont icon-plus copyFile"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="attachment1File1" style="margin-left: 10px; clear: both"></div>
+                <a href="javascript:;" class="mg_xiazai" >模板下载</a>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+    <!--按钮-->
+    <!--<div class="padcage_add_btn">
+        <button class="mg-btn mg-btn-default mg-btn__rightAngle bts1">取消</button>
+        <div class="padcage_add_btnr">
+            <button class="mg-btn mg-btn-default mg-btn__rightAngle">存为草稿</button>
+            <button class="mg-btn mg-btn-primary mg-btn__rightAngle bts2">提交</button>
+        </div>
+    </div>-->
+    <div class="padcage_add_btn">
+        <button class="mg-btn mg-btn-default mg-btn__rightAngle bts1">取消</button>
+        <button class="mg-btn mg-btn-primary mg-btn__rightAngle bts2">提交</button>
+    </div>
+</div>
+	
+
+<!--关联权益道具---弹框-->
+<div class="mg-overlay"></div>
+<div class="mg-dialog mg-show test1" style="width:750px;">
+	<div class="mg-dialog-header">
+		<div class="mg-dialog-title">关联权益道具</div>
+		<div class="mg-dialog_close" title="关闭"></div>
+	</div>
+	<div class="mg-dialog-content mg-dialog-con">
+		<div class="test1">
+			<div class="package_explain">说明：仅展示已商用的权益道具</div>
+			<div class="package_tan_fl">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">内容名称：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">权益道具名称：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+			</div>
+			<div class="package_tan_fr">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">内容代码：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">权益道具代码：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+			</div>
+			<button  class="mg-btn mg-btn-primary mg-btn__circle package_searchBtn">
+				<i class="iconfont icon-search01"></i>
+			</button>
+			<div style="clear: both"></div>
+			<section>
+				<div class="">权益道具：</div>
+				<div class="package_prop">
+					<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益A(7001040045555555555)</label>
+					<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益B(700104004)</label>
+					<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益A(700104004)</label>
+					<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益B(700104004)</label>
+					<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益A(700104004)</label>
+					<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益B(700104004)</label>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="mg-dialog-footer">
+		<button class="mg-dialog-btn off">取消</button>
+		<button class="mg-dialog-btn determine">确认</button>
+	</div>
+</div>
+            
+        
+
+<!--关联套餐---弹框-->
+
+<div class="mg-dialog mg-show test2" style="width:750px;">
+	<div class="mg-dialog-header">
+		<div class="mg-dialog-title">关联套餐</div>
+		<div class="mg-dialog_close" title="关闭"></div>
+	</div>
+	<div class="mg-dialog-content mg-dialog-con">
+		<div class="test2">
+			<div class="package_explain">说明：仅展示已商用的品牌包</div>
+			<div class="package_tan_fl">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">套餐名称：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+			</div>
+			<div class="package_tan_fr">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">套餐代码：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+			</div>
+			<button  class="mg-btn mg-btn-primary mg-btn__circle package_searchBtn" style="margin-top: 22px;">
+				<i class="iconfont icon-search01"></i>
+			</button>
+			<div style="clear: both"></div>
+			<section>
+				<div class="">套餐：</div>
+				<div class="package_prop">
+					<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益A(7001040045555555555)</label>
+					<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益B(700104004)</label>
+					<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益A(700104004)</label>
+					<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益B(700104004)</label>
+					<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益A(700104004)</label>
+					<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益B(700104004)</label>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="mg-dialog-footer">
+		<button class="mg-dialog-btn off">取消</button>
+		<button class="mg-dialog-btn determine">确认</button>
+	</div>
+</div>
+
+
+
+<!--关联渠道---弹框-->
+
+<div class="mg-dialog mg-show test3" style="width:750px;">
+	<div class="mg-dialog-header">
+		<div class="mg-dialog-title">关联渠道</div>
+		<div class="mg-dialog_close" title="关闭"></div>
+	</div>
+	<div class="mg-dialog-content mg-dialog-con">
+		<div class="test3">
+			<div class="package_explain">说明：展示该内容已绑定的渠道</div>
+			<div class="package_tan_fl">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">内容名称：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+			</div>
+			<div class="package_tan_fr">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">内容代码：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+			</div>
+			<button  class="mg-btn mg-btn-primary mg-btn__circle package_searchBtn" style="margin-top: 22px;">
+				<i class="iconfont icon-search01"></i>
+			</button>
+			<div style="clear: both"></div>
+			<section>
+				<div class="">渠道：</div>
+				<div class="package_prop">
+					<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益A(7001040045555555555)</label>
+					<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益B(700104004)</label>
+					<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益A(700104004)</label>
+					<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益B(700104004)</label>
+					<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益A(700104004)</label>
+					<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益B(700104004)</label>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="mg-dialog-footer">
+		<button class="mg-dialog-btn off">取消</button>
+		<button class="mg-dialog-btn determine">确认</button>
+	</div>
+</div>
+
+
+
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/pagination.js"></script><!--分页-->
+<script type="text/javascript" src="../js/form.js"></script><!--表单-->
+<script>
+	$(function(){
+		$(".mg-overlay").css("display","none");
+		$('.test1').css("display","none");
+		$('.test2').css("display","none");
+		$('.test3').css("display","none");
+
+		$(".tan1").click(function(){
+			$(".mg-overlay").show();
+			$('.test1').show();
+		});
+		$(".tan2").click(function(){
+			$(".mg-overlay").show();
+			$('.test2').show();
+		});
+		$(".tan3").click(function(){
+			$(".mg-overlay").show();
+			$('.test3').show();
+		});
+
+		$("body").on('click', '.mg-dialog_close',function(){
+			$(".mg-overlay").hide();
+			$('.mg-dialog').hide();
+		});
+	});
+</script>   
+</body>
+</html>
+
+
+<xmp>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>新增套餐权益展示配置</title>
+		<link rel="stylesheet" href="../css/igop.min.css"/>
+		<link rel="stylesheet" href="../css/package.css"/>
+	</head>
+	<body>
+	<div id="rightMain">
+	<div class="package">
+		<div class="mg-breadnav">
+			新增套餐权益展示配置<div class="breadnav-triangle"></div>
+		</div>
+		<div class="package_hed">
+			<div class="package_form_fl">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label mg-form-sm">
+						<span class="mg-item-redWine">*</span>权益道具:
+					</p>
+					<div class="mg_plus_hj">
+						<input class="mg-form-control mg-form-sm" value="" readonly >
+						<div class="uploadFileBtn tbiFile_hj">
+							<i class="iconfont icon-plus copyFile tan1" ></i>
+						</div>
+					</div>
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label mg-form-sm">
+						<span class="mg-item-redWine">*</span>套餐:
+					</p>
+					<div class="mg_plus_hj">
+						<input class="mg-form-control mg-form-sm" value="" readonly >
+						<div class="uploadFileBtn tbiFile_hj">
+							<i class="iconfont icon-plus copyFile tan2"></i>
+						</div>
+					</div>
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<div>
+						<p class="item-label mg-form-sm">授权书<span class="mg-item-redWine">(支持JPG/JPEG/PNG格式,200k以内)</span>：<span class="mg-error">如选择其他合作伙伴的套餐包，请填写授权书</span></p>
+						<div class="attachment1File">
+							<div class="mg-form-control mg-form-sm"
+								 style="margin-top: 5px; position: relative">
+								<div id="pluspic" class="uploadFileBtn tbiFile tbiFile_ting attachment1File" filenum="1" filetype="attachment1File"
+									 style="left: inherit !important; top: 5px !important; right: 0px;margin-right:0;">
+									<i class="iconfont icon-plus copyFile"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="attachment1File" style="margin-left: 10px; clear: both"></div>
+					<a href="javascript:;" class="mg_xiazai" >模板下载</a>
+				</div>
+			</div>
+			<div class="package_form_fr">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label mg-form-sm">
+						<span class="mg-item-redWine">*</span>渠道:
+					</p>
+					<div class="mg_plus_hj">
+						<input class="mg-form-control mg-form-sm" value="" readonly >
+						<div class="uploadFileBtn tbiFile_hj">
+							<i class="iconfont icon-plus copyFile tan3"></i>
+						</div>
+					</div>
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<div>
+						<p class="item-label mg-form-sm">
+							<span class="mg-item-redWine">*</span>权益折扣表:<span class="mg-item-redWine">（支持EXCEL,200K以内）</span>
+						</p>
+						<div class="attachment1File">
+							<div class="mg-form-control mg-form-sm"
+								 style="margin-top: 5px; position: relative">
+								<div id="pluspic1" class="uploadFileBtn tbiFile tbiFile_ting attachment1File" filenum="1" filetype="attachment1File1"
+									 style="left: inherit !important; top: 5px !important; right: 0px;margin-right:0;">
+									<i class="iconfont icon-plus copyFile"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="attachment1File1" style="margin-left: 10px; clear: both"></div>
+					<a href="javascript:;" class="mg_xiazai" >模板下载</a>
+				</div>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<!--按钮-->
+		<!--<div class="padcage_add_btn">
+			<button class="mg-btn mg-btn-default mg-btn__rightAngle bts1">取消</button>
+			<div class="padcage_add_btnr">
+				<button class="mg-btn mg-btn-default mg-btn__rightAngle">存为草稿</button>
+				<button class="mg-btn mg-btn-primary mg-btn__rightAngle bts2">提交</button>
+			</div>
+		</div>-->
+		<div class="padcage_add_btn">
+			<button class="mg-btn mg-btn-default mg-btn__rightAngle bts1">取消</button>
+			<button class="mg-btn mg-btn-primary mg-btn__rightAngle bts2">提交</button>
+		</div>
+	</div>
+	
+	<!--关联权益道具---弹框-->
+	<div class="mg-overlay"></div>
+	<div class="mg-dialog mg-show test1" style="width:750px;">
+		<div class="mg-dialog-header">
+			<div class="mg-dialog-title">关联权益道具</div>
+			<div class="mg-dialog_close" title="关闭"></div>
+		</div>
+		<div class="mg-dialog-content mg-dialog-con">
+			<div class="test1">
+				<div class="package_explain">说明：仅展示已商用的权益道具</div>
+				<div class="package_tan_fl">
+					<div class="mg-form-item mg-form-sm">
+						<p class="item-label">内容名称：</p>
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+					<div class="mg-form-item mg-form-sm">
+						<p class="item-label">权益道具名称：</p>
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+				</div>
+				<div class="package_tan_fr">
+					<div class="mg-form-item mg-form-sm">
+						<p class="item-label">内容代码：</p>
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+					<div class="mg-form-item mg-form-sm">
+						<p class="item-label">权益道具代码：</p>
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+				</div>
+				<button  class="mg-btn mg-btn-primary mg-btn__circle package_searchBtn">
+					<i class="iconfont icon-search01"></i>
+				</button>
+				<div style="clear: both"></div>
+				<section>
+					<div class="">权益道具：</div>
+					<div class="package_prop">
+						<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益A(7001040045555555555)</label>
+						<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益B(700104004)</label>
+						<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益A(700104004)</label>
+						<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益B(700104004)</label>
+						<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益A(700104004)</label>
+						<label><input class="opt" type="radio" name="RadioGroup" value="" />&nbsp;权益B(700104004)</label>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="mg-dialog-footer">
+			<button class="mg-dialog-btn off">取消</button>
+			<button class="mg-dialog-btn determine">确认</button>
+		</div>
+	</div>
+
+	<!--关联套餐---弹框-->
+	<div class="mg-dialog mg-show test2" style="width:750px;">
+		<div class="mg-dialog-header">
+			<div class="mg-dialog-title">关联套餐</div>
+			<div class="mg-dialog_close" title="关闭"></div>
+		</div>
+		<div class="mg-dialog-content mg-dialog-con">
+			<div class="test2">
+				<div class="package_explain">说明：仅展示已商用的品牌包</div>
+				<div class="package_tan_fl">
+					<div class="mg-form-item mg-form-sm">
+						<p class="item-label">套餐名称：</p>
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+				</div>
+				<div class="package_tan_fr">
+					<div class="mg-form-item mg-form-sm">
+						<p class="item-label">套餐代码：</p>
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+				</div>
+				<button  class="mg-btn mg-btn-primary mg-btn__circle package_searchBtn" style="margin-top: 22px;">
+					<i class="iconfont icon-search01"></i>
+				</button>
+				<div style="clear: both"></div>
+				<section>
+					<div class="">套餐：</div>
+					<div class="package_prop">
+						<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益A(7001040045555555555)</label>
+						<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益B(700104004)</label>
+						<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益A(700104004)</label>
+						<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益B(700104004)</label>
+						<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益A(700104004)</label>
+						<label><input class="opt" type="radio" name="RadioGroups" value="" />&nbsp;权益B(700104004)</label>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="mg-dialog-footer">
+			<button class="mg-dialog-btn off">取消</button>
+			<button class="mg-dialog-btn determine">确认</button>
+		</div>
+	</div>
+
+	<!--关联渠道---弹框-->
+	<div class="mg-dialog mg-show test3" style="width:750px;">
+		<div class="mg-dialog-header">
+			<div class="mg-dialog-title">关联渠道</div>
+			<div class="mg-dialog_close" title="关闭"></div>
+		</div>
+		<div class="mg-dialog-content mg-dialog-con">
+			<div class="test3">
+				<div class="package_explain">说明：展示该内容已绑定的渠道</div>
+				<div class="package_tan_fl">
+					<div class="mg-form-item mg-form-sm">
+						<p class="item-label">内容名称：</p>
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+				</div>
+				<div class="package_tan_fr">
+					<div class="mg-form-item mg-form-sm">
+						<p class="item-label">内容代码：</p>
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+				</div>
+				<button  class="mg-btn mg-btn-primary mg-btn__circle package_searchBtn" style="margin-top: 22px;">
+					<i class="iconfont icon-search01"></i>
+				</button>
+				<div style="clear: both"></div>
+				<section>
+					<div class="">渠道：</div>
+					<div class="package_prop">
+						<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益A(7001040045555555555)</label>
+						<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益B(700104004)</label>
+						<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益A(700104004)</label>
+						<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益B(700104004)</label>
+						<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益A(700104004)</label>
+						<label><input class="boxs" type="checkbox" name="" value="" />&nbsp;权益B(700104004)</label>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="mg-dialog-footer">
+			<button class="mg-dialog-btn off">取消</button>
+			<button class="mg-dialog-btn determine">确认</button>
+		</div>
+	</div>
+	</div>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/pagination.js"></script><!--分页-->
+	<script type="text/javascript" src="../js/form.js"></script><!--表单-->
+	<script>
+		$(function(){
+			$(".mg-overlay").css("display","none");
+			$('.test1').css("display","none");
+			$('.test2').css("display","none");
+			$('.test3').css("display","none");
+
+			$(".tan1").click(function(){
+				$(".mg-overlay").show();
+				$('.test1').show();
+			});
+			$(".tan2").click(function(){
+				$(".mg-overlay").show();
+				$('.test2').show();
+			});
+			$(".tan3").click(function(){
+				$(".mg-overlay").show();
+				$('.test3').show();
+			});
+
+			$("body").on('click', '.mg-dialog_close',function(){
+				$(".mg-overlay").hide();
+				$('.mg-dialog').hide();
+			});
+		});
+	</script>   
+	</body>
+	</html>
+
+</xmp>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页</title>
+    <link rel="stylesheet" href="../css/igop.min.css">
+</head>
+<body>
+ <div class="mg-pagination-info">
+    <ul class="mg-pagination">
+        <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+        <li class="page-prev"><a href="#">上一页</a></li>
+        <li class="page-dropdown">
+            <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+            <ul class="dropdown-menu">
+                <li>10</li>
+                <li>20</li>
+                <li>50</li>
+                <li>100</li>
+            </ul>
+        </li>
+        <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+        <li class="page-next"><a href="#">下一页</a></li>
+        <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+    </ul>
+ </div>
+
+
+ <div>对应的代码：</div>
+ <xmp>
+     <div class="mg-pagination-info">
+         <ul class="mg-pagination">
+             <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+             <li class="page-prev"><a href="#">上一页</a></li>
+             <li class="page-dropdown">
+                 <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+                 <ul class="dropdown-menu">
+                     <li>10</li>
+                     <li>20</li>
+                     <li>50</li>
+                     <li>100</li>
+                 </ul>
+             </li>
+             <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+             <li class="page-next"><a href="#">下一页</a></li>
+             <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+         </ul>
+     </div>
+ </xmp>
+ <div>对应的 js 如下（如下这段 js 全部封装在 pagination.js 中，不需要重新写）：</div>
+ <xmp>
+    使用方法：
+    new Pagination({
+		dropdownMenu: ".dropdown-menu",    // 列表项容器class
+		callback: function(args){
+			alert("你可以发送ajax请求了");
+		}
+	}); 
+ </xmp>
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+ <script type="text/javascript" src="../js/pagination.js"></script>
+</body>
+</html>
+ <script>
+	new Pagination({
+		dropdownMenu: ".dropdown-menu",    // 列表项容器class
+		callback: function(args){
+			alert("你可以发送ajax请求了");
+		}
+	});
+ </script>

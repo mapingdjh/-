@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/**
+ * @description: 申请软著页面样式
+ * @author: maping (16/08/11)
+ * @update:
+ */
+.sw-copyright-apply {
+  width: 785px;
+  margin: auto; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.hide {
+  display: none; }
+
+.mg-error {
+  display: none; }
+
+/** 上传后的图片显示 */
+#fileContent {
+  position: relative;
+  margin-top: 10px;
+  width: 100px;
+  text-align: center; }
+
+#fileContent #fileName {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+/** 基本信息*/
+.sw-basic-info {
+  overflow: hidden; }
+
+.iconfont.icon-plus {
+  cursor: pointer; }
+
+.sw-info-item {
+  width: 50%; }
+
+.sw-info-item .mg-form-sm {
+  width: 350px; }
+
+/** 软著登记信息*/
+.sw-register-info .sw-tab {
+  overflow: hidden;
+  margin-bottom: 20px; }
+
+.sw-register-info .sw-tab li {
+  float: left;
+  width: 20%;
+  margin-left: 10px; }
+
+.sw-register-info .mg-btn {
+  font-weight: bold; }
+
+.btn-grey {
+  background-color: #d1d3d2;
+  color: #3b3b3b; }
+
+.count-txt {
+  position: absolute;
+  bottom: -20px;
+  right: 5px; }

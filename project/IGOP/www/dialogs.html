@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button样式</title>
+    <link rel="stylesheet" href="../css/igop.min.css">
+</head>
+<body>
+
+<!--/*大弹框模板1*/-->
+<button class="mybtn">大弹框模板1</button>
+<div class="test">
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+</div>
+
+<!--/*大弹框模板2*/-->
+<button class="mybtn1">大弹框模板2</button>
+<div class="test1">
+    <p>111111111111asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+</div>
+
+<!--/*小弹框  恭喜您！操作成功*/-->
+<button class="smallbtn">小弹框模板1</button>
+<div class="smalltest">
+    <div class="mg-infoResult">
+        <div class="infoResult-success iconfont icon-wancheng"></div>
+        恭喜您！操作成功
+    </div>
+</div>
+
+<!--/*小弹框  对不起！操作失败*/-->
+<button class="smallbtn1">小弹框模板2:只有一个按钮</button>
+<div class="smalltest1">
+    <div class="mg-infoResult">
+        <div class="iconfont icon-shanchu3 error"></div>
+        对不起！操作失败
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/modalDialog.js"></script>
+<script type="text/javascript">
+    /*大弹框模板1*/
+    $(document).ready(function(){
+        $(".mybtn").click(function(){
+            $(".test").show();
+        });
+        $(".test").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'我的弹框1', //弹框头部标题
+            'buttons':[
+                {'label':'取消','class':'off',
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                }, //按钮文本，按钮样式，按钮回调方式
+                {'label':'确定','class':'md-btn-highlight determine',
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 600,  //设置弹框宽度
+            //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+
+    /*大弹框模板2*/
+    $(document).ready(function(){
+        $(".mybtn1").click(function(){
+            $(".test1").show();
+        });
+        $(".test1").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'我的弹框2', //弹框头部标题
+            'buttons':[
+                {'label':'取消','class':'off',
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                }, //按钮文本，按钮样式，按钮回调方式
+                {'label':'确定','class':'md-btn-highlight determine',
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 600,  //设置弹框宽度
+            //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+
+    /*小弹框模板1*/
+    $(document).ready(function(){
+        $(".smallbtn").click(function(){
+            $(".smalltest").show();
+        });
+        $(".smalltest").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'我的弹框3', //弹框头部标题
+            'buttons':[
+                {'label':'3取消','class':'off',
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                }, //按钮文本，按钮样式，按钮回调方式
+                {'label':'3确定','class':'md-btn-highlight determine',
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 400,  //设置弹框宽度
+            //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+
+    /*小弹框模板2:只有一个按钮*/
+    $(document).ready(function(){
+        $(".smallbtn1").click(function(){
+            $(".smalltest1").show();
+        });
+        $(".smalltest1").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'我的弹框4', //弹框头部标题
+            //如果需要一个按钮请加上abtn
+            'buttons':[
+                /* {'label':'1取消','class':'off abtn',//如果需要一个按钮请加上abtn
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                },*/ //按钮文本，按钮样式，按钮回调方式
+                {'label':'2确定','class':'md-btn-highlight determine abtn',//如果需要一个按钮请加上abtn
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 400,  //设置弹框宽度
+            'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+</script>
+
+
+<!--代码片段------------------------------------------------------------------------------------------------------------>
+<h2 style="color:red">大弹框模板1:</h2>
+<h3>对应的html:</h3>
+<xmp>
+    <!--/*大弹框模板1*/-->
+    <button class="mybtn">大弹框模板1</button>
+    <div class="test">
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    </div>
+</xmp>
+
+<h3>对应的js:</h3>
+<xmp>
+    <script type="text/javascript">
+        /*大弹框模板1*/
+        $(document).ready(function(){
+            $(".mybtn").click(function(){
+                $(".test").show();
+            });
+            $(".test").modaldialog({
+                'visible':false, //默认弹框是否打开
+                //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+                //'haveheader':true, //是否需要头部,默认true
+                'closable':true, //头部关闭按钮是否显示,默认true
+                'dragdrop': true,
+                'title':'我的弹框1', //弹框头部标题
+                'buttons':[
+                    {'label':'取消','class':'off',
+                        onClick:function(){
+                            //console.log('按钮一');
+                        }
+                    }, //按钮文本，按钮样式，按钮回调方式
+                    {'label':'确定','class':'md-btn-highlight determine',
+                        onClick:function(){
+                            //console.log('按钮二');
+                        }
+                    }
+                ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+                'width': 600,  //设置弹框宽度
+                //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+                onClose: function(){
+                    //console.log('关闭弹框');
+                }
+            });
+        });
+    </script>
+</xmp>
+<!--/代码片段----------------------------------------------------------------------------------------------------------->
+
+<!--代码片段------------------------------------------------------------------------------------------------------------>
+<h2 style="color:red">大弹框模板2:</h2>
+<h3>对应的html:</h3>
+<xmp>
+    <!--/*大弹框模板2*/-->
+    <button class="mybtn1">大弹框模板2</button>
+    <div class="test1">
+        <p>111111111111asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+        <p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p><p>asdfasdfasdf</p>
+    </div>
+</xmp>
+<h3>对应的js:</h3>
+<xmp>
+    <script>
+    /*大弹框模板2*/
+    $(document).ready(function(){
+        $(".mybtn1").click(function(){
+            $(".test1").show();
+        });
+        $(".test1").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'我的弹框2', //弹框头部标题
+            'buttons':[
+                {'label':'取消','class':'off',
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                }, //按钮文本，按钮样式，按钮回调方式
+                {'label':'确定','class':'md-btn-highlight determine',
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 600,  //设置弹框宽度
+            //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+    </script>
+</xmp>
+<!--/代码片段----------------------------------------------------------------------------------------------------------->
+
+<!--代码片段------------------------------------------------------------------------------------------------------------>
+<h2 style="color:red">小弹框模板1:</h2>
+<h3>对应的html:</h3>
+<xmp>
+    <!--/*小弹框  恭喜您！操作成功*/-->
+    <button class="smallbtn">小弹框模板1</button>
+    <div class="smalltest">
+        <div class="mg-infoResult">
+            <div class="infoResult-success iconfont icon-wancheng"></div>
+            恭喜您！操作成功
+        </div>
+    </div>
+</xmp>
+
+<h3>对应的js:</h3>
+<xmp>
+    <script>
+    /*小弹框模板1*/
+    $(document).ready(function(){
+        $(".smallbtn").click(function(){
+            $(".smalltest").show();
+        });
+        $(".smalltest").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'我的弹框3', //弹框头部标题
+            'buttons':[
+                {'label':'3取消','class':'off',
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                }, //按钮文本，按钮样式，按钮回调方式
+                {'label':'3确定','class':'md-btn-highlight determine',
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 400,  //设置弹框宽度
+            //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+    </script>
+</xmp>
+<!--/代码片段----------------------------------------------------------------------------------------------------------->
+
+<!--代码片段------------------------------------------------------------------------------------------------------------>
+<h2 style="color:red">小弹框模板2:只有一个按钮</h2>
+<h3>对应的html:</h3>
+<xmp>
+    <!--/*小弹框  对不起！操作失败*/-->
+    <button class="smallbtn1">小弹框模板2:只有一个按钮</button>
+    <div class="smalltest1">
+        <div class="mg-infoResult">
+            <div class="iconfont icon-shanchu3 error"></div>
+            对不起！操作失败
+        </div>
+    </div>
+</xmp>
+
+<h3>对应的js:</h3>
+<xmp>
+    <script>
+    /*小弹框模板2:只有一个按钮*/
+    $(document).ready(function(){
+        $(".smallbtn1").click(function(){
+            $(".smalltest1").show();
+        });
+        $(".smalltest1").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'我的弹框4', //弹框头部标题
+            //如果需要一个按钮请加上abtn
+            'buttons':[
+                /* {'label':'1取消','class':'off abtn',//如果需要一个按钮请加上abtn
+                 onClick:function(){
+                 //console.log('按钮一');
+                 }
+                 },*/ //按钮文本，按钮样式，按钮回调方式
+                {'label':'2确定','class':'md-btn-highlight determine abtn',//如果需要一个按钮请加上abtn
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 400,  //设置弹框宽度
+            'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+    </script>
+</xmp>
+<!--/代码片段----------------------------------------------------------------------------------------------------------->
+
+
+
+</body>
+</html>

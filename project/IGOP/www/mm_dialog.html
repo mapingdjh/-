@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MM</title>
+    <link rel="stylesheet" href="../css/igop.min.css"/>
+    <style>
+        .mm_mmxzbt{margin-left:20px;margin-top:20px;}
+        .mm_mmtk ul{width: 778px;max-height: 100px;overflow-y: auto;}
+        .mm_mmtk ul li{float:left;margin-left:30px;margin-top:10px;}
+        .mm_mmtk ul li i{font-weight: bold;margin-left:3px;}
+    </style>
+</head>
+<body>
+<div class="mm_test">
+
+    <div style="margin-left:20px;margin-top:20px;">实体包ID：（下载包体时，会一同下载包体对应的计费点比对清单）</div>
+    <div style="overflow: hidden;margin-left:20px;margin-top:20px;">
+        <div class="mg-form-item mg-form-sm" style="float:left;" >
+            <input class="mg-form-control  mg-form-sm" type="text" value="" />
+        </div>
+        <button  class="mg-btn mg-btn-primary mg-btn__circle" style="float:left;margin-left:20px;">
+            <i class="iconfont icon-search01"></i>
+        </button>
+    </div>
+
+    <div class="table_all"  style="overflow-y: auto;max-height: 190px;">
+        <table class="mg-table table-hover">
+            <thead>
+            <tr>
+                <th width="150px"><input type="checkbox" class="checkedAll" name="checkboxSelectAll" value="">实体包ID</th>
+                <th width="150px">实体包名称</th>
+                <th width="130px">属性</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="items" name="checkbox" value="35896">35896</td>
+                    <td>4444444444444</td>
+                    <td>对符合公司分管</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="items" name="checkbox" value="55555">55555</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                     <td><input type="checkbox" class="items" name="checkbox" value="22222">22222</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                 </tr>
+                 <tr>
+                     <td><input type="checkbox" class="items" name="checkbox" value="33333">33333</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                 </tr>
+                <!-- <tr>
+                     <td><input type="checkbox" class="items" name="checkbox" value="44444">44444</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                 </tr>-->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mm_mmxzbt">已选择包体：</div>
+    <div class="mm_mmtk">
+        <ul>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            /**
+             * 全选
+             */
+            $('.checkedAll').click(function(){
+                var checked = $(this).prop("checked");
+                if(checked){
+                    // 选中所有ck
+                    $('input[name=checkbox]').prop("checked",true);
+                    // 加载选中的信息
+                    var $li ="";
+                    // 判断是否已选择 如果已选择那么就不需要拼接
+                    $('input[name=checkbox]:checked').each(function(){
+                        $li+= '<li id='+ $(this).val()+'>'+ $(this).val()+'<i onclick="del(this,'+ $(this).val()+')">X</i></li>';
+                    });
+                    $('ul').append($li);
+                }
+                else{
+                    $('input[name=checkbox]').prop("checked",false);
+                    $('ul li').remove();
+                }
+            });
+
+            /**
+             * 单选
+             */
+            $('.items').each(function(){
+                $(this).click(function(){
+                    var checked = $(this).prop("checked");
+                    if(checked){
+                        // 加载选中的信息
+                        var $li ="";
+                        // 判断是否已选择 如果已选择那么就不需要拼接
+                        if($(this).prop("checked")){
+                            $li+= '<li id='+ $(this).val()+'>'+ $(this).val()+'<i onclick="del(this,'+ $(this).val()+')">X</i></li>';
+                        }
+                        $('ul').append($li);
+                    }else{
+                        var checkedVal = $(this).val();
+                        // 同步清除信息
+                        $('ul li').each(function(){
+                            var liVal = $(this).attr('id');
+                            //alert(liVal == checkedVal);
+                            if(liVal == checkedVal){
+                                $(this).remove();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+
+        function del(obj,id){
+            $(obj).parent('li').remove();
+            // 同步取消复选框
+            $(".items").each(function(){
+                if(id == $(this).val()){
+                    $(this).prop("checked", false);
+                }
+
+                $(".checkedAll").prop("checked", false);
+            });
+        }
+
+
+
+
+
+        var Tool = new function(){};
+
+        Tool.checkbox_ctrl = function(box_ctrl_selector, boxes_selector){
+
+            var box_ctrl = $(box_ctrl_selector);
+
+            var boxes = $(boxes_selector);
+
+            var boxSize = boxes.length;
+
+            box_ctrl.click(function(){
+                var status = this.checked;
+                boxes.each(function(){
+                    this.checked = status;
+                });
+            });
+
+            boxes.click(function(){
+                var checkedBoxSize = boxes.filter(":checked").length;
+                if(boxSize == checkedBoxSize){
+                    box_ctrl[0].checked = true;
+                }else{
+                    box_ctrl[0].checked = false;
+                }
+            });
+        };
+        Tool.checkbox_ctrl('.checkedAll','input[name=checkbox]');
+    </script>
+</body>
+</html>
+<xmp>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MM</title>
+        <link rel="stylesheet" href="../css/igop.min.css"/>
+        <style>
+            .mm_mmxzbt{margin-left:20px;margin-top:20px;}
+            .mm_mmtk ul{width: 778px;max-height: 100px;overflow-y: auto;}
+            .mm_mmtk ul li{float:left;margin-left:30px;margin-top:10px;}
+            .mm_mmtk ul li i{font-weight: bold;margin-left:3px;}
+        </style>
+    </head>
+    <body>
+    <div class="mm_test">
+
+        <div style="margin-left:20px;margin-top:20px;">实体包ID：（下载包体时，会一同下载包体对应的计费点比对清单）</div>
+        <div style="overflow: hidden;margin-left:20px;margin-top:20px;">
+            <div class="mg-form-item mg-form-sm" style="float:left;" >
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+            <button  class="mg-btn mg-btn-primary mg-btn__circle" style="float:left;margin-left:20px;">
+                <i class="iconfont icon-search01"></i>
+            </button>
+        </div>
+
+        <div class="table_all"  style="overflow-y: auto;max-height: 190px;">
+            <table class="mg-table table-hover">
+                <thead>
+                <tr>
+                    <th width="150px"><input type="checkbox" class="checkedAll" name="checkboxSelectAll" value="">实体包ID</th>
+                    <th width="150px">实体包名称</th>
+                    <th width="130px">属性</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox" class="items" name="checkbox" value="35896">35896</td>
+                    <td>4444444444444</td>
+                    <td>对符合公司分管</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="items" name="checkbox" value="55555">55555</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="items" name="checkbox" value="22222">22222</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="items" name="checkbox" value="33333">33333</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <!-- <tr>
+                     <td><input type="checkbox" class="items" name="checkbox" value="44444">44444</td>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                 </tr>-->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mm_mmxzbt">已选择包体：</div>
+        <div class="mm_mmtk">
+            <ul>
+            </ul>
+        </div>
+
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            $(function(){
+                /**
+                 * 全选
+                 */
+                $('.checkedAll').click(function(){
+                    var checked = $(this).prop("checked");
+                    if(checked){
+                        // 选中所有ck
+                        $('input[name=checkbox]').prop("checked",true);
+                        // 加载选中的信息
+                        var $li ="";
+                        // 判断是否已选择 如果已选择那么就不需要拼接
+                        $('input[name=checkbox]:checked').each(function(){
+                            $li+= '<li id='+ $(this).val()+'>'+ $(this).val()+'<i onclick="del(this,'+ $(this).val()+')">X</i></li>';
+                        });
+                        $('ul').append($li);
+                    }
+                    else{
+                        $('input[name=checkbox]').prop("checked",false);
+                        $('ul li').remove();
+                    }
+                });
+
+                /**
+                 * 单选
+                 */
+                $('.items').each(function(){
+                    $(this).click(function(){
+                        var checked = $(this).prop("checked");
+                        if(checked){
+                            // 加载选中的信息
+                            var $li ="";
+                            // 判断是否已选择 如果已选择那么就不需要拼接
+                            if($(this).prop("checked")){
+                                $li+= '<li id='+ $(this).val()+'>'+ $(this).val()+'<i onclick="del(this,'+ $(this).val()+')">X</i></li>';
+                            }
+                            $('ul').append($li);
+                        }else{
+                            var checkedVal = $(this).val();
+                            // 同步清除信息
+                            $('ul li').each(function(){
+                                var liVal = $(this).attr('id');
+                                //alert(liVal == checkedVal);
+                                if(liVal == checkedVal){
+                                    $(this).remove();
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+
+            function del(obj,id){
+                $(obj).parent('li').remove();
+                // 同步取消复选框
+                $(".items").each(function(){
+                    if(id == $(this).val()){
+                        $(this).prop("checked", false);
+                    }
+
+                    $(".checkedAll").prop("checked", false);
+                });
+            }
+
+
+
+
+
+            var Tool = new function(){};
+
+            Tool.checkbox_ctrl = function(box_ctrl_selector, boxes_selector){
+
+                var box_ctrl = $(box_ctrl_selector);
+
+                var boxes = $(boxes_selector);
+
+                var boxSize = boxes.length;
+
+                box_ctrl.click(function(){
+                    var status = this.checked;
+                    boxes.each(function(){
+                        this.checked = status;
+                    });
+                });
+
+                boxes.click(function(){
+                    var checkedBoxSize = boxes.filter(":checked").length;
+                    if(boxSize == checkedBoxSize){
+                        box_ctrl[0].checked = true;
+                    }else{
+                        box_ctrl[0].checked = false;
+                    }
+                });
+            };
+            Tool.checkbox_ctrl('.checkedAll','input[name=checkbox]');
+        </script>
+    </body>
+    </html>
+
+</xmp>

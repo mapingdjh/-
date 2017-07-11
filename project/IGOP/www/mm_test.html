@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MM测试包体下载</title>
+    <link rel="stylesheet" href="../css/igop.min.css"/>
+    <link rel="stylesheet" href="../css/mm_test.min.css"/>
+</head>
+<body>
+<div class="mm_test">
+    <div class="mg-breadnav bufu">
+        MM测试包体下载<div class="breadnav-triangle"></div>
+    </div>
+    <div class="mm_header">
+        <div class="mg-form-item mg-form-sm fl_left">
+            <p class="item-label">
+                游戏名称：
+            </p>
+            <input class="mg-form-control  mg-form-sm" type="text" value="" />
+        </div>
+        <div class="mg-form-item mg-form-sm fl_left">
+            <p class="item-label">
+                内容代码：
+            </p>
+            <input class="mg-form-control  mg-form-sm" type="text" value="" />
+        </div>
+        <!--按钮-->
+        <button  class="mg-btn mg-btn-primary mg-btn__circle mm_text_anniu">
+            <i class="iconfont icon-search01"></i>
+        </button>
+    </div>
+    <!-- 表格-->
+    <table class="mg-table table-hover" style="width:785px;">
+        <thead>
+            <tr>
+                <th style="width:155px;">游戏名称</th>
+                <th style="width:110px;">合作伙伴</th>
+                <th style="width:90px;">操作系统</th>
+                <th style="width:115px;">最近修改时间</th>
+                <th style="width:115px;">测试优选级</th>
+                <th style="width:115px;">是否渠道游戏</th>
+                <th style="width:70px;">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="ellipsis"><img src="../img/table.png">大家好大爱大幅度发</td>
+                <td class="truncation">LOL</td>
+                <td>Android</td>
+                <td>2016-08-06</td>
+                <td>中</td>
+                <td>是</td>
+                <td><i class="iconfont icon-xiazai mm_xiazai"></i></td>
+            </tr>
+            <tr>
+                <td class="ellipsis"><img src="../img/table.png">大家好大爱大幅度发</td>
+                <td class="truncation">LOL</td>
+                <td>Android</td>
+                <td>2016-08-06</td>
+                <td>中</td>
+                <td>是</td>
+                <td><i class="iconfont icon-xiazai mm_xiazai"></i></td>
+            </tr>
+            <tr>
+                <td class="ellipsis"><img src="../img/table.png">大家好大爱大幅度发</td>
+                <td class="truncation">LOL</td>
+                <td>Android</td>
+                <td>2016-08-06</td>
+                <td>中</td>
+                <td>是</td>
+                <td><i class="iconfont icon-xiazai mm_xiazai"></i></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button  class="mg-btn mg-btn-default mg-btn__rightAngle mm_shuaxin">刷新</button>
+</div>
+<!--下载弹框-->
+<div class="mm_dow">
+    <div class="xuanqu">选择包体：（下载包体时，会一同下载包体对应的计费点对比清单）</div>
+    <table class="mg-table table-hover">
+        <thead>
+        <tr>
+            <th style="width:95px;"><input type="checkbox" id="selectAll" style="margin-top:4px;" />实体包ID</th>
+            <th style="width:200px;">实体包名称</th>
+            <th style="width:90px;">属性</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" style="margin-top:4px;" />111</td>
+                <td class="ellipsis">a</td>
+                <td>通用包</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" style="margin-top:4px;" />111</td>
+                <td class="ellipsis">a</td>
+                <td>通用包</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/modalDialog.js"></script><!--弹框-->
+<script type="text/javascript" src="../js/form.js"></script><!--表单-->
+<script type="text/javascript">
+    /*大弹框模板1*/
+    $(document).ready(function(){
+        $(".mm_xiazai").click(function(){
+            $(".mm_dow").show();
+        });
+        $(".mm_dow").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'游戏包下载', //弹框头部标题
+            'buttons':[
+                {'label':'取消','class':'off',
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                }, //按钮文本，按钮样式，按钮回调方式
+                {'label':'确认下载','class':'md-btn-highlight determine',
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 600,  //设置弹框宽度
+            //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+<!================================================================================================================================================>
+<!================================================================================================================================================>
+<!================================================================================================================================================>
+<!================================================================================================================================================>
+<!================================================================================================================================================>
+
+
+<!--代码片段------------------------------------------------------------------------------------------------------------>
+<h3>对应的html:</h3>
+<xmp style="margin:10px 0;padding:0px 0px 20px 0;border: 1px solid #e1e1e1;background-color: #efeeef;border-radius: 3px;font-size: 14px;color:#3c3c3c;">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MM测试包体下载</title>
+        <link rel="stylesheet" href="../css/igop.min.css"/>
+        <link rel="stylesheet" href="../css/mm_test.min.css"/>
+    </head>
+    <body>
+    <div class="mm_test">
+        <div class="mg-breadnav bufu">
+            MM测试包体下载<div class="breadnav-triangle"></div>
+        </div>
+        <div class="mm_header">
+            <div class="mg-form-item mg-form-sm fl_left">
+                <p class="item-label">
+                    游戏名称：
+                </p>
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+            <div class="mg-form-item mg-form-sm fl_left">
+                <p class="item-label">
+                    内容代码：
+                </p>
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+            <!--按钮-->
+            <button  class="mg-btn mg-btn-primary mg-btn__circle mm_text_anniu">
+                <i class="iconfont icon-search01"></i>
+            </button>
+        </div>
+        <!-- 表格-->
+        <table class="mg-table table-hover" style="width:785px;">
+            <thead>
+            <tr>
+                <th style="width:155px;">游戏名称</th>
+                <th style="width:110px;">合作伙伴</th>
+                <th style="width:90px;">操作系统</th>
+                <th style="width:115px;">最近修改时间</th>
+                <th style="width:115px;">测试优选级</th>
+                <th style="width:115px;">是否渠道游戏</th>
+                <th style="width:70px;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="ellipsis"><img src="../img/table.png">大家好大爱大幅度发</td>
+                <td class="truncation">LOL</td>
+                <td>Android</td>
+                <td>2016-08-06</td>
+                <td>中</td>
+                <td>是</td>
+                <td><i class="iconfont icon-xiazai mm_xiazai"></i></td>
+            </tr>
+            <tr>
+                <td class="ellipsis"><img src="../img/table.png">大家好大爱大幅度发</td>
+                <td class="truncation">LOL</td>
+                <td>Android</td>
+                <td>2016-08-06</td>
+                <td>中</td>
+                <td>是</td>
+                <td><i class="iconfont icon-xiazai mm_xiazai"></i></td>
+            </tr>
+            <tr>
+                <td class="ellipsis"><img src="../img/table.png">大家好大爱大幅度发</td>
+                <td class="truncation">LOL</td>
+                <td>Android</td>
+                <td>2016-08-06</td>
+                <td>中</td>
+                <td>是</td>
+                <td><i class="iconfont icon-xiazai mm_xiazai"></i></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button  class="mg-btn mg-btn-default mg-btn__rightAngle mm_shuaxin">刷新</button>
+    </div>
+    <!--下载弹框-->
+    <div class="mm_dow">
+        <div class="xuanqu">选择包体：（下载包体时，会一同下载包体对应的计费点对比清单）</div>
+        <table class="mg-table table-hover">
+            <thead>
+            <tr>
+                <th style="width:95px;"><input type="checkbox" id="selectAll" style="margin-top:4px;" />实体包ID</th>
+                <th style="width:200px;">实体包名称</th>
+                <th style="width:90px;">属性</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox" style="margin-top:4px;" />111</td>
+                <td class="ellipsis">a</td>
+                <td>通用包</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" style="margin-top:4px;" />111</td>
+                <td class="ellipsis">a</td>
+                <td>通用包</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/modalDialog.js"></script><!--弹框-->
+    <script type="text/javascript" src="../js/form.js"></script><!--表单-->
+    <script type="text/javascript">
+        /*大弹框模板1*/
+        $(document).ready(function(){
+            $(".mm_xiazai").click(function(){
+                $(".mm_dow").show();
+            });
+            $(".mm_dow").modaldialog({
+                'visible':false, //默认弹框是否打开
+                //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+                //'haveheader':true, //是否需要头部,默认true
+                'closable':true, //头部关闭按钮是否显示,默认true
+                'dragdrop': true,
+                'title':'游戏包下载', //弹框头部标题
+                'buttons':[
+                    {'label':'取消','class':'off',
+                        onClick:function(){
+                            //console.log('按钮一');
+                        }
+                    }, //按钮文本，按钮样式，按钮回调方式
+                    {'label':'确认下载','class':'md-btn-highlight determine',
+                        onClick:function(){
+                            //console.log('按钮二');
+                        }
+                    }
+                ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+                'width': 600,  //设置弹框宽度
+                //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+                onClose: function(){
+                    //console.log('关闭弹框');
+                }
+            });
+        });
+    </script>
+    </body>
+    </html>
+</xmp>
+
+<!--/代码片段----------------------------------------------------------------------------------------------------------->
+

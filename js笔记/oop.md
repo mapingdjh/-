@@ -59,6 +59,27 @@
     console.log(doc);
     console.log(Chinese);
 
+#### Object.assign()浅拷贝
+	var o1 = { a: 1 };
+    var o2 = { b: 2 };
+	var o3 = { c: 3 };
+	var obj = Object.assign(o1, o2, o3);
+	console.log(obj); // { a: 1, b: 2, c: 3 }
+	console.log(o1);  // { a: 1, b: 2, c: 3 }, 注意目标对象自身也会改变
+
+      因为 Object.assign() 拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值。
+      因为拷贝是引用值，改变引用对象，源对象也受影响
+       var o1 = { a: 1 };
+	   var o2 = { b: 2 };
+	   var o3 = { c: 3,demo: {name: 123} };
+	   var res = Object.assign({},o1,o2,o3);
+	   console.log(res);     // {a:1,b:2,c:3,demo:{name: 123}}
+	   res.demo.name = "maping"
+	  //如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值, 所有res的demo和 o3的demo引用同一个地址
+	  // 改变任何一个，他们同时发生变化
+	   console.log(res);   // {a:1,b:2,c:3,demo:{name: 'maping'}}
+	   console.log(o3);   // {a:1,b:2,c:3,demo:{name: 'maping'}}
+
 ### 2、深拷贝
 
     var Chinese = {

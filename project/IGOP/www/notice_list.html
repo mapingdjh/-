@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更新公告管理</title>
+    <link rel="stylesheet" href="../css/igop.min.css"/>
+    <link rel="stylesheet" href="../css/notice.min.css"/>
+</head>
+<body>
+<div class="noticeright">
+
+    <div class="mg-breadnav notice_bt">
+        更新公告管理<div class="breadnav-triangle"></div>
+    </div>
+    <div class="notice_header">
+        <!--按钮-->
+        <button class="mg-btn mg-btn-primary">新增</button>
+    </div>
+    <!-- 表格-->
+    <table class="mg-table table-hover notice_bg">
+        <thead>
+            <tr>
+                <th style="width:100px;">标题日期</th>
+                <th style="width:100px;">最近修改时间</th>
+                <th style="width:150px;">公告标题</th>
+                <th style="width:210px;">更新内容</th>
+                <th style="width:100px;">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2016年10月</td>
+                <td>2016-10-09</td>
+                <td class="ellipsis">6100小版本上线6100小版本上线6100小版本上线</td>
+                <td class="ellipsis">1、界面优化  2、版权审批新增字段1、界面优化  2、版权审批新增字段</td>
+                <td><i class="iconfont icon-view tan1"></i><i class="iconfont icon-xiugai tan1"></i><i class="iconfont icon-iconfonticonfontclose tan2"></i></td>
+            </tr>
+            <tr>
+                <td>2016年10月</td>
+                <td>2016-10-09</td>
+                <td class="ellipsis">6100小版本上线</td>
+                <td class="ellipsis">1、界面优化  2、版权审批新增字段1、界面优化  2、版权审批新增字段</td>
+                <td><i class="iconfont icon-view tan1"></i><i class="iconfont icon-xiugai tan1"></i><i class="iconfont icon-iconfonticonfontclose tan2"></i></td>
+            </tr>
+            <tr>
+                <td>2016年10月</td>
+                <td>2016-10-09</td>
+                <td class="ellipsis">6100小版本上线</td>
+                <td class="ellipsis">1、界面优化  2、版权审批新增字段1、界面优化  2、版权审批新增字段</td>
+                <td><i class="iconfont icon-view tan1"></i><i class="iconfont icon-xiugai tan1"></i><i class="iconfont icon-iconfonticonfontclose tan2"></i></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <!--分页-->
+    <div class="mg-pagination-info">
+        <ul class="mg-pagination">
+            <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+            <li class="page-prev"><a href="#">上一页</a></li>
+            <li class="page-dropdown">
+                <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+                <ul class="dropdown-menu">
+                    <li>10</li>
+                    <li>20</li>
+                    <li>50</li>
+                    <li>100</li>
+                </ul>
+            </li>
+            <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+            <li class="page-next"><a href="#">下一页</a></li>
+            <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+        </ul>
+    </div>
+</div>
+<!--===============================================================================================================================-->
+<!--弹框-->
+<div class="test1 notices">
+    <div class="mg-form-item mg-form-xs fudong fudong_right">
+        <p class="item-label mg-form-xs"><span class="mg-item-redWine">*</span>版权生效日期:</p>
+        <input type="text" class="mg-form-control mg-form-xs Wdate" value="" readonly="readonly" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+    </div>
+    <div class="mg-form-item mg-form-xs fudong">
+        <p class="item-label mg-form-xs">
+            <span class="mg-item-redWine">*</span>
+            公告标题：
+        </p>
+        <input class="mg-form-control  mg-form-xs" type="text" value="" />
+    </div>
+    <div class="mg-form-item mg-form-sm textss changdu">
+        <p class="item-label mg-form-sm changdu">
+            <span class="mg-item-redWine">*</span>
+            更新内容：
+        </p>
+        <div class="sw-cont">
+            <textarea class="mg-form-control mg-form-sm text_area changdu" style="height:230px;">如果</textarea>
+            <p class="count-txt mg-item-redWine" style="float:right;font-size:12px;">你还可以输入<strong>1000</strong>个字</p>
+        </div>
+    </div>
+</div>
+<!--删除弹框-->
+<div class="test2 notices">
+    <div class="dels">确认要删除该信息吗？</div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!-- 日历 -->
+<script type="text/javascript" src="../js/pagination.js"></script><!--分页-->
+<script type="text/javascript" src="../js/modalDialog.js"></script><!--弹框-->
+<script type="text/javascript" src="../js/form.js"></script><!--表单-->
+<script type="text/javascript">
+
+    /*大弹框模板1*/
+    $(document).ready(function(){
+        $(".tan1").click(function(){
+            $(".test1").show();
+        });
+        $(".test1").modaldialog({
+            'visible':false, //默认弹框是否打开
+            //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+            //'haveheader':true, //是否需要头部,默认true
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'公告内容更新', //弹框头部标题
+            'buttons':[
+                {'label':'取消','class':'off',
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                }, //按钮文本，按钮样式，按钮回调方式
+                {'label':'提交','class':'md-btn-highlight determine',
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 600,  //设置弹框宽度
+            //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+
+    /*删除*/
+    $(document).ready(function(){
+        $(".tan2").click(function(){
+            $(".test2").show();
+        });
+        $(".test2").modaldialog({
+            'visible':false, //默认弹框是否打开
+            'closable':true, //头部关闭按钮是否显示,默认true
+            'dragdrop': true,
+            'title':'提示', //弹框头部标题
+            'buttons':[
+                {'label':'取消','class':'off',
+                    onClick:function(){
+                        //console.log('按钮一');
+                    }
+                }, //按钮文本，按钮样式，按钮回调方式
+                {'label':'确定','class':'md-btn-highlight determine',
+                    onClick:function(){
+                        //console.log('按钮二');
+                    }
+                }
+            ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+            'width': 400,  //设置弹框宽度
+            onClose: function(){
+                //console.log('关闭弹框');
+            }
+        });
+    });
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+<!================================================================================================================================================>
+<!================================================================================================================================================>
+<!================================================================================================================================================>
+<!================================================================================================================================================>
+<!================================================================================================================================================>
+
+
+<!--代码片段------------------------------------------------------------------------------------------------------------>
+<h3>对应的html:</h3>
+<xmp style="margin:10px 0;padding:0px 0px 20px 0;border: 1px solid #e1e1e1;background-color: #efeeef;border-radius: 3px;font-size: 14px;color:#3c3c3c;">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>更新公告管理</title>
+        <link rel="stylesheet" href="../css/igop.min.css"/>
+        <link rel="stylesheet" href="../css/notice.min.css"/>
+    </head>
+    <body>
+    <div class="noticeright">
+
+        <div class="mg-breadnav notice_bt">
+            更新公告管理<div class="breadnav-triangle"></div>
+        </div>
+        <div class="notice_header">
+            <!--按钮-->
+            <button class="mg-btn mg-btn-primary">新增</button>
+        </div>
+        <!-- 表格-->
+        <table class="mg-table table-hover notice_bg">
+            <thead>
+            <tr>
+                <th style="width:100px;">标题日期</th>
+                <th style="width:100px;">最近修改时间</th>
+                <th style="width:150px;">公告标题</th>
+                <th style="width:210px;">更新内容</th>
+                <th style="width:100px;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2016年10月</td>
+                <td>2016-10-09</td>
+                <td class="ellipsis">6100小版本上线6100小版本上线6100小版本上线</td>
+                <td class="ellipsis">1、界面优化  2、版权审批新增字段1、界面优化  2、版权审批新增字段</td>
+                <td><i class="iconfont icon-view tan1"></i><i class="iconfont icon-xiugai tan1"></i><i class="iconfont icon-iconfonticonfontclose tan2"></i></td>
+            </tr>
+            <tr>
+                <td>2016年10月</td>
+                <td>2016-10-09</td>
+                <td class="ellipsis">6100小版本上线</td>
+                <td class="ellipsis">1、界面优化  2、版权审批新增字段1、界面优化  2、版权审批新增字段</td>
+                <td><i class="iconfont icon-view tan1"></i><i class="iconfont icon-xiugai tan1"></i><i class="iconfont icon-iconfonticonfontclose tan2"></i></td>
+            </tr>
+            <tr>
+                <td>2016年10月</td>
+                <td>2016-10-09</td>
+                <td class="ellipsis">6100小版本上线</td>
+                <td class="ellipsis">1、界面优化  2、版权审批新增字段1、界面优化  2、版权审批新增字段</td>
+                <td><i class="iconfont icon-view tan1"></i><i class="iconfont icon-xiugai tan1"></i><i class="iconfont icon-iconfonticonfontclose tan2"></i></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <!--分页-->
+        <div class="mg-pagination-info">
+            <ul class="mg-pagination">
+                <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+                <li class="page-prev"><a href="#">上一页</a></li>
+                <li class="page-dropdown">
+                    <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+                    <ul class="dropdown-menu">
+                        <li>10</li>
+                        <li>20</li>
+                        <li>50</li>
+                        <li>100</li>
+                    </ul>
+                </li>
+                <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+                <li class="page-next"><a href="#">下一页</a></li>
+                <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+            </ul>
+        </div>
+    </div>
+    <!--===============================================================================================================================-->
+    <!--弹框-->
+    <div class="test1 notices">
+        <div class="mg-form-item mg-form-xs fudong fudong_right">
+            <p class="item-label mg-form-xs"><span class="mg-item-redWine">*</span>版权生效日期:</p>
+            <input type="text" class="mg-form-control mg-form-xs Wdate" value="" readonly="readonly" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+        </div>
+        <div class="mg-form-item mg-form-xs fudong">
+            <p class="item-label mg-form-xs">
+                <span class="mg-item-redWine">*</span>
+                公告标题：
+            </p>
+            <input class="mg-form-control  mg-form-xs" type="text" value="" />
+        </div>
+        <div class="mg-form-item mg-form-sm textss changdu">
+            <p class="item-label mg-form-sm changdu">
+                <span class="mg-item-redWine">*</span>
+                更新内容：
+            </p>
+            <div class="sw-cont">
+                <textarea class="mg-form-control mg-form-sm text_area changdu" style="height:230px;">如果</textarea>
+                <p class="count-txt mg-item-redWine" style="float:right;font-size:12px;">你还可以输入<strong>1000</strong>个字</p>
+            </div>
+        </div>
+    </div>
+    <!--删除弹框-->
+    <div class="test2 notices">
+        <div class="dels">确认要删除该信息吗？</div>
+    </div>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!-- 日历 -->
+    <script type="text/javascript" src="../js/pagination.js"></script><!--分页-->
+    <script type="text/javascript" src="../js/modalDialog.js"></script><!--弹框-->
+    <script type="text/javascript" src="../js/form.js"></script><!--表单-->
+    <script type="text/javascript">
+
+        /*大弹框模板1*/
+        $(document).ready(function(){
+            $(".tan1").click(function(){
+                $(".test1").show();
+            });
+            $(".test1").modaldialog({
+                'visible':false, //默认弹框是否打开
+                //'maskClosable':false, //是否允许点击蒙层关闭弹框,默认true
+                //'haveheader':true, //是否需要头部,默认true
+                'closable':true, //头部关闭按钮是否显示,默认true
+                'dragdrop': true,
+                'title':'公告内容更新', //弹框头部标题
+                'buttons':[
+                    {'label':'取消','class':'off',
+                        onClick:function(){
+                            //console.log('按钮一');
+                        }
+                    }, //按钮文本，按钮样式，按钮回调方式
+                    {'label':'提交','class':'md-btn-highlight determine',
+                        onClick:function(){
+                            //console.log('按钮二');
+                        }
+                    }
+                ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+                'width': 600,  //设置弹框宽度
+                //'footerstyle':'center', //底部按钮显示位置，默认居右  left:居左  center:剧中
+                onClose: function(){
+                    //console.log('关闭弹框');
+                }
+            });
+        });
+
+        /*删除*/
+        $(document).ready(function(){
+            $(".tan2").click(function(){
+                $(".test2").show();
+            });
+            $(".test2").modaldialog({
+                'visible':false, //默认弹框是否打开
+                'closable':true, //头部关闭按钮是否显示,默认true
+                'dragdrop': true,
+                'title':'提示', //弹框头部标题
+                'buttons':[
+                    {'label':'取消','class':'off',
+                        onClick:function(){
+                            //console.log('按钮一');
+                        }
+                    }, //按钮文本，按钮样式，按钮回调方式
+                    {'label':'确定','class':'md-btn-highlight determine',
+                        onClick:function(){
+                            //console.log('按钮二');
+                        }
+                    }
+                ], //默认有取消和确定两个按钮    top: 50px;  left: 30px;
+                'width': 400,  //设置弹框宽度
+                onClose: function(){
+                    //console.log('关闭弹框');
+                }
+            });
+        });
+
+
+    </script>
+    </body>
+    </html>
+
+</xmp>
+
+
+<!--/代码片段----------------------------------------------------------------------------------------------------------->

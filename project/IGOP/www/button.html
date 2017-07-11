@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button样式</title>
+    <link rel="stylesheet" href="../css/igop.min.css">
+</head>
+<body>
+<div style="width: 1000px;margin: 50px auto;" >
+    <h1 style="color: #f00;font-size: 28px;">为防止button提交表单，需设置type="button"</h1>
+     <h1 style="color: #f00;font-size: 28px;">如需div作为按钮容器，只需把button改为div，并去除type="button"属性即可.</h1>
+    <h2>一、基础按钮</h2><hr/>
+    <!-- 基础按钮-->
+    <button class="mg-btn mg-btn-primary">基础按钮</button> &nbsp;&nbsp;&nbsp;&nbsp;
+    <div>对应的代码：</div>
+    <xmp>
+    <button class="mg-btn mg-btn-primary">基础按钮</button>
+    </xmp>
+
+
+
+
+    <h2>二、置灰按钮</h2><hr/>
+    <!-- button置灰按钮-->
+    <button class="mg-btn mg-btn-primary" type="button" disabled="disabled">置灰按钮</button> &nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <div>button实现代码：<strong style="color: #f00;">为防止button提交表单，需设置type="button"</strong></div>
+    <xmp>
+    <button class="mg-btn mg-btn-primary" type="button" disabled="disabled">置灰按钮</button>
+    </xmp>
+     
+    <!-- div -->
+    <div id="btn" class="mg-btn mg-btn-primary" disabled="disabled">div置灰按钮</div>
+    <div>div实现代码：需要配合js才能真正实现禁用功能</div>
+    <xmp>
+        <div class="mg-btn mg-btn-primary" disabled="disabled">div置灰按钮</div> 
+        $("div[disabled='disabled']").click(function(){
+            return;
+        })
+
+        注意：$("div[disabled='disabled']")这里的选择器写法不唯一，可以是按钮的id或者class。
+    </xmp>
+
+
+
+    <h2>三、圆形按钮</h2><hr/>
+    <!-- 圆形按钮 -->
+    <button  class="mg-btn mg-btn-primary mg-btn__circle">
+        <i class="iconfont icon-search01"></i>
+    </button>
+    <div>对应的代码：</div>
+    <xmp>
+    <button  class="mg-btn mg-btn-primary mg-btn__circle">
+        <i class="iconfont icon-search01"></i>
+    </button>
+    </xmp>
+
+
+    <h2>四、矩形按钮</h2><hr/>
+    <!-- 矩形按钮 -->
+    <button  class="mg-btn mg-btn-primary mg-btn__rightAngle">矩形按钮</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- 矩形按钮灰色 -->
+    <button  class="mg-btn mg-btn-default mg-btn__rightAngle">矩形按钮</button>
+    <div>对应的代码：</div>
+    <xmp>
+    <button  class="mg-btn mg-btn-primary mg-btn__rightAngle">矩形按钮</button>
+    <button  class="mg-btn mg-btn-default mg-btn__rightAngle">矩形按钮</button>
+    </xmp>
+
+
+
+
+    <h2>五、带有向右箭头按钮(纯css实现)</h2><hr/>
+    <!-- 带有向右箭头按钮 -->
+    <button class="mg-btn mg-btn-primary mg-btn__rightAngle btn-rightAngle-sm ">下一步
+        <span class="btn-arrow-right"></span>
+    </button>
+    &nbsp;&nbsp; &nbsp;&nbsp;
+    <button class="mg-btn mg-btn-primary mg-btn__rightAngle btn-rightAngle-sm">上一步
+        <span class="btn-arrow-left"></span>
+    </button>
+    <div>对应的代码：</div>
+    <xmp>
+    <button class="mg-btn mg-btn-primary mg-btn__rightAngle btn-rightAngle-sm ">下一步
+        <span class="btn-arrow-right"></span>
+    </button>
+    <button class="mg-btn mg-btn-primary mg-btn__rightAngle btn-rightAngle-sm">上一步
+        <span class="btn-arrow-left"></span>
+    </button>
+    </xmp>
+
+    <h2>六、带有向右箭头按钮(图片作为背景)</h2><hr/> 
+    <button class="mg-btn-arrow mg-btn__arrowRight">下一步</button>   
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="mg-btn-arrow mg-btn__arrowLeft">上一步</button>
+    <div>对应的代码：</div>   
+    <xmp>
+        <button class="mg-btn-arrow mg-btn__arrowRight">下一步</button>
+        <button class="mg-btn-arrow mg-btn__arrowLeft">上一步</button>  
+    </xmp>
+    <h2>七、ghost按钮</h2><hr/>
+
+
+    <!-- ghost按钮 -->
+    <button class="mg-btn mg-btn__ghost">批量导入计费点</button>
+    <div>对应的代码：</div>
+    <xmp>
+    <button class="mg-btn mg-btn__ghost">批量导入计费点</button>
+    </xmp>
+
+
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+</body>
+</html>

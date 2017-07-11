@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/**
+ * @description: 第三方支付管理
+ * @author: chenshaoting (2017/04/21)
+ * @update:
+ */
+.third {
+  width: 800px;
+  margin: 0 auto;
+  overflow: visible; }
+
+.thied_ts {
+  color: red;
+  margin-bottom: 20px; }
+
+.conter_header {
+  margin-left: 20px; }
+
+.third_overflow {
+  overflow: hidden;
+  position: relative; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: left;
+  margin-left: 20px; }
+
+.third_search_btn {
+  position: absolute;
+  bottom: 19px;
+  right: 105px; }
+
+.third_con {
+  margin: 30px; }
+
+.third_top {
+  text-align: center;
+  font-weight: bold; }
+
+.third_selected {
+  max-height: 118px;
+  overflow-y: auto;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 5px 0;
+  margin: 5px 0; }
+
+.third_selected_ul {
+  overflow: hidden; }
+
+.third_selected_ul li {
+  float: left;
+  width: 315px;
+  margin-right: 20px; }
+
+.third_selected_ul li span {
+  width: 285px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 10px;
+  display: inline-block; }
+
+.third_selected_ul li i {
+  vertical-align: super;
+  font-weight: bold; }
+
+.third_selected_ul li i:hover {
+  color: #8cc152;
+  cursor: pointer; }
+
+.third_butt_btn {
+  float: left;
+  margin-top: 23px;
+  margin-left: 14px; }
+
+.third_ju_btn {
+  float: left;
+  margin-top: 27px;
+  margin-left: 100px; }
+
+.third_ju_btn button {
+  margin-right: 20px; }
+
+.third_tui {
+  text-align: center;
+  font-weight: bold;
+  background: #ddd;
+  height: 30px;
+  line-height: 30px; }
+
+.third_tui_ul {
+  max-height: 112px;
+  overflow-y: auto; }
+
+.third_tui_ul li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  float: left;
+  width: 315px;
+  margin-right: 20px;
+  padding-top: 7px; }
+
+.mg-show {
+  overflow: visible !important; }
+
+.mg-dialog-header1 {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px; }
+
+.mg-dialog-content1 {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: visible; }

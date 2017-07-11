@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <link rel="stylesheet" href="../css/igop.min.css">
+</head>
+<body>
+<div style="width: 781px;margin: 30px auto">
+    <div class="table_all">
+        <table class="mg-table table-hover">
+            <thead>
+                <tr>
+                    <th width="150px"><input type="checkbox" id="selectAll">游戏名称</th>
+                    <th width="150px">操作系统</th>
+                    <th width="130px">最近修改时间</th>
+                    <th width="150px">操作</th>
+                    <th width="100px">操作系统</th>
+                    <th width="130px">最近修改时间</th>
+                    <th width="100px">操作</th>
+                    <th width="100px">操作系统</th>
+                    <th width="130px">最近修改时间</th>
+                    <th width="100px">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- 复选框垂直居中需要设置高度和行高  -->
+                    <td class="table-error ellipsis"><input type="checkbox" style="height: 65px;line-height: 65px;"><img src="../img/table.png">大家好大爱大幅度发</td>
+                    <td class="ellipsis">mapping mapping  mapping mapping</td>
+                    <td>Otto</td>
+                    <td>
+                        <i class="iconfont icon-xiugai"></i>
+                        <i class="iconfont icon-view"></i>
+                        <i class="iconfont icon-shijian icon-error"></i>
+                    </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox">2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>
+                        <i class="iconfont icon-xiugai"></i>
+                        <i class="iconfont icon-view"></i>
+                        <i class="iconfont icon-shijian icon-error"></i>
+                    </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox">3</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>
+                        <i class="iconfont icon-xiugai"></i>
+                        <i class="iconfont icon-view"></i>
+                        <i class="iconfont icon-shijian icon-error"></i>
+                    </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                    <td>mapping </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<h2>注意:</h2>
+ <p>1、需要截断的字段请加上：class="ellipsis"</p>   
+ <p>2、需要根据页面需要自行设置单元格宽度，单位可以是百分比、em，rem，vw等</p> 
+ <p>3、如果表格中的字段比较多，需要在表格外层套一个div，如：“div class="table_all"让表格可以水平滚动</p> 
+<br>
+<div>对应的代码：</div>
+<xmp>
+    <div class="table_all">
+        <table class="mg-table table-hover">
+            <thead>
+            <tr>
+                <th width="150px"><input type="checkbox" id="selectAll">游戏名称</th>
+                <th width="150px">操作系统</th>
+                <th width="130px">最近修改时间</th>
+                <th width="150px">操作</th>
+                <th width="100px">操作系统</th>
+                <th width="130px">最近修改时间</th>
+                <th width="100px">操作</th>
+                <th width="100px">操作系统</th>
+                <th width="130px">最近修改时间</th>
+                <th width="100px">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <!-- 复选框垂直居中需要设置高度和行高  -->
+                <td class="table-error ellipsis"><input type="checkbox" style="height: 65px;line-height: 65px;"><img src="../img/table.png">大家好大爱大幅度发</td>
+                <td class="ellipsis">mapping mapping  mapping mapping</td>
+                <td>Otto</td>
+                <td>
+                    <i class="iconfont icon-xiugai"></i>
+                    <i class="iconfont icon-view"></i>
+                    <i class="iconfont icon-shijian icon-error"></i>
+                </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox">2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>
+                    <i class="iconfont icon-xiugai"></i>
+                    <i class="iconfont icon-view"></i>
+                    <i class="iconfont icon-shijian icon-error"></i>
+                </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox">3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>
+                    <i class="iconfont icon-xiugai"></i>
+                    <i class="iconfont icon-view"></i>
+                    <i class="iconfont icon-shijian icon-error"></i>
+                </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+                <td>mapping </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</xmp>
+
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+.Wdate{
+    border:#d1d3d2 1px solid;
+    height:32px;
+    background:#f5f4f4 url(../../../img/rili.png) no-repeat right center;
+    cursor: pointer;
+    background-position-x: 97%;
+}
+.Wdate1{
+    background:#f5f4f4 url(../../../img/rili.png) no-repeat right center;
+    background-position-x: 72%;
+}
+.Wdate::-ms-clear{display:none;}
+
+.WdateFmtErr{
+    font-weight:bold;
+    color:red;
+}

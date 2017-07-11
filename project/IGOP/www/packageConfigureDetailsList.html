@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>套餐权益展示配置查看</title>
+    <link rel="stylesheet" href="../css/igop.min.css"/>
+    <link rel="stylesheet" href="../css/package.css"/>
+</head>
+<body>
+<div id="rightMain">
+<div class="package">
+    <div class="mg-breadnav">
+        套餐权益展示配置查看<div class="breadnav-triangle"></div>
+    </div>
+    <div class="package_header">
+        <div class="package_header_fl">
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">权益道具名称：</p>
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">渠道名称：</p>
+                <div class="div_radius">
+                    <input class="mg-form-control  mg-form-sm" type="text" value="" />
+                </div>
+            </div>
+            <div class="mg-form-item mg-form-sm">
+				<p class="item-label mg-form-sm">开始时间<span class="tijiao">-提交时间</span>:</p>
+				<input type="text" class="mg-form-control mg-form-sm Wdate" value="" readonly onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+			</div>
+        </div>
+        <div class="package_header_fr">
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">套餐名称：</p>
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">状态：</p>
+                <div class="div_radius">
+                    <input class="mg-form-control mg-form-sm tag_has" type="text" value="不限" readonly />
+                    <i class="iconfont icon-triangle-down downbig down"></i>
+                    <ul class="dropdown">
+                        <li>不限</li>
+                        <li>草稿</li>
+                        <li>审批中</li>
+                        <li>审批驳回</li>
+                        <li>审批通过</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mg-form-item mg-form-sm">
+				<p class="item-label mg-form-sm">结束时间<span class="tijiao">-提交时间</span>:</p>
+				<input type="text" class="mg-form-control mg-form-sm Wdate" value="" readonly onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+			</div>
+        </div>
+        <!--按钮-->
+        <button  class="mg-btn mg-btn-primary mg-btn__circle package_search_btn">
+            <i class="iconfont icon-search01"></i>
+        </button>
+    </div>
+    <!-- 表格-->
+    <div class="table_all">
+        <table class="mg-table mg-table1 table-hover">
+            <thead>
+                <tr>
+                    <th width="90px">权益道具</th>
+                    <th width="90px">渠道</th>
+                    <th width="90px">套餐</th>
+                    <th width="125px">提交配置合作伙伴</th>
+                    <th width="140px">套餐包归属合作伙伴</th>
+                    <th width="120px">最近修改时间</th>
+                    <th width="80px">状态</th>
+                    <th width="40px">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ellipsis">道具A(111)</td>
+                    <td class="ellipsis">渠道A(111)</td>
+                    <td class="ellipsis">套餐A(1111)</td>
+                    <td class="ellipsis">审批中水</td>
+                    <td class="ellipsis">审批中水</td>
+                    <td>2017-03-18 </td>
+                    <td>新增待审批</td>
+                    <td>
+                        <i class="iconfont icon-view" title="查看"></i>
+                    </td>
+                </tr>
+                <!--没有符合条件的数据-->
+                <tr>
+                    <td colspan="8">
+                        <div align="center" style="font-size: 14px;">没有符合条件的数据</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--分页-->
+    <div class="mg-pagination-info">
+        <ul class="mg-pagination">
+            <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+            <li class="page-prev"><a href="#">上一页</a></li>
+            <li class="page-dropdown">
+                <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+                <ul class="dropdown-menu">
+                    <li>10</li>
+                    <li>20</li>
+                    <li>50</li>
+                    <li>100</li>
+                </ul>
+            </li>
+            <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+            <li class="page-next"><a href="#">下一页</a></li>
+            <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+        </ul>
+    </div>
+    <button  class="mg-btn mg-btn-default mg-btn__rightAngle" style="float:right;margin-top:20px;">导出</button>
+</div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/pagination.js"></script><!--分页-->
+<script type="text/javascript" src="../js/form.js"></script><!--表单-->
+<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!--  日历 -->
+</body>
+</html>
+
+<xmp>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>套餐权益展示配置查看</title>
+		<link rel="stylesheet" href="../css/igop.min.css"/>
+		<link rel="stylesheet" href="../css/package.css"/>
+	</head>
+	<body>
+	<div id="rightMain">
+	<div class="package">
+		<div class="mg-breadnav">
+			套餐权益展示配置查看<div class="breadnav-triangle"></div>
+		</div>
+		<div class="package_header">
+			<div class="package_header_fl">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">权益道具名称：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">渠道名称：</p>
+					<div class="div_radius">
+						<input class="mg-form-control  mg-form-sm" type="text" value="" />
+					</div>
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label mg-form-sm">开始时间<span class="tijiao">-提交时间</span>:</p>
+					<input type="text" class="mg-form-control mg-form-sm Wdate" value="" readonly onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+				</div>
+			</div>
+			<div class="package_header_fr">
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">套餐名称：</p>
+					<input class="mg-form-control  mg-form-sm" type="text" value="" />
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label">状态：</p>
+					<div class="div_radius">
+						<input class="mg-form-control mg-form-sm tag_has" type="text" value="不限" readonly />
+						<i class="iconfont icon-triangle-down downbig down"></i>
+						<ul class="dropdown">
+							<li>不限</li>
+							<li>草稿</li>
+							<li>审批中</li>
+							<li>审批驳回</li>
+							<li>审批通过</li>
+						</ul>
+					</div>
+				</div>
+				<div class="mg-form-item mg-form-sm">
+					<p class="item-label mg-form-sm">结束时间<span class="tijiao">-提交时间</span>:</p>
+					<input type="text" class="mg-form-control mg-form-sm Wdate" value="" readonly onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+				</div>
+			</div>
+			<!--按钮-->
+			<button  class="mg-btn mg-btn-primary mg-btn__circle package_search_btn">
+				<i class="iconfont icon-search01"></i>
+			</button>
+		</div>
+		<!-- 表格-->
+		<div class="table_all">
+			<table class="mg-table mg-table1 table-hover">
+				<thead>
+					<tr>
+						<th width="90px">权益道具</th>
+						<th width="90px">渠道</th>
+						<th width="90px">套餐</th>
+						<th width="125px">提交配置合作伙伴</th>
+						<th width="140px">套餐包归属合作伙伴</th>
+						<th width="120px">最近修改时间</th>
+						<th width="80px">状态</th>
+						<th width="40px">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="ellipsis">道具A(111)</td>
+						<td class="ellipsis">渠道A(111)</td>
+						<td class="ellipsis">套餐A(1111)</td>
+						<td class="ellipsis">审批中水</td>
+						<td class="ellipsis">审批中水</td>
+						<td>2017-03-18 </td>
+						<td>新增待审批</td>
+						<td>
+							<i class="iconfont icon-view" title="查看"></i>
+						</td>
+					</tr>
+					<!--没有符合条件的数据-->
+					<tr>
+						<td colspan="8">
+							<div align="center" style="font-size: 14px;">没有符合条件的数据</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--分页-->
+		<div class="mg-pagination-info">
+			<ul class="mg-pagination">
+				<li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+				<li class="page-prev"><a href="#">上一页</a></li>
+				<li class="page-dropdown">
+					<button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+					<ul class="dropdown-menu">
+						<li>10</li>
+						<li>20</li>
+						<li>50</li>
+						<li>100</li>
+					</ul>
+				</li>
+				<li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+				<li class="page-next"><a href="#">下一页</a></li>
+				<li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+			</ul>
+		</div>
+		<button  class="mg-btn mg-btn-default mg-btn__rightAngle" style="float:right;margin-top:20px;">导出</button>
+	</div>
+	</div>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/pagination.js"></script><!--分页-->
+	<script type="text/javascript" src="../js/form.js"></script><!--表单-->
+	<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!--  日历 -->
+	</body>
+	</html>
+
+</xmp>
+
+

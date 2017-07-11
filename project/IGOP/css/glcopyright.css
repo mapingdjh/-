@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/**
+ * @description: 版权管理员-软著管理
+ * @author: chenshaoting (16/08/12)
+ * @update:
+ */
+.glcopyright {
+  width: 785px;
+  margin: auto; }
+
+/*详情*/
+.fu {
+  overflow: hidden; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.glcopyright_info .mg-form-sm {
+  width: 350px; }
+
+/*首页*/
+.sy_header {
+  position: relative;
+  height: 154px; }
+
+.sy_header_fl {
+  float: left;
+  margin-right: 20px; }
+
+.sy_header_fr {
+  float: left; }
+
+.gl_data {
+  width: 142px; }
+
+.anniu {
+  float: right;
+  position: absolute;
+  bottom: 22px;
+  right: 30px; }
+
+.truncation {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.mg-table.juz > tbody > tr > td, .mg-table > tbody > tr > th, .mg-table > thead > tr > td, .mg-table > thead > tr > th {
+  text-align: center; }

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>版权管理员-软著管理-首页</title>
+    <link rel="stylesheet" href="../css/igop.min.css"/>
+    <link rel="stylesheet" href="../css/glcopyright.min.css"/>
+</head>
+<body>
+<div class="glcopyright">
+    <h1>CP页面</h1>
+    <div class="mg-breadnav">
+        状态通知内容<div class="breadnav-triangle"></div>
+    </div>
+    <div class="sy_header">
+        <div class="sy_header_fl">
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">
+                    游戏名称：
+                </p>
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">
+                    处理时限(工作日)：
+                </p>
+                <div class="div_radius">
+                    <input class="mg-form-control mg-form-sm tag_has" type="text" value="不限" readonly />
+                    <i class="iconfont icon-triangle-down downbig down"></i>
+                    <ul class="dropdown">
+                        <li>不限</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6-10</li>
+                        <li>16-20</li>
+                        <li>26-30</li>
+                        <li>31-35</li>
+                        <li>67</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sy_header_fr">
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">
+                    公司名称：
+                </p>
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+        </div>
+        <!--按钮-->
+        <button  class="mg-btn mg-btn-primary mg-btn__circle anniu">
+            <i class="iconfont icon-search01"></i>
+        </button>
+    </div>
+    <!-- 表格-->
+    <table class="mg-table table-hover juz">
+        <thead>
+        <tr>
+            <th style="width:155px;">软件名称</th>
+            <th style="width:155px;">公司名称</th>
+            <th style="width:145px;">处理时限(工作日)</th>
+            <th style="width:115px;">最近修改时间</th>
+            <th style="width:115px;">审核通过时间</th>
+            <th style="width:100px;">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="truncation">111111111111111111111111</td>
+            <td class="truncation">mapping mapping  mapping mapping</td>
+            <td>E</td>
+            <td>Otto</td>
+            <td>2016-06-31</td>
+            <td><i class="iconfont icon-view"></i></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>A</td>
+            <td>Otto</td>
+            <td>Otto</td>
+            <td><i class="iconfont icon-view"></i></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Larry</td>
+            <td>C</td>
+            <td>Otto</td>
+            <td>Otto</td>
+            <td><i class="iconfont icon-view"></i></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--分页-->
+    <div class="mg-pagination-info">
+        <ul class="mg-pagination">
+            <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+            <li class="page-prev"><a href="#">上一页</a></li>
+            <li class="page-dropdown">
+                <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+                <ul class="dropdown-menu">
+                    <li>10</li>
+                    <li>20</li>
+                    <li>50</li>
+                    <li>100</li>
+                </ul>
+            </li>
+            <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+            <li class="page-next"><a href="#">下一页</a></li>
+            <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+        </ul>
+    </div>
+</div>
+
+<!--===============================================================================================================================-->
+
+
+<div class="glcopyright">
+    <h1>管理员页面</h1>
+    <div class="mg-breadnav">
+        状态通知内容<div class="breadnav-triangle"></div>
+    </div>
+    <div class="sy_header">
+        <div class="sy_header_fl">
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">
+                    游戏名称：
+                </p>
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">
+                    缴费等级：
+                </p>
+                <div class="div_radius">
+                    <input class="mg-form-control mg-form-sm tag_has" type="text" value="不限" readonly />
+                    <i class="iconfont icon-triangle-down downbig down"></i>
+                    <ul class="dropdown">
+                        <li>不限</li>
+                        <li>Android</li>
+                        <li>ios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="sy_header_fr">
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">
+                    公司名称：
+                </p>
+                <input class="mg-form-control  mg-form-sm" type="text" value="" />
+            </div>
+            <div class="mg-form-item mg-form-sm">
+                <p class="item-label">到期时间段：</p>
+                <input type="text" class="mg-form-control mg-form-sm Wdate gl_data" value="" readonly="readonly" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"> -
+                <input type="text" class="mg-form-control mg-form-sm Wdate gl_data" value="" readonly="readonly" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+            </div>
+        </div>
+        <!--按钮-->
+        <button  class="mg-btn mg-btn-primary mg-btn__rightAngle anniu">搜索</button>
+    </div>
+   <!-- 表格-->
+    <table class="mg-table table-hover juz">
+        <thead>
+            <tr>
+                <th style="width:122px;">软件名称</th>
+                <th style="width:122px;">公司名称</th>
+                <th style="width:95px;">缴费等级</th>
+                <th style="width:115px;">最近修改时间</th>
+                <th style="width:115px;">审核通过时间</th>
+                <th style="width:115px;">到期时间</th>
+                <th style="width:100px;">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="truncation">111111111111111111111111</td>
+                <td class="truncation">mapping mapping  mapping mapping</td>
+                <td>E</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td>2016-06-31</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>A</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>C</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--分页-->
+    <div class="mg-pagination-info">
+        <ul class="mg-pagination">
+            <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+            <li class="page-prev"><a href="#">上一页</a></li>
+            <li class="page-dropdown">
+                <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+                <ul class="dropdown-menu">
+                    <li>10</li>
+                    <li>20</li>
+                    <li>50</li>
+                    <li>100</li>
+                </ul>
+            </li>
+            <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+            <li class="page-next"><a href="#">下一页</a></li>
+            <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!-- 日历 -->
+<script type="text/javascript" src="../js/pagination.js"></script><!--分页-->
+<script type="text/javascript" src="../js/form.js"></script><!--表单-->
+</body>
+</html>
+
+
+
+<!--代码片段------------------------------------------------------------------------------------------------------------>
+<h3>对应的html:</h3>
+<xmp style="margin:10px 0;padding:0px 0px 20px 0;border: 1px solid #e1e1e1;background-color: #efeeef;border-radius: 3px;font-size: 14px;color:#3c3c3c;">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>版权管理员-软著管理-首页</title>
+        <link rel="stylesheet" href="../css/igop.min.css"/>
+        <link rel="stylesheet" href="../css/glcopyright.min.css"/>
+    </head>
+    <body>
+    <div class="glcopyright">
+        <h1>CP页面</h1>
+        <div class="mg-breadnav">
+            状态通知内容<div class="breadnav-triangle"></div>
+        </div>
+        <div class="sy_header">
+            <div class="sy_header_fl">
+                <div class="mg-form-item mg-form-sm">
+                    <p class="item-label">
+                        游戏名称：
+                    </p>
+                    <input class="mg-form-control  mg-form-sm" type="text" value="" />
+                </div>
+                <div class="mg-form-item mg-form-sm">
+                    <p class="item-label">
+                        处理时限(工作日)：
+                    </p>
+                    <div class="div_radius">
+                        <input class="mg-form-control mg-form-sm tag_has" type="text" value="不限" readonly />
+                        <i class="iconfont icon-triangle-down downbig down"></i>
+                        <ul class="dropdown">
+                            <li>不限</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6-10</li>
+                            <li>16-20</li>
+                            <li>26-30</li>
+                            <li>31-35</li>
+                            <li>67</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sy_header_fr">
+                <div class="mg-form-item mg-form-sm">
+                    <p class="item-label">
+                        公司名称：
+                    </p>
+                    <input class="mg-form-control  mg-form-sm" type="text" value="" />
+                </div>
+            </div>
+            <!--按钮-->
+            <button  class="mg-btn mg-btn-primary mg-btn__circle anniu">
+                <i class="iconfont icon-search01"></i>
+            </button>
+        </div>
+        <!-- 表格-->
+        <table class="mg-table table-hover juz">
+            <thead>
+            <tr>
+                <th style="width:155px;">软件名称</th>
+                <th style="width:155px;">公司名称</th>
+                <th style="width:145px;">处理时限(工作日)</th>
+                <th style="width:115px;">最近修改时间</th>
+                <th style="width:115px;">审核通过时间</th>
+                <th style="width:100px;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="truncation">111111111111111111111111</td>
+                <td class="truncation">mapping mapping  mapping mapping</td>
+                <td>E</td>
+                <td>Otto</td>
+                <td>2016-06-31</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>A</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>C</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+            </tbody>
+        </table>
+        <!--分页-->
+        <div class="mg-pagination-info">
+            <ul class="mg-pagination">
+                <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+                <li class="page-prev"><a href="#">上一页</a></li>
+                <li class="page-dropdown">
+                    <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+                    <ul class="dropdown-menu">
+                        <li>10</li>
+                        <li>20</li>
+                        <li>50</li>
+                        <li>100</li>
+                    </ul>
+                </li>
+                <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+                <li class="page-next"><a href="#">下一页</a></li>
+                <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--===============================================================================================================================-->
+
+
+    <div class="glcopyright">
+        <h1>管理员页面</h1>
+        <div class="mg-breadnav">
+            状态通知内容<div class="breadnav-triangle"></div>
+        </div>
+        <div class="sy_header">
+            <div class="sy_header_fl">
+                <div class="mg-form-item mg-form-sm">
+                    <p class="item-label">
+                        游戏名称：
+                    </p>
+                    <input class="mg-form-control  mg-form-sm" type="text" value="" />
+                </div>
+                <div class="mg-form-item mg-form-sm">
+                    <p class="item-label">
+                        缴费等级：
+                    </p>
+                    <div class="div_radius">
+                        <input class="mg-form-control mg-form-sm tag_has" type="text" value="不限" readonly />
+                        <i class="iconfont icon-triangle-down downbig down"></i>
+                        <ul class="dropdown">
+                            <li>不限</li>
+                            <li>Android</li>
+                            <li>ios</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sy_header_fr">
+                <div class="mg-form-item mg-form-sm">
+                    <p class="item-label">
+                        公司名称：
+                    </p>
+                    <input class="mg-form-control  mg-form-sm" type="text" value="" />
+                </div>
+                <div class="mg-form-item mg-form-sm">
+                    <p class="item-label">到期时间段：</p>
+                    <input type="text" class="mg-form-control mg-form-sm Wdate gl_data" value="" readonly="readonly" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"> -
+                    <input type="text" class="mg-form-control mg-form-sm Wdate gl_data" value="" readonly="readonly" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                </div>
+            </div>
+            <!--按钮-->
+            <button  class="mg-btn mg-btn-primary mg-btn__rightAngle anniu">搜索</button>
+        </div>
+        <!-- 表格-->
+        <table class="mg-table table-hover juz">
+            <thead>
+            <tr>
+                <th style="width:122px;">软件名称</th>
+                <th style="width:122px;">公司名称</th>
+                <th style="width:95px;">缴费等级</th>
+                <th style="width:115px;">最近修改时间</th>
+                <th style="width:115px;">审核通过时间</th>
+                <th style="width:115px;">到期时间</th>
+                <th style="width:100px;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="truncation">111111111111111111111111</td>
+                <td class="truncation">mapping mapping  mapping mapping</td>
+                <td>E</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td>2016-06-31</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>A</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>C</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td>Otto</td>
+                <td><i class="iconfont icon-view"></i></td>
+            </tr>
+            </tbody>
+        </table>
+        <!--分页-->
+        <div class="mg-pagination-info">
+            <ul class="mg-pagination">
+                <li><a href="#"><i class="iconfont icon-icchevronleft"></i></a></li>
+                <li class="page-prev"><a href="#">上一页</a></li>
+                <li class="page-dropdown">
+                    <button class="dropdown-toggle" type="button"><span class="page-per-count">10</span><i class="iconfont icon-triangle-down"></i></button>
+                    <ul class="dropdown-menu">
+                        <li>10</li>
+                        <li>20</li>
+                        <li>50</li>
+                        <li>100</li>
+                    </ul>
+                </li>
+                <li><span class="page-count">10</span>/<span class="total-count">4000</span></li>
+                <li class="page-next"><a href="#">下一页</a></li>
+                <li><a href="#"><i class="iconfont icon-icchevronright"></i></a> </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/My97DatePicker/WdatePicker.js"></script><!-- 日历 -->
+    <script type="text/javascript" src="../js/pagination.js"></script><!--分页-->
+    <script type="text/javascript" src="../js/form.js"></script><!--表单-->
+    </body>
+    </html>
+</xmp>
+<!--/代码片段----------------------------------------------------------------------------------------------------------->
+
+

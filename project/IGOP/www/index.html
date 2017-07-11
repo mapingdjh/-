@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左侧菜单</title>
+</head>
+<style>
+    body,ul,li{margin:0; padding:0;font-size: 14px;}
+    li{list-style-type:none;}
+    a{ text-decoration: none;color:#333;}
+    .nav_left{width:300px;position:fixed;top: 0;left: 0; bottom:0;height:100%;background:#242424;overflow-y: auto;  overflow-x: hidden;}
+    .con_right{position: absolute;top: 0;left: 320px;right: 0;height: 100%;}
+    .left{width:300px; background:#242424;}
+    .nav_left ul li{cursor: pointer; line-height: 30px;display: block; color:#fff;}
+    .nav_left ul li a:hover{background: #6cb92b;}
+    .nav_left .current a.inactive{ background: #6cb92b; color:#fff;}
+    .nav_left .current ul li.current a{ background: none; color:#8cc152;}
+    .last a{ display: block;color:#fff;padding-left:20px; font-family: 微软雅黑;overflow:hidden;   white-space:nowrap;   text-overflow:ellipsis;}
+    .nav_left ul li ul li a:hover{color:#8cc152;background: none;}
+    .ul{padding-left:20px; display: none; background: #373737;}
+    .ifr{width:100%;height:100%;}
+</style>
+<body style="overflow: hidden;">
+<div class="content">
+    <div class="nav_left">
+        <ul>
+            <li class="last current"><a class="inactive jiaa" href="title.html"  target="text">标题</a></li>
+            <li class="last"><a class="inactive jiaa" href="form.html"  target="text">表单</a></li>
+            <li class="last"><a class="inactive jiaa" href="button.html"  target="text">按钮</a></li>
+            <li class="last"><a class="inactive jiaa" href="table.html"  target="text">表格</a></li>
+            <li class="last"><a class="inactive jiaa" href="pagination.html"  target="text">分页</a></li>
+            <li class="last"><a class="inactive jiaa" href="tab.html"  target="text">tab切换</a></li>
+            <li class="last"><a class="inactive jiaa" href="prompt.html"  target="text">工具提示</a></li>
+            <li class="last"><a class="inactive jiaa" href="dialog.html"  target="text">弹框</a></li>
+            <li class="last"><a class="inactive jiaa" href="dialogs.html"  target="text">插件弹框</a></li>
+            <li class="last"><a class="inactive jiaa" href="../font参考页面/demo_fontclass.html"  target="text">font参考页面</a></li>
+            <li class="last">
+                <a href="#" class="inactive active">状态通知、软著</a>
+                <ul class="ul">
+                    <li class="last"><a href="glcopyrightDetails.html" target="text">状态通知详情</a></li>
+                    <li class="last"><a href="glcopyrightIndex.html" target="text">状态通知内容</a></li>
+                    <li class="last"><a href="swCopyright.html" target="text">软著登记信息</a></li>
+                </ul>
+            </li>
+            <li class="last">
+                <a href="#" class="inactive active">公告</a>
+                <ul class="ul">
+                    <li class="last"><a href="notice_list.html" target="text">更新公告管理</a></li>
+                    <li class="last"><a href="notice_new.html" target="text">平台更新公告</a></li>
+                </ul>
+            </li>
+            <li class="last">
+                <a href="#" class="inactive active">MM</a>
+                <ul class="ul">
+                    <li class="last"><a href="mm_test.html" target="text">MM测试包体下载</a></li>
+                    <li class="last"><a href="mm_result.html" target="text">MM游戏查看-最终处理结果</a></li>
+                    <li class="last"><a href="mm_operation.html" target="text">MM游戏价格审批-审批操作</a></li>
+                    <li class="last"><a href="mm_dialog.html" target="text">MM弹框</a></li>
+                </ul>
+            </li>
+            <li class="last">
+                <a href="#" class="inactive active">套餐权益</a>
+                <ul class="ul">
+                    <li class="last"><a href="success.html" target="text">游戏发布成功页面</a></li>
+                    <li class="last"><a href="packageConfigure.html" target="text">套餐权益展示配置</a></li>
+                    <li class="last"><a href="packageConfigureAdd.html" target="text">新增--套餐权益展示配置</a></li>
+                    <li class="last"><a href="packageConfigureEdit.html" target="text">修改--套餐权益展示配置</a></li>
+                    <li class="last"><a href="packageConfigureChange.html" target="text">变更--套餐权益展示配置</a></li>
+                    <li class="last"><a href="packageConfigureDetails.html" target="text">查看--套餐权益展示配置</a></li>
+                    <li class="last"><a href="packageApproval.html" target="text">套餐权益展示配置--审批</a></li>
+                    <li class="last"><a href="packageApprovalOperation.html" target="text">套餐权益展示审批 > 审批操作</a></li>
+                    <li class="last"><a href="packageConfigureDetailsList.html" target="text">套餐权益展示配置查看首页</a></li>
+                    <li class="last"><a href="packageConfigureDetails1.html" target="text">套餐权益展示配置查看</a></li>
+                </ul>
+            </li>
+            <li class="last">
+                <a href="#" class="inactive active">发行平台</a>
+                <ul class="ul">
+                    <li class="last"><a href="issueRegistration.html" target="text">发行平台-注册账号</a></li>
+                    <li class="last"><a href="issueAccount.html" target="text">发行平台-账号信息</a></li>
+                </ul>
+            </li>
+            <li class="last">
+                <a href="#" class="inactive active">第三方支付管理</a>
+                <ul class="ul">
+                    <li class="last"><a href="thirdparty.html" target="text">第三方支付管理-推广渠道限制话费转三方支付配置</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="con_right">
+        <iframe class="ifr" src="title.html" name="text"  frameborder="false"></iframe><!--默认页面-->
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script>
+    $('.last').click(function() {
+        $(this).addClass("current").siblings().removeClass("current");
+    });
+    $(".inactive").click(function(){
+        if($(this).next().css("display")=="block"){
+            $(this).next().slideUp(300);
+        }else{
+            $(".ul").hide();
+            $("li").removeClass("current");
+            $(this).next().slideDown(300);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab切换</title>
+    <link rel="stylesheet" href="../css/igop.min.css">
+</head>
+<body style="padding:50px;">
+
+<div class="mg-tab">
+    <ul class="tab-lists">
+        <li class="tabs tab-item tab-item-current" attr=".tab-panel1">所有</li>
+        <li class="tabs tab-item" attr=".tab-panel2">草稿</li>
+        <li class="tabs tab-item" attr=".tab-panel3">已提交</li>
+        <li class="tabs tab-item" attr=".tab-panel4">已商用</li>
+        <li class="tabs tab-item" attr=".tab-panel5">已暂停</li>
+        <li class="tabs tab-item" attr=".tab-panel6">已下线</li>
+    </ul>
+</div>
+<br>
+<section class="panel tab-panel1">111111111111111111111</section>
+<section class="panel tab-panel2"  style="display: none">22222222222222222222222222</section>
+<section class="panel tab-panel3"  style="display: none">33333333333333333333333333</section>
+<section class="panel tab-panel4"  style="display: none">44444444444444444444444444</section>
+<section class="panel tab-panel5"  style="display: none">55555555555555555555555555</section>
+<section class="panel tab-panel6"  style="display: none">66666666666666666666666666</section>
+
+<div>对应的代码：</div>
+<xmp>
+    <div class="mg-tab">
+        <ul class="tab-lists">
+            <li class="tabs tab-item tab-item-current" attr=".tab-panel1">所有</li>
+            <li class="tabs tab-item" attr=".tab-panel2">草稿</li>
+            <li class="tabs tab-item" attr=".tab-panel3">已提交</li>
+            <li class="tabs tab-item" attr=".tab-panel4">已商用</li>
+            <li class="tabs tab-item" attr=".tab-panel5">已暂停</li>
+            <li class="tabs tab-item" attr=".tab-panel6">已下线</li>
+        </ul>
+    </div>
+    <br>
+    <section class="panel tab-panel1">111111111111111111111</section>
+    <section class="panel tab-panel2"  style="display: none">22222222222222222222222222</section>
+    <section class="panel tab-panel3"  style="display: none">33333333333333333333333333</section>
+    <section class="panel tab-panel4"  style="display: none">44444444444444444444444444</section>
+    <section class="panel tab-panel5"  style="display: none">55555555555555555555555555</section>
+    <section class="panel tab-panel6"  style="display: none">66666666666666666666666666</section>
+</xmp>
+<div>对应的 js 如下（如下这段 js 全部封装在 tab.js 中，不需要重新写）：</div>
+<xmp>
+    $(function(){
+    /*tab切换*/
+        $('.tabs').click(function() {
+            if(!$(this).hasClass('.tab-item-current')) {//在$('.tab_item')如果没有找到.current
+                $('.tabs.tab-item-current').removeClass('tab-item-current');//把有current的class先去掉
+                $(this).addClass('tab-item-current');//在给当前元素加上current
+                $('.panel').hide().filter($(this).attr('attr')).show();//给有panel的全部隐藏，过滤掉含有attr的class
+            }
+        })
+    });
+</xmp>
+
+
+
+
+
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/tab.js"></script>
+</body>
+</html>
