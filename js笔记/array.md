@@ -312,6 +312,21 @@ var arr = [1,2,3,4,5,8];
 - 去除重复元素依靠的是 indexOf 总是返回第一个元素的位置，后续的重复元素位置与 indexOf 返回的位置不相等，因此被 filter 滤掉了。
 - [参考网址](http://www.jb51.net/article/99038.htm) http://www.jb51.net/article/99038.htm
 
+### 8.5、ES6 Set()
+**set特性：成员值唯一，没有重复的值**
+
+	function dedupe(array){
+		return Array.from( new Set(array) )
+	}
+    dedupe( [1,2,3,3,4,4] ) // [1,2,3,4]
+    
+    或者：
+     let arr = [1,2,3,3,4,4];
+     let arr = [ ...set ];
+
+* Array.from可以将set结构转化为数组
+* ...扩展运算符内部使用for ... of循环，也可以用于set结构，将数据转为逗号隔开的字符 
+
 ## 判断是否为数组
 ### instancof
     var arr = [1,2,3,4];
