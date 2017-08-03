@@ -2,7 +2,7 @@
 ## 方法一
     function getQueryStringArgs(propertyName){
 		// 获取查询字符串并去掉开头的问号
-		var qs = (location.search.length > 0)?location.search.slice(1) : "";
+		var qs = (location.search.length > 0)?location.search.slice(1) : "",
 		    // 保存数据对象
 		    args  = {}, 
 		    // 保存掉以&分隔的每一项  
