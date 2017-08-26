@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0"">
+</head>
+<body>
+    <!-- 从文本框中复制 -->
+	<!-- 
+	<input id="foo" value="https://github.com/zenorocha/clipboard.js.git4566"> 
+	<button class="btn"  data-clipboard-target="#foo">复制</button> -->
+
+	<!-- 文本域中复制 -->
+	<!-- <textarea  id="foo">value="https://github.com/zenorocha/clipboard.js.git4566</textarea> 
+	<button class="btn"  data-clipboard-target="#foo">复制</button> -->
+    
+    <!-- 从属性中复制 -->
+	<!-- <button class="btn"  data-clipboard-text="3344clipboard.js">复制</button> -->
+
+    <!-- 从目标对象中复制 -->
+	<div id="foo">123456</div>
+	<button class="btn"  data-clipboard-target="#foo">复制</button>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script src="select.js"></script>
+<script src="clipboard.js"></script>
+<script>
+	$(function(){
+		$('.btn').clipboard();
+	})
+
+	/** 
+	 *  依赖：jquery和select.js(下载地址：https://www.npmjs.com/package/select)
+     *  插件调用方法：$('.btn').clipboard();
+     *  支持文本框、文本域、属性中、目标对象复制
+	*/
+</script>
