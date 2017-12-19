@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content='width=device-width, initial-scale=1.0, user-scalable=no, maximun-scale=1.0, minimum-scale=1.0' >
+	<title>loading</title>
+	<style>
+		.loading-page {
+		    
+		}
+		.loading-page {
+		    width: 100%;
+		    margin-top: 150px;
+		    padding: 40px 0;
+		    text-align: center;
+		    font-size: 16px;
+		    line-height: 2;
+
+		    color: #888;
+		}
+.loading-page .mint-spinner-snake {
+    margin: 0 auto;
+}
+.mint-spinner-snake {
+	  height: 20px; 
+	  width: 20px;
+	  -webkit-animation: mint-spinner-rotate 0.8s infinite linear;
+	          animation: mint-spinner-rotate 0.8s infinite linear;
+	  border: 4px solid rgb(204, 204, 204);
+	  border-right-color: transparent;
+	  border-radius: 50%;
+}
+@-webkit-keyframes mint-spinner-rotate {
+	0% {
+	    -webkit-transform: rotate(0deg);
+	            transform: rotate(0deg);
+	}
+	100% {
+	    -webkit-transform: rotate(360deg);
+	            transform: rotate(360deg);
+	}
+}
+</style>
+</head>
+<body>
+	<div class="loading-page">
+		<div class="mint-spinner-snake"></div>
+		数据加载中
+  </div>
+</body>
+</html>
