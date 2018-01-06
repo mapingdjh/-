@@ -141,4 +141,4 @@ Simple.defaultProps = {
 * [https://www.cnblogs.com/gdsblog/p/7348375.html](https://www.cnblogs.com/gdsblog/p/7348375.html)
 * [https://segmentfault.com/a/1190000004168886](https://segmentfault.com/a/1190000004168886)
 
-[demo代码](./expamles/lifeCycle/src/index.js)
+[demo代码](https://github.com/mapingdjh/front-end-study/tree/master/js%E7%AC%94%E8%AE%B0/React/examples/lifeCycle/)
