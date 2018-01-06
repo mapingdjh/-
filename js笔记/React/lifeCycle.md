@@ -141,4 +141,4 @@ Simple.defaultProps = {
 * [https://www.cnblogs.com/gdsblog/p/7348375.html](https://www.cnblogs.com/gdsblog/p/7348375.html)
 * [https://segmentfault.com/a/1190000004168886](https://segmentfault.com/a/1190000004168886)
 
-[demo代码](./expamles/lifeCycle)
+[demo代码](./expamles/lifeCycle/src/index.js)
