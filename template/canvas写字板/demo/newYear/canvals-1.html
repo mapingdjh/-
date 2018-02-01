@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvals-1</title>
+</head>
+<style>
+    .container {
+    	width: 500px;
+    	height: auto;
+    	margin: 0 auto;
+    }
+	canvas {
+		border: 1px solid #f00;
+	}
+</style>
+<body>
+	<div class="container">
+		<canvas id="cvs" width="500" height="500">
+			您的浏览器不支持canvas
+		</canvas>	
+	</div>
+</body>
+</html>
+<script>
+	var cvs = document.getElementById("cvs");
+	if( cvs.getContext){
+		var ctx = cvs.getContext("2d");
+
+		ctx.fillStyle="#0f0"
+        ctx.beginPath();
+        ctx.moveTo(75,50)
+        ctx.lineTo(100,75);
+        ctx.lineTo(100,25);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.strokeStyle="#0f0"
+        ctx.moveTo(125,125)
+        ctx.lineTo(125,45);
+        ctx.lineTo(45,125)
+        ctx.closePath();
+        ctx.stroke();
+
+	
+	}
+</script>

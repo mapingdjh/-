@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvals-1</title>
+</head>
+<style>
+    .container {
+    	width: 500px;
+    	height: auto;
+    	margin: 0 auto;
+    }
+	canvas {
+		border: 1px solid #f00;
+	}
+</style>
+<body>
+	<div class="container">
+		<canvas id="cvs" width="500" height="500">
+			您的浏览器不支持canvas
+		</canvas>	
+	</div>
+</body>
+</html>
+<script>
+	var cvs = document.getElementById("cvs");
+	if( cvs.getContext){
+		var ctx = cvs.getContext("2d");
+
+		/*ctx.strokeStyle="#0f0"
+        ctx.beginPath();
+        ctx.arc(100,75,50,0, Math.PI*3/2)
+        ctx.stroke()
+        
+        ctx.globalAlpha = 0.2;
+        ctx.fillStyle="#f00"
+        ctx.fillRect(200,200,100,100);*/
+
+        ctx.fillStyle = '#FD0';
+        ctx.fillRect(0,0,75,75)
+
+        ctx.fillStyle = '#6C0';
+        ctx.fillRect(75,0,75,75);
+        ctx.fillStyle = '#09F';
+        ctx.fillRect(0,75,75,75);
+        ctx.fillStyle = '#F30';
+        ctx.fillRect(75,75,75,75);
+
+        ctx.fillStyle="#fff";
+        ctx.globalAlpha = 0.2;
+
+        // 画圆-半透明
+        for( var i=0; i<7; i++){
+            ctx.beginPath();
+            ctx.arc(75,75,10+10*i,0,Math.PI*2)
+            ctx.fill();
+        }
+        
+         ctx.globalAlpha = 1 ;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(200,5);
+        ctx.lineTo(200,140);
+        ctx.stroke();
+	
+	}
+</script>

@@ -1,0 +1,213 @@
+
+<strong><!doctype html>  
+</strong><html>  
+    <head>  
+        <meta charset="utf-8">  
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+        <title>Canvas</title>  
+        <style type="text/css">  
+            body {  
+                margin: 0px;  
+                padding: 0px;  
+                background: url(./index-bg_01.png) repeat center;
+                background-size: 100% 1px;
+            }  
+            #canvas {  
+                margin: 0px;  
+                padding: 0px;  
+                border: 1px solid #000000;    
+            }  
+            .container {
+            	width: 92%;
+            	margin: 0 auto;
+            }
+        </style>  
+    </head>  
+    <body>  
+    	<div class="container">
+    		<canvas id="canvas" width="350" height="400">当前浏览器不支持canvas</canvas>  
+            <button class="btn-eraser">橡皮擦</button>
+            <button class="btn-clear">清空</button>
+            <button class="btn-undo disabled" disabled>undo</button>
+            <button class="btn-redo disabled" disabled>redo</button>
+    	</div>
+        
+        <script type="text/javascript">  
+            window.onload=function(){  
+                 var undo = document.querySelector(".btn-undo");
+                 var redo = document.querySelector(".btn-redo");
+                var canvas=document.getElementById("canvas");  
+                var context=canvas.getContext("2d"); 
+                var isEraser = false;  // 是否是橡皮擦模式
+                var snap = [];         // 保存会画之前的快照，用于撤销
+                var redoSnap = [];     // 撤销后的快照从snap移动到redoSnap，用于恢复撤销
+                 //添加mousedown监听事件，在用户鼠标按下后开始画线，并注册mousemove事件  
+                canvas.addEventListener("touchstart",function(event){ 
+                  
+                	var touche = event.targetTouches[0];
+                    // 获得相对于canvas左上角触摸点坐标：
+                    // clientX：坐标点相对于浏览器左上角
+                    // offsetLeft：canvas距离页面左边边距
+                    var canvas_x = touche.clientX - canvas.offsetLeft,
+                        canvas_y = touche.clientY - canvas.offsetTop;
+                    if(isEraser){
+                        // 橡皮擦
+                        //手指刚触摸到屏幕时，保存一个canval快照并加入数组
+                        copyImage(context,canvas,snap)
+                        resetEraser(canvas_x,canvas_y,touche)
+                    }else{
+                        // 开始划线
+                        context.beginPath();  
+                        // 控制粗细
+                        context.lineWidth=15;
+                        // 控制线帽子-原型
+                        context.lineCap = 'round';
+                        // 控制线的连接处-圆形
+                        context.join = 'lineJoin'
+                         // 控制画笔图案
+                        var img = new Image();
+                        img.src = './glod.png';
+                        img.onload = function(){
+                            // 创建图案
+                            var ptrn = context.createPattern(img,'repeat');
+                            context.strokeStyle = ptrn;
+                        }
+                        context.moveTo(canvas_x, canvas_y);
+                        // 注意：  getImageData本地打开会报跨域错误。需要开静态服务
+                        copyImage(context,canvas,snap)
+                        
+
+                        //context.save();
+                        canvas.addEventListener("touchmove",onMouseMove,false);  
+                    }    
+                    
+                },false);  
+
+                 //在鼠标移动时划线   
+                function onMouseMove(event){  
+                	var touche = event.targetTouches[0];
+                    // 获得相对于canvas左上角触摸点坐标
+                    var canvas_x = touche.clientX - canvas.offsetLeft,
+                        canvas_y = touche.clientY - canvas.offsetTop;
+                     if(isEraser){
+                        resetEraser(canvas_x,canvas_y,touche)
+                    }else{
+                        context.lineTo(canvas_x,canvas_y);  
+                        context.stroke(); 
+                    }
+                        
+                }  
+
+                //在鼠标按键松开后，注销鼠标移动事件  
+                canvas.addEventListener("touchmov",function(event){  
+                    canvas.removeEventListener("touchend",onMouseMove,false);  
+                },false);  
+
+                // 橡皮擦
+                document.querySelector(".btn-eraser").onclick = function(){
+                    isEraser = true;
+                }
+
+                // 清空
+                document.querySelector(".btn-clear").onclick = function(){
+                    if(confirm("清空后不可撤销，确定要清空吗？")){
+                        clear(context)
+                    }
+                    
+                }
+                // 撤销
+               /* document.querySelector(".btn-undo").onclick = function(){
+                    // 获取快照列表中最后一个快照，
+                    var oldCanvas = snap.pop();
+                    redoSnap.push(oldCanvas);
+                    context.putImageData(oldCanvas,0,0);
+                }
+
+                // 恢复撤销
+                document.querySelector(".btn-redo").onclick = function(){
+                    // 获取快照列表中最后一个快照，
+                    var newCanvas = redoSnap.pop();
+                    snap.push(newCanvas)
+                    context.putImageData(snap.pop(),0,0);
+                }*/
+
+                // 撤销
+                document.querySelector(".btn-undo").onclick = function(){
+                    //撤销前保存一个canval快照并加入数组redoSnap中，用于恢复撤销
+                    copyImage(context,canvas,redoSnap)
+
+                    // 获取快照列表中最后一个快照，
+                    var oldCanvas = snap.pop();
+                    context.putImageData(oldCanvas,0,0);
+                    if(snap.length <= 0){
+                        undo.setAttribute("disabled",true)
+                    }
+                }
+
+                // 恢复撤销
+                document.querySelector(".btn-redo").onclick = function(){
+                    //恢复撤销前，保存一个canval快照并加入数组用于撤销
+                    copyImage(context,canvas,snap)    
+                    // 获取快照列表中最后一个快照，
+                    var newCanvas = redoSnap.pop();
+                     if(redoSnap.length <= 0){
+                        redo.setAttribute("disabled",true)
+                    }
+                    context.putImageData(newCanvas,0,0);
+                }
+
+
+                 /* 橡皮擦 */
+                function resetEraser(x,y,touch) {
+                     /*使用橡皮擦-提醒*/
+                    /*source-over 默认,相交部分由后绘制图形的填充(颜色,渐变,纹理)覆盖,全部浏览器通过*/
+                    context.globalCompositeOperation = "destination-out";
+                    context.beginPath();
+
+                    context.arc(x, y, 10, 0, Math.PI * 2);
+                    context.strokeStyle = "rgba(250,250,250,0)";
+                    context.fill();
+                    context.globalCompositeOperation = "source-over"
+                }  
+                
+                /* 清空画布 */ 
+                function clear(ctx){
+                    //copyImage(context,canvas,snap) 
+                    //copyImage(context,canvas,redoSnap) 
+                    //清除画布，左上角为起点
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    isEraser = false;
+                    
+                    // 清空快照
+                    snap = [];
+                   redoSnap = [];
+
+                    // 按钮默认置灰
+                    undo.setAttribute("disabled",true)
+                    redo.setAttribute("disabled",true)
+                }
+
+                /** 撤销前copy一个快照保存到数组中 */
+                // canvas: canvas对象
+                // ctx: canvas上下文对象
+                // storeArray： 一个数组对象用于保存canva快照
+                function copyImage(ctx, canvas, storeArray ){
+                    var imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
+                    //手指刚触摸到屏幕时，保存一个canval快照并加入数组
+                    storeArray.push(imgData);
+                    if(storeArray == snap && storeArray.length > 0){
+                        undo.removeAttribute("disabled")
+                    }
+
+                    if(storeArray == redoSnap && storeArray.length > 0){
+                        redo.removeAttribute("disabled")
+                    }
+                  
+                }
+            }
+            
+           
+
+        </script>  
+    </body>
+ </html>

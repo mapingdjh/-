@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvals-1</title>
+</head>
+<style>
+    .container {
+    	width: 500px;
+    	height: auto;
+    	margin: 0 auto;
+    }
+	canvas {
+		border: 1px solid #f00;
+	}
+</style>
+<body>
+	<img src="./cj_m_02.png" alt="" id="tul" style="display: none">
+	<div class="container">
+		<canvas id="cvs" width="500" height="500">
+			您的浏览器不支持canvas
+		</canvas>	
+	</div>
+    <button class="btn">canvas to image</button>
+</body>
+</html>
+<script>
+	var cvs = document.getElementById("cvs");
+	if( cvs.getContext){
+		var ctx = cvs.getContext("2d");
+		var img = document.getElementById("tul")
+		 ctx.fillRect(0,0,150,150);   // 使用默认设置绘制一个矩形
+  		 ctx.save();                  // 保存默认状态
+
+  		 ctx.fillStyle = '#09F'       // 在原有配置基础上对颜色做改变
+	  ctx.fillRect(15,15,120,120); // 使用新的设置绘制一个矩形
+
+	  ctx.save();                  // 保存当前状态
+	  ctx.fillStyle = '#FFF'       // 再次改变颜色配置
+	  ctx.globalAlpha = 0.5;    
+	  ctx.fillRect(30,30,90,90);   // 使用新的配置绘制一个矩形
+
+	  ctx.restore();               // 重新加载之前的颜色状态
+      ctx.fillRect(45,45,60,60);   // 使用上一次的配置绘制一个矩形
+      ctx.restore();               // 加载默认颜色配置
+  	  ctx.fillRect(60,60,30,30);   // 使用加载的配置绘制一个矩形
+      
+  	  console.log(cvs.toDataURL("image/png"))
+
+	}
+    
+    // canvas转成图片
+    function convertCanvasToImage(canvas) {
+		var image = new Image();
+		image.src = canvas.toDataURL("image/png");
+		document.body.appendChild(image)
+	}
+    
+    document.querySelector(".btn").onclick = function(){
+    	//convertCanvasToImage(cvs)
+    	downloadFile('ship.png', cvs.toDataURL("image/png"));
+    }
+  
+   // base64转成blob
+   function base64Img2Blob(code){
+        var parts = code.split(';base64,');
+        var contentType = parts[0].split(':')[1];
+        var raw = window.atob(parts[1]);
+        var rawLength = raw.length;
+        var uInt8Array = new Uint8Array(rawLength);
+        for (var i = 0; i < rawLength; ++i) {
+         uInt8Array[i] = raw.charCodeAt(i);
+        }
+        return new Blob([uInt8Array], {type: contentType}); 
+    }
+     
+     // canvas下载到本地
+     function downloadFile(fileName, content){
+        var aLink = document.createElement('a');
+        var blob = base64Img2Blob(content); //new Blob([content]);
+        //var evt = document.createEvent("HTMLEvents");
+        //evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错
+        aLink.download = fileName;
+        aLink.href = URL.createObjectURL(blob);
+        document.body.appendChild(aLink)
+        aLink.click();
+      }      
+
+
+
+</script>

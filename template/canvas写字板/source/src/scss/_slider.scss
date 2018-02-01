@@ -1,0 +1,64 @@
+/** 橡皮擦、笔刷滑块样式 */
+
+.slider-box {
+	position: relative;
+	width: auto;
+	.slider-prev {
+		position: absolute;
+		left: 92rem / $basic;
+		top: 10rem / $basic;
+		width: 10px;
+		height: 10px;
+	}
+	.slider-circle {
+		border-radius: 100%;
+		background: rgba(0,0,0,.4);
+	}
+	.slider-outer {
+		position: relative;
+		margin: 0 auto;
+		width: 29rem / $basic;
+		height: 390rem / $basic;
+		background: #000;
+		border-radius: 20rem / $basic;
+		margin-bottom: 40rem / $basic;
+		.slider-inner,.slider-inner-wrapper {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -9.5rem / $basic;
+			width: 19rem / $basic;
+			height: 100rem / $basic;
+			background: #fff;
+			border-radius: 10rem / $basic;
+		}
+		.slider-inner-wrapper {
+			width: 40px;
+			left: 50%;
+			margin-left: -20px;
+			background: transparent;
+			z-index: 900;
+		}
+	}
+	.slider-preview {
+		display: table;
+		margin: 0 auto;
+		.label {
+			display: table-cell;
+			padding-right: 18rem / $basic;
+			color: #000;
+			font-size: 26rem / $basic;
+			vertical-align: middle;
+		}
+		.prev {
+			display: table-cell;
+			width: 80rem / $basic;
+			height: 80rem / $basic;
+			line-height: 80rem / $basic;
+			text-align: center;
+			color: #fff;
+			vertical-align: middle;
+
+		}
+	}
+}

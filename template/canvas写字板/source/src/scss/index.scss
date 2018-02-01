@@ -1,0 +1,475 @@
+/** 首页样式 */
+
+$basic: 75;
+body {
+	*background: url(../img/index-bg_01.png) repeat bottom center;
+	*background-size: cover;
+}
+
+// 首屏样式
+.first-page {
+	position: absolute;
+	left: 50%;
+    margin-left: -5rem;
+	top: 0;
+	bottom: 0;
+	width: 10rem;
+	*height: 1334rem / $basic;
+	background: #decdaf url(../img/index-bg.png) no-repeat top center;
+	background-size: 100% 1334rem / $basic;
+	overflow: hidden;
+	z-index: 4000;
+    .wx-wrapper {
+    	position: relative;
+    	width: 100%;
+    	height: 100%;
+    }
+	.cloud-left {
+		position: absolute;
+		left: 36rem / $basic;
+		top: 95rem / $basic;
+		width: 282rem / $basic;
+		height: 350rem / $basic;
+		z-index: 105;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.cloud-right {
+		position: absolute;
+		right: 32rem / $basic;
+		top: 60rem / $basic;
+		width: 152rem / $basic;
+		height: 247rem / $basic;
+		z-index: 106;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.kidney {
+		position: absolute;
+		left: 52%;
+		margin-left: -192rem / $basic;
+		top: 60rem / $basic;
+		width: 383rem / $basic;
+		height: 881rem / $basic;
+		z-index: 104;
+		-webkit-animation: kidneyFade .8s ;
+		animation: kidneyFade .8s ;
+		
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.cartoon-wrapper {
+		position: absolute;
+		left: 36rem / $basic;
+		top: 150rem / $basic;
+		width: 678rem / $basic;
+		height: 678rem / $basic;
+		background: transparent;
+		z-index: 99;
+		overflow: hidden;
+		border-radius: 100%;
+	}
+	.cartoon-left {
+		position: absolute;
+		left:-34rem / $basic;
+		bottom: 0rem / $basic;
+		width: 260rem / $basic;
+		height: 325rem / $basic;
+		z-index: 105;
+		-webkit-animation: cartoonLeftFade 1s;
+		animation: cartoonLeftFade 1s;
+		img {
+			width: 100%;
+            height: 100%;
+		}
+	}
+	.cartoon-right {
+		position: absolute;
+		right:-35rem / $basic;
+		bottom: -30rem / $basic;
+		width: 218rem / $basic;
+		height: 469rem / $basic;
+		z-index: 106;
+		-webkit-animation: cartoonRightFade 1s;
+		animation: cartoonRightFade 1s;
+		
+		img {
+			width: 100%;
+            height: 100%;
+		}
+	}
+	.person-group {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 639rem / $basic;
+		z-index: 106;
+		-webkit-animation: personFade .8s;
+		-webkit-animation: personFade .8s;
+		animation: personFade .8s;
+		img {
+			width: 100%;
+            height: 100%;
+            
+		}
+	}
+
+	.arrow-box {
+		position: fixed;
+	    left: 50%;
+	    margin-left: -224rem / $basic;
+	    bottom: 20rem / $basic;
+	    width: 447rem / $basic;
+	    z-index: 107;
+	    animation: arrowShow .8s;
+	    .arrow-label {
+	    	position: relative;
+	    	top: 0rem / $basic;
+	    	width: 100%;
+	    	height: 93rem / $basic;
+	    }
+	    .arrow-wave {
+	    	position: relative;
+	    	width: 90rem / $basic;
+	    	height: 90rem / $basic;
+	    	margin: 0 auto;
+	        border-radius: 100%;
+	    }
+	    .icon-arrow	{
+	    	position: absolute;
+	    	left: 50%;
+	    	top: 50%;
+	    	margin-left: -45rem / $basic;
+	    	margin-top: -40rem / $basic;
+	    	width: 90rem / $basic;
+	    	height: 79rem / $basic;
+		    background: url(../img/arrow-bottom.png);
+		    background-size: 100% 100%;
+		    display: none;
+	    }
+	    .ico-wave {
+	    	position: absolute;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    border: 1px solid rgba(255,255,255,.5);
+		    border-radius: 50%;
+	    }
+	    .wave {
+	    	position: absolute;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    border: 2px solid rgba(255,255,255,.5);
+		    border-radius: 50%;
+		    opacity: 0;
+		    -webkit-animation: move-wave 3s infinite backwards;
+    		animation: move-wave 3s infinite backwards;
+	    }
+	    .wave-2 {
+		    -webkit-animation-delay: 1s;
+		    animation-delay: 1s;
+		}
+		.wave-3 {
+		    -webkit-animation-delay: 2s;
+		    animation-delay: 2s;
+		}
+	}
+}
+
+// 离开首页过度到第二页动画
+.first-page-leave {
+	-webkit-animation: pageLeave 1s both;
+	animation: pageLeave 1s both;
+	.kidney {
+		-webkit-animation: kidneyLeave 1s both;
+		animation: kidneyLeave 1s both;
+	}
+	.cartoon-left {
+		-webkit-animation: cartoonLeftLeave 1s both;
+		animation: cartoonLeftLeave 1s both;
+	}
+	.cartoon-right {
+		-webkit-animation: cartoonRightLeave 1s both;
+		animation: cartoonRightLeave 1s both;
+	}
+	.person-group {
+		-webkit-animation: personLeave 1s both;
+		animation: personLeave 1s both;
+	}
+	.arrow-box {
+		-webkit-animation: arrowHide 1s both;
+		animation: arrowHide 1s both;
+	}
+
+}
+
+
+/**************************************** 第二屏样式 ************************************** */
+.second-page {
+	visibility: hidden;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 10rem;
+	margin-left: -5rem;
+	background: #b3051f url(../img/edit-bg-default.png) no-repeat top center;
+	background-size: 100%;
+	overflow: hidden;
+	.edit-box {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		z-index: 2008;
+
+		.ewm {
+			position: absolute;
+			top: 1138rem / $basic;
+			right: 40rem / $basic;
+			width: 160rem / $basic;
+			height: 160rem / $basic;
+			z-index: 1000;
+			visibility: hidden;
+		}
+		.edit-hd {
+			position: absolute;
+			top: 18rem / $basic;
+			left: 0;
+			width: 100%;
+			z-index: 2018;
+			.logo {
+				margin: 0 34rem / $basic;
+				width: 137rem / $basic;
+				height: 40rem / $basic;
+			}
+			.edit-label {
+				position: absolute;
+				left: 50%;
+				margin-left: -150rem / $basic;
+
+				width: 299rem / $basic;
+				height: 43rem / $basic;
+			}
+			.edit-cloud {
+				position: relative;
+    			left: 6rem / $basic;
+				display: block;
+				margin: 0 auto;
+				width: 736rem / $basic;
+				height: 367rem / $basic; 
+			}
+		}
+		.edit-line-h {
+			display: none;
+			position: absolute;
+			left: 36rem / $basic;
+			top: 200rem / $basic;
+			width: 0;
+			z-index: 2016;
+			border-left: 1px dashed #ffcc00;
+		}
+		.edit-line {
+			position: absolute;
+			left: 0;
+			top: 200rem / $basic;
+			width: 10rem;
+			z-index: 2016;
+			border-top: 1px dashed #ffcc00;
+			border-bottom: 1px dashed #ffcc00;
+		}
+		.edit-bd {
+			position: absolute;
+			left: 0;
+			top: 200rem / $basic;
+			width: 10rem;
+			z-index: 2018;
+		}
+		.edit-ft {
+			position: absolute;
+			left: 0;
+			bottom: -2px;
+			width: 100%;
+			*height: 330rem / $basic;
+			padding-top: 50rem / $basic;
+			z-index: 2019;
+			&.shade {
+				*background-color: rgba(0,0,0,.4);
+			}
+			button {
+				outline: none;
+				border: none;
+				padding: 0;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				background-color: transparent;
+			}
+			.btn-groups {
+				padding: 0 20rem / $basic;
+				*margin-bottom: 15rem / $basic;
+				button {
+					width: 119rem / $basic;
+					height: 113rem / $basic;
+					margin-right: 10rem / $basic;
+					background-color: transparent;
+					&:last-child {
+						float: right;
+						width: 289rem / $basic;
+						margin-right: 0;
+					}
+				}
+				.wx-btn-clear {
+					background-image: url(../img/clear.png);
+					&.active {
+						background-image: url(../img/clear-highlight.png);
+					}
+				}
+				.wx-btn-undo {
+					background-image: url(../img/btn-undo.png);
+					&.active {
+						background-image: url(../img/btn-undo-highlight.png);
+					}
+				}
+				.wx-btn-redo {
+					background-image: url(../img/btn-redo.png);
+					&.active {
+						background-image: url(../img/btn-redo-highlight.png);
+					}
+				}
+				.wx-btn-preview {
+					background-image: url(../img/btn-preview.png);
+				}
+			}
+            
+            // 底部背景、画笔、橡皮样式
+			.edit-tools {
+				padding: 0 60rem / $basic;
+				text-align: justify;
+				background: none;
+				button {
+					width: 200rem / $basic;
+					height: 200rem / $basic;
+				}
+				.tool-bg {
+					background-image: url(../img/btn-selectbg.png);
+					&.active {
+						background-image: url(../img/btn-selectbg-active.png);
+					}
+				}
+				.tool-pen {
+					background-image: url(../img/btn-selectpen.png);
+					&.active {
+						background-image: url(../img/btn-selectpen-active.png);
+					}
+				}
+				.tool-eraser {
+					background-image: url(../img/btn-selectEraser.png);
+					&.active {
+						background-image: url(../img/btn-selectEraser-active.png);
+					}
+				}
+			}
+		}
+	}
+    .bg-lg {
+    	background-position: top center;
+    	background-repeat: no-repeat;
+    	background-size: 10rem;
+    }
+	.bg-lg-1 {
+		background-image: url(../img/bg-lg-1.png);
+	}
+	.bg-lg-2 {
+		background-image: url(../img/bg-lg-2.png);
+	}
+	.bg-lg-3 {
+		background-image: url(../img/bg-lg-3.png);
+	}
+	.bg-lg-4 {
+		background-image: url(../img/bg-lg-4.png);
+	}
+	.bg-lg-5 {
+		background-image: url(../img/bg-lg-5.png);
+	}
+	.bg-lg-6 {
+		background-image: url(../img/bg-lg-6.png);
+	}
+
+	// 图片合成相关样式
+	.compose-box {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2006;
+		background: #fff;
+		visibility: hidden;
+		#cvs-compose {
+			width: 375px;
+			height: 667px;
+		}
+	}
+
+	// 预览图片
+	.preview-box {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2009;
+		overflow-x: hidden;
+		overflow-y: auto;
+		.preview-img {
+			width: 10rem;
+    		height: auto;
+		}
+		.btn-groups {
+			position: fixed;
+			left: 40rem / $basic;
+			right: 40rem / $basic;
+			bottom: 224rem / $basic;
+			.wrapper {
+				display: table;
+				width: 100%;
+			}
+			button {
+				display: table-cell;
+				vertical-align: middle;
+				outline: none;
+				border: none;
+				background-color: transparent;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			}
+			.goback {
+				width: 119rem / $basic;
+				height: 113rem / $basic;
+				background: url(../img/btn-undo-highlight.png) no-repeat center;
+				background-size: cover;
+			}
+			.holdsave {
+				margin: 0 64rem / $basic;
+				width: 309rem / $basic;
+				height: 73rem / $basic;
+				background: url(../img/btn-hold.png) no-repeat center;
+				background-size: cover;
+			}
+		}
+	}
+}
+.penGroups {
+	opacity: 0;
+}

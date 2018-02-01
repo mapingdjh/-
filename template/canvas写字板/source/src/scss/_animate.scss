@@ -1,0 +1,349 @@
+/** 页面动画 */
+
+$basic: 75;
+/* 红色圆盘中卡通人物动画 */
+// 左
+@keyframes cartoonLeftFade {
+	0%,80% {
+		left: -2.3rem;
+		bottom: -128rem / $basic;
+		opacity: 0;
+	}
+	
+	100% {
+		left: -.3.8rem;
+		bottom: 0;
+		opacity: 1;
+	}
+}
+@-webkit-keyframes cartoonLeftFade {
+	0%,80% {
+		left: -2.3rem;
+		bottom: -128rem / $basic;
+		opacity: 0;
+	}
+	
+	100% {
+		left: -.3.8rem;
+		bottom: 0;
+		opacity: 1;
+	}
+} 
+
+// 右
+@keyframes cartoonRightFade {
+	0%,80% {
+		right: -2.2rem;
+		bottom: -88rem / $basic;
+		opacity: 0;
+	}
+	
+	100% {
+		right: -.46667rem;
+		bottom: -.4rem;
+		opacity: 1;
+	}
+}
+@-webkit-keyframes cartoonRightFade {
+	0%,80% {
+		right: -2.2rem;
+		bottom: -88rem / $basic;
+		opacity: 0;
+	}
+	
+	100% {
+		right: -.46667rem;
+		bottom: -.4rem;
+		opacity: 1;
+	}
+}
+
+
+/* 中间艺术字动画 */
+@keyframes kidneyFade {
+	0%,50%  {
+		opacity: 0;
+		transform: scale(.7);
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes kidneyFade {
+	0%,50%  {
+		opacity: 0;
+		transform: scale(.7);
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* 底部人物卡通 */
+@keyframes personFade {
+	0% {
+		opacity: .4;
+		transform: translate(0,100rem / $basic)
+	}
+	
+	100% {
+		opacity: 1;
+		ransform: translate(0,0)
+	}
+}
+
+@-webkit-keyframes personFade {
+	0% {
+		opacity: .4;
+		transform: translate(0,100rem / $basic)
+	}
+	
+	100% {
+		opacity: 1;
+		ransform: translate(0,0)
+	}
+	
+}
+
+
+// arrow动画
+@keyframes arrowShow {
+	0%,60% {
+		opacity: 0;
+	}
+	
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes arrowShow {
+	0%,60% {
+		opacity: 0;
+	}
+	
+	100% {
+		opacity: 1;
+	}
+}
+
+
+@keyframes move-wave {
+    from {
+        opacity: .5;
+        transform: scale(1)
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.8)
+    }
+}
+
+@-webkit-keyframes move-wave {
+    from {
+        opacity: .5;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale(1.8);
+        transform: scale(1.8)
+    }
+}
+
+
+
+/*  首页到第二页动画过度 */
+
+@keyframes pageLeave {
+	from {
+        opacity: .5;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale(1.8);
+        transform: scale(1.8)
+    }
+}
+
+@-webkit-keyframes pageLeave {
+	0% {
+	   opacity: 1;
+	   transform: translate(0,0)
+	}
+	
+	100% {
+		opacity: .4;
+		transform: translate(0,100rem / $basic)
+	}
+	
+}
+
+
+/* 红色圆盘中卡通人物动画 */
+// 左
+@keyframes cartoonLeftLeave {
+	0% {
+		left: -.3.8rem;
+		bottom: 0;
+		opacity: 1;
+	}
+	
+	100% {
+		left: -2.3rem;
+		bottom: -128rem / $basic;
+		opacity: 0;
+	}
+}
+@-webkit-keyframes cartoonLeftLeave {
+	0% {
+		left: -.3.8rem;
+		bottom: 0;
+		opacity: 1;
+	}
+	
+	100% {
+		
+		left: -2.3rem;
+		bottom: -128rem / $basic;
+		opacity: 0;
+	}
+} 
+
+// 右
+@keyframes cartoonRightLeave {
+	0% {
+		right: -.46667rem;
+		bottom: -.4rem;
+		opacity: 1;
+	}
+	
+	100% {
+		right: -2.2rem;
+		bottom: -88rem / $basic;
+		opacity: 0;
+	}
+}
+@-webkit-keyframes cartoonRightLeave {
+	0% {
+		right: -.46667rem;
+		bottom: -.4rem;
+		opacity: 1;
+	}
+	
+	100% {
+		right: -2.2rem;
+		bottom: -88rem / $basic;
+		opacity: 0;
+	}
+}
+
+
+/* 中间艺术字动画 */
+@keyframes kidneyLeave {
+	0%  {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@-webkit-keyframes kidneyLeave {
+	0%  {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+/* 底部人物卡通 */
+@keyframes personLeave {
+	0% {
+	   opacity: 1;
+	   transform: translate(0,0)
+	}
+	
+	100% {
+		opacity: .4;
+		transform: translate(0,100rem / $basic)
+	}
+}
+
+@-webkit-keyframes personLeave {
+	0% {
+	   opacity: 1;
+	   transform: translate(0,0)
+	}
+	
+	100% {
+		opacity: .4;
+		transform: translate(0,100rem / $basic)
+	}
+	
+}
+
+
+// arrow动画
+@keyframes arrowHide {
+	0% {
+		opacity: 1;
+	}
+	
+	100% {
+		opacity: 0;
+	}
+}
+@-webkit-keyframes arrowHide {
+	0% {
+		opacity: 1;
+	}
+	
+	100% {
+		opacity: 0;
+	}
+}
+
+
+
+/* 引用animate.css中fadeInUp */
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+.fadeInUp {
+    -webkit-animation: fadeInUp .5s;
+    animation: fadeInUp .5s;
+
+}

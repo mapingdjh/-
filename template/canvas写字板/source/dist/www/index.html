@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+  <meta name="format-detection" content="telephone=no, email=no"/>
+  <title>祈愿新年瑞犬迎春</title>
+  <script src="../js/flexible.min.js"></script>
+  <link rel="stylesheet" href="../css/common.min.css">
+  <link rel="stylesheet" href="../css/index.min.css">
+</head>
+<body>
+    <!-- 首屏 -->
+    <section class="wx-container first-page">
+      <div class="wx-wrapper">
+        <!-- 左侧云层 -->
+        <div class="cloud-left">
+          <img src="../img/cloud-l.png" alt="">
+        </div>
+
+        <!-- 右侧云层 -->
+        <div class="cloud-right">
+           <img src="../img/cloud-r.png" alt="">
+        </div>
+
+        <!-- 中间艺术字-->
+        <div class="kidney">
+            <img src="../img/kidney-text.png" alt="">
+        </div>
+       
+        <div class="cartoon-wrapper">
+          <!-- 中间左侧卡通-->
+          <div class="cartoon-left">
+            <img src="../img/cartoon-1.png" alt="">
+          </div>
+           <!-- 中间右侧卡通-->
+          <div class="cartoon-right">
+            <img src="../img/cartoon-2.png" alt="">
+          </div>
+        </div>
+       
+        <!-- 底部卡通人物 -->
+        <div class="person-group">
+            <img src="../img/person.png" alt="">
+        </div>
+
+        <!-- 向下箭头 -->
+        <div class="arrow-box"> 
+          <img src="../img/arrow-label.png" alt="" class="arrow-label">
+          <div class="arrow-wave">
+             <span class="icon-arrow"></span>
+             <span class="ico-wave"></span>
+             <span class="wave wave-1"></span>
+             <span class="wave wave-2"></span>
+             <span class="wave wave-3"></span>
+           
+          </div>
+         
+        </div>
+        </div>
+    </section>
+
+    <!-- 第二屏写字板区域 -->
+    <section class="tablet-box second-page">
+      <!-- 写字板编辑区 -->
+      <div class="edit-box bg-lg">
+        <img src="../img/ewm.png" alt="" class="ewm">
+        <header class="edit-hd">
+          <img src="../img/logo.png" alt="" class="logo">
+          <img src="../img/edit-label.png" alt="" class="edit-label">
+          <img src="../img/edit-cloud.png" alt="" class="edit-cloud">
+        </header>
+        <span class="edit-line"></span>
+        <span class="edit-line-h"></span>
+        <section class="edit-bd">
+          <canvas id="cvs" width="100%" height="305">您的浏览器不支持canvas</canvas>
+        </section>
+        <section class="edit-ft">
+          <div class="btn-groups">
+            <button class="wx-btn-clear"></button>
+            <button class="wx-btn-undo"></button>
+            <button class="wx-btn-redo"></button>
+            <button class="wx-btn-preview"></button>
+          </div>
+          <div class="edit-tools">
+            <button class="edit-tool tool-bg" type="bg"></button>
+            <button class="edit-tool tool-pen" type="pen"></button>
+            <button class="edit-tool tool-eraser" type="eraser"></button>
+          </div>
+        </section>
+        
+        <span class="overlay transparent"></span>
+        <!-- 弹框-确认框 -->
+        <div class="dialog dialog-confirm">
+          <div class="confirm-hd">
+            <img src="../img/icon-warning.png" class="icon-warning" />
+          </div>
+          <div class="confirm-bd">
+            <span class="content">清空后不可撤销，您确定要清空吗？</span>
+          </div>
+          <div class="confirm-ft">
+            <button class="btn-cancel"></button>
+            <button class="btn-confirm"></button>
+          </div>
+        </div>
+
+        <!-- 弹框-确认框 -->
+        <div class="dialog dialog-selectBg-tips">
+          <div class="confirm-hd">
+            <img src="../img/icon-warning.png" class="icon-warning" />
+          </div>
+          <div class="confirm-bd">
+            <span class="content">请选择背景</span>
+          </div>
+          <div class="confirm-ft">
+            <button class="btn-sure"></button>
+          </div>
+        </div>
+
+        <!-- 选择背景弹框 -->
+        <div class="dialog dialog-edit dialog-selectBg">
+          <span class="icon-close">&times;</span>
+          <div class="dialog-bd">
+            <ul class="bg-sm-lists">
+              <li class="list-item">
+                <span class="border"></span>
+                <img src="../img/bg-sm-1.png" alt="">
+              </li>
+              <li class="list-item">
+                <span class="border"></span>
+                <img src="../img/bg-sm-2.png" alt="">
+              </li>
+              <li class="list-item">
+                <span class="border"></span>
+                <img src="../img/bg-sm-3.png" alt="">
+              </li>
+              <li class="list-item">
+                <span class="border"></span>
+                <img src="../img/bg-sm-4.png" alt="">
+              </li>
+              <li class="list-item">
+                <span class="border"></span>
+                <img src="../img/bg-sm-5.png" alt="">
+              </li>
+              <li class="list-item">
+                <span class="border"></span>
+                <img src="../img/bg-sm-6.png" alt="">
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 选择橡皮弹框 -->
+        <div class="dialog dialog-edit dialog-eraser">
+          <span class="icon-close">&times;</span>
+          <div class="dialog-bd">
+              <div class="slider-box">
+                  <span class="slider-prev slider-circle"></span>
+                  <div class="slider-outer">
+                    <div class="slider-inner-wrapper"></div>
+                    <div class="slider-inner"></div>
+                  </div>
+                  <div class="slider-preview">
+                    <span class="label">橡皮粗细</span>
+                    <span class="prev slider-circle">10</span>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+         <!-- 选择笔刷弹框 -->
+        <div class="dialog dialog-edit dialog-pen">
+          <span class="icon-close">&times;</span>
+          <div class="dialog-bd">
+              <ul class="brush-list">
+                <li class="list-item active">
+                  <span class="border"></span>
+                  <img src="../img/brush-small-1.png" alt="">
+                </li>
+                 <li class="list-item">
+                  <span class="border"></span>
+                  <img src="../img/brush-small-2.png" alt="">
+                </li>
+                 <li class="list-item">
+                  <span class="border"></span>
+                  <img src="../img/brush-small-3.png" alt="">
+                </li>
+                 <li class="list-item">
+                  <span class="border"></span>
+                  <img src="../img/brush-small-4.png" alt="">
+                </li>
+              </ul>
+              <div class="slider-box">
+                  <span class="slider-prev slider-circle"></span>
+                  <div class="slider-outer">
+                    <div class="slider-inner-wrapper"></div>
+                    <div class="slider-inner"></div>
+                  </div>
+                  <div class="slider-preview">
+                    <span class="label">画笔粗细</span>
+                    <span class="prev slider-circle">10</span>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </div>
+
+
+      </div>
+       <!-- 写字板预览区 -->
+      <div class="preview-box hideScroll">
+        <img src="" alt="" class="preview-img">
+        <div class="btn-groups">
+          <div class="wrapper">
+            <button class="goback"></button>
+            <button class="holdsave"></button>
+          </div>
+        </div>
+      </div>
+      <!-- // 图片合成 -->
+      <div class="compose-box">
+        <canvas id="cvs-compose">您的浏览器不支持canvas</canvas>
+      </div>
+
+      <div class="penGroups">
+         <img src="../img/pen1.png" alt="" id="pen1">
+         <img src="../img/pen2.png" alt="" id="pen2">
+         <img src="../img/pen3.png" alt="" id="pen3">
+         <img src="../img/pen4.png" alt="" id="pen4">
+      </div>
+      
+    </section>
+   
+</body>
+<script src="../js/jquery.min.min.js"></script>
+<script src="../js/touch.min.js"></script>
+<script src="../js/slider.min.js"></script>
+<script src="../js/edit.min.js"></script>
+<script src="../js/compose.min.js"></script>
+<script>
+  $(function(){
+    /***************************** 第一屏首页动画 *************************** */
+    // 单击切换到第二屏
+    $(".arrow-wave").click(function(){
+       leavePageFirst();
+    })
+    
+    // 处理在一些设备中：微信，uc打开页面。图片点击后会放大全屏展示
+    $(".wx-container img, .tablet-box img").click(function(e){
+      e.preventDefault();
+    })
+    
+    function leavePageFirst(){
+      $(".second-page").css('visibility',"visible");
+       // 执行动画
+       $(".first-page").addClass("first-page-leave");
+       // 隐藏首屏
+        setTimeout(function(){
+           $(".first-page").hide();
+        },1000)
+    }
+
+    /***************************** 第二屏编辑文字 *************************** */
+
+     // 画笔的参数设置
+    var brushParams = {
+       // logo
+       logo: { 
+              url:    '../img/logo.png', 
+              width:  $(".edit-hd .logo").width(), 
+              height: $(".edit-hd .logo").height(),
+              left:   $(".edit-hd .logo").offset().left,     
+              top:    $(".edit-hd .logo").offset().top,
+       },
+       // 灯笼组
+       lantern: {
+           url:    '../img/edit-cloud.png', 
+           width:  $(".edit-hd .edit-cloud").width(), 
+           height: $(".edit-hd .edit-cloud").height(),
+           left:   $(".edit-hd .edit-cloud").offset().left,     
+           top:    $(".edit-hd .edit-cloud").offset().top,
+       },
+       // 二维码
+       ewm: {                                   
+           url:    '../img/ewm.png', 
+           width:  $(".edit-box .ewm").width(), 
+           height: $(".edit-box .ewm").height(),
+           left:   $(".edit-box .ewm").offset().left,     
+           top:    $(".edit-box .ewm").offset().top,
+       },                  
+       defaultBg: '../img/edit-bg-default.png',  // 页面最底层默认背景
+       pageBg: '../img/bg-lg-1.png',             // 当前页面选中的背景
+       brushSize: 30,                            // 画笔大小，默认12
+       eraserSize: 30,                           // 橡皮擦大小，默认10，
+       brushGrain: '../img/brush-big-1.png',     // 画笔纹理对象
+      
+    };
+    
+     // 橡皮擦或者笔刷弹框中滑块对象
+    var slider = null;             
+    var editor = new Editor({
+         size: Math.ceil(brushParams.eraserSize/2),               // 橡皮粗细(半径)
+         brushSize: Math.ceil(brushParams.brushSize/2),           // 画笔size（半径）
+         grainUrlObj: $("#pen1")[0],
+    });      // canvas画布组件
+    var deviceHeight = window.innerHeight || document.documentElement.innerHeight || document.documentElement.clientHeight;
+    var deviceWidth = window.innerWidth || document.documentElement.innerWidth || document.documentElement.clientWidth;
+
+    $(".edit-box .ewm").css({
+      top: deviceHeight-$(".edit-box .ewm").height() - 20 
+    })
+    // 微信中显示垂直竖线
+    var ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+       $(".edit-line-h").show();
+    } 
+    // 写字区上下虚线框
+    $(".edit-line,.edit-line-h").css("height",$(".edit-bd").height())
+    
+    // 微信中禁用默认的的上下滑屏
+    document.querySelector('.edit-box').addEventListener('touchmove', function (ev) {
+        event.preventDefault();
+    });
+   
+    // 选择页面背景
+    $(".dialog-selectBg .list-item").click(function(){
+       var $item = $(this);
+       toggle($item)
+       // 设置选中的背景作为页面背景
+       var index = $item.index()+1;
+       var selectedPageBg = '../img/bg-lg-' + index + '.png';
+       // 保存背景
+       brushParams.pageBg = selectedPageBg;
+       // 设置背景
+       setPageBg(index);
+    })
+
+    // 选择笔刷背景
+     $(".dialog-pen .list-item").click(function(){
+       var $item = $(this);
+       toggle($item)
+       var index = $item.index()+1;
+       // 设置选中的背景作为笔刷背景
+       var selectedGrainBg = $("#pen"+index)[0];
+       // 保存背景
+       brushParams.brushGrain = selectedGrainBg;
+       editor.setGrain(selectedGrainBg);
+    })
+
+    // 切换背景、画笔、橡皮按钮
+    $(".edit-tools").on("click",".edit-tool",function(){
+      if($(this).is("active")){
+        return;
+      }
+      $(this).addClass("active fadeInUp").siblings().removeClass("active fadeInUp");
+      var type = $(this).attr('type');
+      switch(type) {
+        case 'bg':
+          // 选择背景
+           $('.dialog-selectBg,.overlay').show();
+           // 书写模式
+           editor.setEraserStatus(false);
+          break;
+        case 'pen':
+          // 选择画笔
+          $('.dialog-pen,.overlay').show();
+           // 书写模式
+           editor.setEraserStatus(false);
+          // 加载滑块
+          slider = new Slider('.dialog-pen',{
+            type: 'pen',     // type: pen:画笔   eraser: 橡皮擦  
+            startSize: 16,   // 滑块开始刻度值，默认从0开始
+            size: brushParams.brushSize,
+            callback: function(size){
+              // 保存画笔大小
+              brushParams.brushSize = size;
+              editor.setSize( size )
+            }
+          });
+          break;  
+        case 'eraser':
+          // 选择橡皮擦
+          $('.dialog-eraser,.overlay').show();
+           // 橡皮擦模式
+           editor.setEraserStatus(true);
+          // 加载滑块
+          slider = new Slider('.dialog-eraser',{
+            type: 'eraser',  // type: pen:画笔   eraser: 橡皮擦  
+            startSize: 1,    // 滑块开始刻度值，默认从0开始
+            size: brushParams.eraserSize,
+            callback: function(size){
+              // 保存笔刷大小
+              brushParams.eraserSize = size;
+              editor.setSize( size )
+            }  
+          });
+          break;  
+      }
+    });
+    
+    // 设置页面背景
+    function setPageBg(index){
+        $(".edit-box .edit-label").hide();
+         $(".edit-box .edit-ft").addClass('shade');
+        $('.edit-box')[0].className='edit-box bg-lg bg-lg-'+index; 
+    }
+
+    // 切换背景或者笔刷
+    function toggle( $item ){
+      if($item.is(".active")){
+        return;
+      }
+      $item.addClass("active").siblings().removeClass("active")
+    }
+
+
+    // 点击清除按钮显示确认框  
+    $(".wx-btn-clear.active").click(function(){
+      $(".dialog-confirm,.overlay").show();
+    }) 
+
+    // 单击确认清空按钮
+    $(".dialog-confirm .btn-confirm").click(function(){
+      $(".dialog-confirm,.overlay").hide();
+      // 清空画布
+      editor.clearup();
+    })
+
+    // 关闭弹框
+    $(".btn-cancel,.btn-sure,.btn-confirm, .dialog-edit .icon-close").click(function(){
+      $(".dialog,.overlay").hide();
+      // 关闭弹框回收slider对象
+      if(slider) {
+        slider = null;
+      }
+    })
+
+
+   /************************************ 生成预览图 ***********************************/
+    
+    var brushCvs = document.getElementById("cvs");
+    document.querySelector(".wx-btn-preview").onclick = function(){
+      // 判断是否选择背景
+      var isSelectedBg = $('.edit-box')[0].className.indexOf('bg-lg-')>-1;
+      if(isSelectedBg){
+        // 调用图片合成组件
+        new Compose({
+          brushParams: brushParams,
+          // 绘制写字板区域参数配置
+          imageCanvas: {
+            url: brushCvs.toDataURL("image/png"),
+            width: brushCvs.width,
+            height: brushCvs.height,
+          },
+          callback: function(canvas){
+            // 绘制完图片后回调
+            var prevImageUrl = canvas.toDataURL("image/jpeg");
+            $(".edit-box").hide()
+            $('.preview-box').show().find(".preview-img").attr("src",prevImageUrl );
+          }
+        });
+      }else{
+          // 提示选择背景
+          $(".dialog-selectBg-tips,.overlay").show();
+          $('.btn-sure').click(function(){
+            $('.dialog-selectBg,.overlay').show();
+          })
+      }
+    }
+
+    // 返回重新修改
+    $(".preview-box .goback").click(function(){
+       $(".edit-box").show()
+       $('.preview-box').hide()
+    })
+
+  })
+</script>
+</html>

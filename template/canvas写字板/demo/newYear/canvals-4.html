@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvals-1</title>
+</head>
+<style>
+    .container {
+    	width: 500px;
+    	height: auto;
+    	margin: 0 auto;
+    }
+	canvas {
+		border: 1px solid #f00;
+	}
+</style>
+<body>
+	<img src="./cj_m_02.png" alt="" id="tul" style="display: none">
+	<div class="container">
+		<canvas id="cvs" width="500" height="500">
+			您的浏览器不支持canvas
+		</canvas>	
+	</div>
+</body>
+</html>
+<script>
+	var cvs = document.getElementById("cvs");
+	if( cvs.getContext){
+		var ctx = cvs.getContext("2d");
+		var img = document.getElementById("tul")
+		 // 第一种方式
+		 img.onload = function(){
+		 	ctx.drawImage(img,100,20,200,200,100,0,300,400);
+		 }
+        // 第二种方式
+        /*var img = new Image();
+        img.onload = function(){
+        	ctx.drawImage(img,0,0);
+        }
+        img.src = './cj_m_02.png';*/
+	}
+</script>
