@@ -115,4 +115,22 @@
 	var chinese = deepCopy(Chinese);
 	console.log("****调用****");
 	console.log(chinese);
-	   
+## 面试题
+```javascript
+var param = 1;
+
+function main()
+{    
+    console.log(param);
+    var param = 2;
+    console.log(this.param);
+    this.param = 3;
+}
+
+//下面两条语句分别会在控制台打印什么？
+main(); // undefined 1
+var m = new main(); // undefined undefined
+执行new mian()时，this.param输出undefined时因为
+this.param==>m.param,此时对象m中没有任何值
+[参照 ：http://www.cnblogs.com/similar/p/5292926.html#3385010](http://www.cnblogs.com/similar/p/5292926.html#3385010)
+```
