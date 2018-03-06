@@ -311,8 +311,16 @@ var arr = [1,2,3,4,5,8];
 
 - 去除重复元素依靠的是 indexOf 总是返回第一个元素的位置，后续的重复元素位置与 indexOf 返回的位置不相等，因此被 filter 滤掉了。
 - [参考网址](http://www.jb51.net/article/99038.htm) http://www.jb51.net/article/99038.htm
-
-### 8.5、ES6 Set()
+### 8.5 reduce
+	let arr = [1,2,1,2,3,5,4,5,3,4,4,4,4];
+	let result = arr.sort().reduce((init, current)=>{
+	    if(init.length===0 || init[init.length-1]!==current){
+	        init.push(current);
+	    }
+	    return init;
+	}, []);
+	console.log(result); //[1,2,3,4,5]
+### 8.6、ES6 Set()
 **set特性：成员值唯一，没有重复的值**
 
 	function dedupe(array){
