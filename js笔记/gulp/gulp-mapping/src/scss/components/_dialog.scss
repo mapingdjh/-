@@ -1,0 +1,78 @@
+// 弹框样式组件
+
+$basic: 108;
+.overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    z-index: 1000;
+  }
+
+  .dialog {
+      display: none;
+      z-index: 1001;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      width: 782rem / $basic;
+      min-height: 460rem / $basic;
+      margin-left: -391rem / $basic;
+      background: #fff;
+      border-radius: 30rem / $basic;
+      .dialog-hd {
+          position: absolute;
+          left: 50%;
+          top: -100rem / $basic;
+          margin-left: -353rem / $basic;
+          width: 706rem / $basic;
+          height: 212rem / $basic;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          &.hd-sign {
+              background-image: url(../img/dialog-title-sign.png)
+          }
+      }
+      .dialog-bd {
+          .content {
+            padding: 170rem / $basic 140rem / $basic 240rem / $basic 140rem / $basic;
+            text-align: center;
+            color: #7d7d7d;
+            font-size: 42rem / $basic;
+            line-height: 1.6;
+          }
+          .count {
+              font-weight: normal;
+              color: #ffb617;
+              font-size: 55rem / $basic;
+          }
+          
+      }
+      .btn-close {
+          position: absolute;
+          right: 0;
+          top: -140rem / $basic;
+          width: 80rem / $basic;
+          height: 80rem / $basic;
+          background: url(../img/btn-close.png) no-repeat center;
+          background-size: contain;
+      }
+      .dialog-btn {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 125rem / $basic;
+        line-height: 125rem / $basic;
+        text-align: center;
+        color: #fff;
+        font-size: 38rem / $basic;
+        border-bottom-left-radius: 30rem / $basic;
+        border-bottom-right-radius: 30rem / $basic;
+        background: #ff674c;  
+    }
+  }

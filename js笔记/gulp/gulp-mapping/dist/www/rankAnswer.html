@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>活动首页</title>
+    <script src="../js/flexible.js"></script>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/rank.css">
+</head>
+
+<body>
+    <div class="rank-container">
+        <section class="rank-hd">
+            <img src="../img/banner.png" alt="">
+            <span class="hd-decoration"></span>
+        </section>
+        <section class="rank-bd">
+            <!-- 两会活动 -->
+            <div class="npc">
+                <h4 class="npc-hd"></h4>
+                <ul class="npc-bd">
+                    <li class="npc-item item-knowledge">
+                        <a href="javascript:;" class="npc-btn npc-btn-kn">GO ></a>
+                    </li>
+                    <li class="npc-item item-dt">
+                        <a href="javascript:;" class="npc-btn npc-btn-dt">GO ></a>
+                    </li>
+                    <li class="npc-item item-video">
+                        <a href="http://m.miguvideo.com/wap/resource/mh/hd/ht/index.jsp?nodeId=70051595&from=groupmessage&isappinstalled=0" class="npc-btn npc-btn-vi">GO ></a>
+                    </li>
+                    <li class="npc-item item-jy">
+                        <a href="http://guodong.dangjian.chinamobile.com/lhjy" class="npc-btn npc-btn-jy">GO ></a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- 签到和每日一题 -->
+            <div class="answer-signed">
+                <div class="btn-groups">
+                    <button class="btn-answer btn-answer-high btn-sign">签 到
+                        <strong class="sign-tips sign-nonSign">(签到可获得50积分)</strong>
+                    </button>
+                    <button class="btn-answer btn-answer-high btn-answer-default btn-sign-disabled">已签到
+                        <strong class="sign-tips sign-tips-signed">(已累计签到
+                            <span class="count"></span>次)</strong>
+                    </button>
+                    <button class="btn-answer btn-answer-high btn-subject">每日一题 <strong class="sign-tips sign-nonSign">(已结束)</strong></button>
+                </div>
+            </div>
+
+            <!-- 答题 -->
+            <div class="answer">
+                <span class="answer-decoraton"></span>
+                <div class="wrapper">
+                    <a href="javascript:;" class="btn-answer btn-answer-disabled"></a>
+                    <div class="answer-count"><span class="count"></span>人</div>
+                </div>
+            </div>
+
+            <!-- 积分和抽奖 -->
+            <div class="prize">
+                <span class="prize-item item-jf">
+                    <a href="./integralLottery.html" class="prize-btn">GO ></a>
+                </span>
+                <span class="prize-item item-jp">
+                    <a href="./lotterySet.html" class="prize-btn">GO ></a>
+                </span>
+                <span class="prize-decoration"></span>
+            </div>
+           
+            <!-- 排行榜 -->
+            <div class="rank-box rank-dt">
+                    <span class="rank-decoration"></span>
+                    <h4 class="rank-box-hd hd-dt"></h4>
+                    <div class="rank-box-bd">
+                        <div class="rank-tab">
+                            <a href="javascript:;" class="tab-item active">公司排行
+                                <span class="tips-up"></span>
+                            </a>
+                            <a href="javascript:;" class="tab-item">个人排行
+                                <span class="tips-up"></span>
+                            </a>
+                        </div>
+                        <div class="rank-content">
+                            <div class="rank-company">
+                                <ul class="rank-lists"></ul>
+                            </div>
+                            <div class="rank-personal">
+                                <ul class="rank-lists"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <footer class="rank-ft">
+            <img src="../img/copyright.png" alt="" class="copyright">
+        </footer>
+    </div>
+
+    <!-- 弹框 -->
+    <div class="overlay"></div>
+    <div class="dialog dialog-sign">
+        <i class="btn-close"></i>
+        <h4 class="dialog-hd hd-sign"></h4>
+        <div class="dialog-bd">
+            <div class="content">
+                您是今天第
+                <Strong class="count"></Strong>位签到者
+            </div>
+        </div>
+        <button class="dialog-btn">知道了</button>
+    </div>
+
+    <!-- loading -->
+    <div class="loading-page">
+        <div class="mint-spinner-snake"></div>
+        加载中
+    </div>
+</body>
+<script src="../js/jquery.js"></script>
+
+</html>
+<script>
+    $(function () {
+         /******************************** 答题排行-公司 ********************************/
+        // 答题排行-公司
+        var answerCompany = {
+            "msg":"成功","code":"0","success":true,
+             "data":[
+                {"corporationId":3,"corporationName":"信息港中心","rewardCnt":"80%","participatorsNum":6,"membersNum":68},
+                {"corporationId":4,"corporationName":"信安中心","rewardCnt":"95%%","participatorsNum":2,"membersNum":64},
+                {"corporationId":1,"corporationName":"卓望公司","rewardCnt":"8%","participatorsNum":2,"membersNum":2133},
+                {"corporationId":2,"corporationName":"集团总部","rewardCnt":"6%","participatorsNum":2,"membersNum":2134},
+                {"corporationId":16,"corporationName":"咪咕公司","rewardCnt":"3%","participatorsNum":1,"membersNum":2887}
+        ]}
+        loadRankListCompany(answerCompany.data);                    
+        function loadRankListCompany(data) {
+            var html = "";
+            for (var i = 0, len = data.length; i < len; i++) {
+                if (i == 0 || i == 1 || i == 2) {
+                    html += '<li class="rank-item cup-prize">'
+                        + '<div class="item-sort">'
+                        + '<span class="circle circle-top"></span>'
+                        + '<span class="circle circle-bottom"></span>'
+                        + '<span class="line"></span>'
+                        + '<img src="../img/icon_ranking_' + (i + 1) + '.png" alt="" class="cup">'
+                        + '</div>'
+                } else {
+                    html += '<li class="rank-item">'
+                        + '<div class="item-sort">'
+                        + '<span class="circle circle-top"></span>'
+                        + '<span class="circle circle-bottom"></span>'
+                        + '<span class="line"></span>'
+                        + '<em class="rank-queue">' + (i + 1) + '</em>'
+                        + '</div>'
+                }
+                html += '<div class="item-content">'
+                    + '<div class="detail">'
+                    + '<h4 class="detail-label text-ellipsis">' + data[i].corporationName + '</h4>'
+                    + '<p class="count-box text-ellipsis">答题人数'
+                    + '<i class="count-join">' + data[i].participatorsNum + '</i>人&nbsp;/&nbsp;员工人数'
+                    + '<i class="count-company">' + data[i].membersNum + '</i>人'
+                    + '</p >'
+                    + '<div class="progress-bar">'
+                    + '<div class="bar-inner" style="width: ' + data[i].rewardCnt + ';"></div>'
+                    + '</div>'
+                    + '</div>'
+                    + '<span class="percent">' + data[i].rewardCnt + '</span>'
+                    + '</div>'
+                    + '</li>'
+            }
+            $(".rank-dt .rank-company .rank-lists").append(html)
+        }
+
+         /******************************** 答题排行-个人 ********************************/
+        // 答题排行-公司
+        var answerPersonal ={ 
+            "msg":"成功","code":"0","success":true,
+            "data":{
+                "userRankInfo":null,
+                "rankList":[
+                    {"userId":24,"photoId":0,"userName":"杨晓薇薇","corporationName":'采购共享中心',"startCnt":6,"stageCnt":null,"rewardCnt":4451},
+                    {"userId":19,"photoId":0,"userName":"联调账户","corporationName":"采购共享中心","startCnt":0,"stageCnt":null,"rewardCnt":3456},
+                    {"userId":3,"photoId":0,"userName":"联调账户","corporationName":"集团总部","startCnt":0,"stageCnt":null,"rewardCnt":6890},
+                    {"userId":12,"photoId":0,"userName":"联调账户","corporationName":"集团总部","startCnt":0,"stageCnt":null,"rewardCnt":6567},
+                    {"userId":13,"photoId":0,"userName":"联调账户","corporationName":"信息港中心","startCnt":0,"stageCnt":null,"rewardCnt":5},
+                    {"userId":10,"photoId":0,"userName":"联调账户","corporationName":"咪咕公司咪咕","startCnt":1,"stageCnt":null,"rewardCnt":5},
+                    {"userId":1,"photoId":0,"userName":"联调账户","corporationName":"信息港中心","startCnt":1,"stageCnt":null,"rewardCnt":5},
+                    {"userId":7,"photoId":0,"userName":"联调账户","corporationName":"信安中心","startCnt":1,"stageCnt":null,"rewardCnt":2},
+                    {"userId":14,"photoId":0,"userName":"联调账户","corporationName":"信息港中心","startCnt":0,"stageCnt":null,"rewardCnt":1},
+                    {"userId":11,"photoId":0,"userName":"联调账户","corporationName":"信息港中心","startCnt":0,"stageCnt":null,"rewardCnt":1}
+                ]
+            }
+        }
+        //loadRankListPersonal(answerPersonal.data.rankList);      
+        if(answerPersonal.data == null){
+        	$(".rank-dt .rank-personal .rank-lists").append('<li class="rank-item cup-prize">'
+                    + '<div class="item-sort">'
+                    + '<span class="circle circle-top"></span>'
+                    + '<span class="circle circle-bottom"></span>'
+                    + '<span class="line"></span>'
+                    + '</div>'
+                    +'<div class="item-content">'
+                    + '<div class="detail">'
+                    +'<div class="user-info">'
+                    +'<h2 class="user-name text-ellipsis">暂无数据</h2>'
+                    +'</div>'
+                	+'</div>'
+            		+ '</div>'); 
+        }else{
+        	loadRankListPersonal(answerPersonal.data.rankList);
+        }              
+        function loadRankListPersonal(data) {
+            var html = "";
+            for (var i = 0, len = data.length; i < len; i++) {
+                if (i == 0 || i == 1 || i == 2) {
+                    html += '<li class="rank-item cup-prize">'
+                        + '<div class="item-sort">'
+                        + '<span class="circle circle-top"></span>'
+                        + '<span class="circle circle-bottom"></span>'
+                        + '<span class="line"></span>'
+                        + '<img src="../img/icon_ranking_' + (i + 1) + '.png" alt="" class="cup">'
+                        + '</div>'
+                } else {
+                    html += '<li class="rank-item">'
+                        + '<div class="item-sort">'
+                        + '<span class="circle circle-top"></span>'
+                        + '<span class="circle circle-bottom"></span>'
+                        + '<span class="line"></span>'
+                        + '<em class="rank-queue">' + (i + 1) + '</em>'
+                        + '</div>'
+                }
+                html += '<div class="item-content">'
+                            + '<div class="detail">'
+                                +'<div class="user-info">'
+                                    +'<h2 class="user-name">'+data[i].userName+'</h2>'
+                                    +' <h4 class="user-company">'+data[i].corporationName+'</h4>'
+                                +'</div>'
+                            +'</div>'
+                            +'<p class="awards">获胜场：<i class="count">'+data[i].rewardCnt+'</i></p>'
+                        + '</div>'
+                    + '</li>'
+            }
+            $(".rank-dt .rank-personal .rank-lists").append(html)
+        }
+
+        // 每日签到-显示弹框
+        $(".answer-signed .btn-sign").click(function (e) {
+            // 置灰按钮不可点击
+            if ($(e.target).is(".btn-answer-default")) {
+                return;
+            }
+            // 加载loading
+            $(".loading-page,.overlay").show();
+            // 2s后关闭loding，显示弹框
+            setTimeout(function () {
+                $(".loading-page,.overlay").hide();
+                $(".dialog-sign,.overlay").show();
+                // TODO 发送ajax请求获取签到数
+                var signCount = 112;  // 弹框中count
+                var signCountAll = 112; // 总签到数
+                $(".dialog-sign .count").text(signCount);
+                $(".btn-sign-disabled .sign-tips-signed .count").text(signCountAll)
+                // 按钮置灰
+                $(".answer-signed .btn-sign").hide();
+                $(".answer-signed .btn-sign-disabled").show();
+            }, 2000)
+
+        })
+
+        // 关闭弹框
+        $(".dialog .btn-close,.dialog-btn").click(function () {
+            $(".dialog,.overlay").hide();
+        })
+
+
+        // 两会知识、动态、等跳转
+        $(".npc").on("click",".npc-item",function(e){
+            var $target = $(e.target);
+            // 两会知识
+            if($target.is(".item-knowledge")){
+                window.location.href = "";
+            }else if($target.is(".item-dt")){
+                // 两会动态
+                window.location.href = "";
+            }else if($target.is(".item-video")){
+                // 两会视频
+                window.location.href = "http://m.miguvideo.com/wap/resource/mh/hd/ht/index.jsp?nodeId=70051595&from=groupmessage&isappinstalled=0";
+            }else if($target.is(".item-jy")){
+                // 两会心声
+                window.location.href = "";
+            }
+        });
+
+
+        // 跳转积分规则和奖品设置
+        $(".prize").on("click",".prize-item",function(e){
+            var $target = $(e.target);
+            // 积分规则
+            if($target.is(".item-jf")){
+                window.location.href = "./integralLottery.html"
+            }else{
+                window.location.href = "./lotterySet.html"
+            }
+        })   
+
+         // 切换公司和个人排行榜
+        $(".rank-box .tab-item").click(function(){
+            if($(this).is(".active")){
+                return;
+            }
+            var index = $(this).index();
+            $(this).addClass("active").siblings().removeClass("active")
+            $(".rank-content > div").eq(index).show().siblings().hide();
+        }) 
+
+        // 是否开放开始答题
+        var isShow = true;
+        if( isShow ){
+            $(".answer .btn-answer").removeClass('btn-answer-disabled');
+            $(".answer .btn-answer:not('.btn-answer-disabled')").click(function(){
+                window.location.href = ""
+            })
+        }
+
+        // 获取答题总人数
+        getAllAnswerCount(answerCompany.data)
+        function getAllAnswerCount( lists ){
+            var sumCount = 0;
+            for(var i=0,len=lists.length; i<len; i++){
+                sumCount += lists[i].participatorsNum;
+            }
+            $(".answer-count .count").text(sumCount);
+        }
+    })
+
+</script>

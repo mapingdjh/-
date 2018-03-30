@@ -1,0 +1,261 @@
+@charset "UTF-8";
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent; }
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+html {
+  height: 100%; }
+
+div, ul, li {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  line-height: 1; }
+
+:focus {
+  outline: 1; }
+
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+nav, ul, li {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+button {
+  outline: none;
+  border: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none; }
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; }
+
+::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px; }
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px; }
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: " "; }
+
+.clearfix:after {
+  clear: both; }
+
+.overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000; }
+
+.dialog {
+  display: none;
+  z-index: 1001;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  width: 7.24074rem;
+  min-height: 4.25926rem;
+  margin-left: -3.62037rem;
+  background: #fff;
+  -webkit-border-radius: 0.27778rem;
+  border-radius: 0.27778rem; }
+  .dialog .dialog-hd {
+    position: absolute;
+    left: 50%;
+    top: -0.92593rem;
+    margin-left: -3.26852rem;
+    width: 6.53704rem;
+    height: 1.96296rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: contain;
+    background-size: contain; }
+    .dialog .dialog-hd.hd-sign {
+      background-image: url(../img/dialog-title-sign.png?v=20182294458270); }
+  .dialog .dialog-bd .content {
+    padding: 1.57407rem 1.2963rem 2.22222rem 1.2963rem;
+    text-align: center;
+    color: #7d7d7d;
+    font-size: 0.38889rem;
+    line-height: 1.6; }
+  .dialog .dialog-bd .count {
+    font-weight: normal;
+    color: #ffb617;
+    font-size: 0.50926rem; }
+  .dialog .btn-close {
+    position: absolute;
+    right: 0;
+    top: -1.2963rem;
+    width: 0.74074rem;
+    height: 0.74074rem;
+    background: url(../img/btn-close.png?v=20182294458270) no-repeat center;
+    -webkit-background-size: contain;
+    background-size: contain; }
+  .dialog .dialog-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.15741rem;
+    line-height: 1.15741rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.35185rem;
+    -webkit-border-bottom-left-radius: 0.27778rem;
+    border-bottom-left-radius: 0.27778rem;
+    -webkit-border-bottom-right-radius: 0.27778rem;
+    border-bottom-right-radius: 0.27778rem;
+    background: #ff674c; }
+
+/** loading */
+.loading-page {
+  display: none; }
+
+.loading-page {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 2;
+  color: #fff;
+  z-index: 1005; }
+
+.loading-page .mint-spinner-snake {
+  margin: 0 auto; }
+
+.mint-spinner-snake {
+  height: 20px;
+  width: 20px;
+  -webkit-animation: mint-spinner-rotate 0.8s infinite linear;
+  animation: mint-spinner-rotate 0.8s infinite linear;
+  border: 2px solid white;
+  border-right-color: transparent;
+  -webkit-border-radius: 50%;
+  border-radius: 50%; }
+
+@-webkit-keyframes mint-spinner-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes mint-spinner-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@font-face {
+  font-family: "iconfont";
+  src: url(iconfont.eot?t=1480382513999?v=20182294458270);
+  /* IE9*/
+  src: url(iconfont.eot?t=1480382513999#iefix?v=20182294458270) format("embedded-opentype"), url(iconfont.woff?t=1480382513999?v=20182294458270) format("woff"), url(iconfont.ttf?t=1480382513999?v=20182294458270) format("truetype"), url(iconfont.svg?t=1480382513999#iconfont?v=20182294458270) format("svg");
+  /* iOS 4.1- */ }
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-guanbi:before {
+  content: "\e600"; }
+
+.icon-yinlebofang:before {
+  content: "\e601"; }
+
+.icon-yinlezanting:before {
+  content: "\e602"; }
+
+/*中英文超长省略号显示*/
+.text-ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all; }

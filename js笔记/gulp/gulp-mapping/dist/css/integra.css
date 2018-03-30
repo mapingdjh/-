@@ -1,0 +1,208 @@
+@charset "UTF-8";
+/*
+ * 积分抽奖和积分规则
+*/
+body {
+  width: 10rem;
+  margin: 0 auto;
+  background: #fb4e54;
+  min-height: 100vh; }
+
+.jf-lottery-hd {
+  padding-top: 0.1875rem;
+  width: 100%;
+  text-align: center; }
+  .jf-lottery-hd .user-header {
+    width: 2.23438rem;
+    height: 2.23438rem;
+    -webkit-border-radius: 100%;
+    border-radius: 100%; }
+  .jf-lottery-hd .score-box {
+    margin-bottom: 0.3125rem;
+    line-height: 1.5;
+    color: #fff;
+    font-size: 0.5625rem; }
+  .jf-lottery-hd .score {
+    font-style: normal;
+    color: #fff489; }
+
+.jf-lottery-bd {
+  width: 100%;
+  height: 11.14063rem;
+  padding-bottom: 30px;
+  background: url(../img/jf-bg.png?v=20182294458270) no-repeat center;
+  -webkit-background-size: 9.29688rem 11.14063rem;
+  background-size: 9.29688rem 11.14063rem; }
+
+/*
+ * 积分抽奖设置
+*/
+.lottery-container {
+  width: 100%;
+  height: auto;
+  padding: 0.51563rem 0 1.64063rem 0;
+  width: 9.1875rem;
+  margin: 0 auto; }
+
+.lottery-join {
+  width: 100%; }
+  .lottery-join .lottery-join-hd {
+    width: 100%;
+    height: 3.46875rem;
+    margin-bottom: 0.9375rem;
+    background: url(../img/lottery-banner.png?v=20182294458270) no-repeat center;
+    -webkit-background-size: 8.79688rem 3.46875rem;
+    background-size: 8.79688rem 3.46875rem; }
+  .lottery-join .lottery-join-bd {
+    color: #fff;
+    font-size: 0.4375rem;
+    line-height: 1.5; }
+    .lottery-join .lottery-join-bd .label-text {
+      display: block;
+      padding-bottom: 0.4375rem; }
+
+.jf-title {
+  width: 100%;
+  height: 1.5625rem;
+  margin-bottom: 0.78125rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: 6.0625rem 1.5625rem;
+  background-size: 6.0625rem 1.5625rem; }
+  .jf-title.lucky-prize {
+    background-image: url(../img/lucky-cj.png?v=20182294458270); }
+  .jf-title.lucky-cj-title {
+    background-image: url(../img/lottery-cj.png?v=20182294458270); }
+  .jf-title.lucky-jl {
+    background-image: url(../img/lottery-person-jl.png?v=20182294458270); }
+
+.lucky-cj, .person-jl {
+  margin-bottom: 1.0625rem; }
+  .lucky-cj .lottery-tab td, .person-jl .lottery-tab td {
+    height: 1.5625rem; }
+  .lucky-cj .lottery-tab td img, .person-jl .lottery-tab td img {
+    max-width: 1.375rem;
+    max-height: 0.92188rem; }
+
+.person-jl .lottery-tab td {
+  height: 1.84375rem; }
+  .person-jl .lottery-tab td .prize-name {
+    height: 1.84375rem;
+    line-height: 1.84375rem; }
+  .person-jl .lottery-tab td .thub-box {
+    width: 1.35938rem;
+    height: 1.1875rem;
+    margin-top: -0.59375rem !important; }
+  .person-jl .lottery-tab td img {
+    max-width: 1.35938rem;
+    max-height: 1.1875rem; }
+
+.jf-cj {
+  margin-bottom: 1.15625rem; }
+  .jf-cj .prize-show .item {
+    width: 100%;
+    margin-top: 0.25rem;
+    height: 3.35938rem;
+    background: #fe767a;
+    -webkit-border-radius: 0.125rem;
+    border-radius: 0.125rem; }
+  .jf-cj .prize-show .prize-thumbnail {
+    display: table;
+    float: left;
+    width: 2.53125rem;
+    height: 100%;
+    text-align: center; }
+    .jf-cj .prize-show .prize-thumbnail .wrapper {
+      display: table-cell;
+      vertical-align: middle; }
+    .jf-cj .prize-show .prize-thumbnail img {
+      max-width: 100%;
+      max-height: 2.5rem; }
+  .jf-cj .prize-show .prize-detail {
+    height: 100%;
+    margin-left: 2.53125rem;
+    padding: 0.25rem 0.3125rem 0 0.3125rem;
+    color: #fff;
+    font-size: 0.34375rem; }
+    .jf-cj .prize-show .prize-detail .prize-name {
+      width: 3.59375rem;
+      height: 0.5rem;
+      margin-bottom: 0.25rem;
+      line-height: 0.5rem;
+      text-align: center;
+      background: #fb4e54;
+      -webkit-border-radius: 0.3125rem;
+      border-radius: 0.3125rem; }
+    .jf-cj .prize-show .prize-detail .prize-intro {
+      width: 95%;
+      line-height: 1.5;
+      text-align: justify; }
+
+.jf-exchange {
+  width: 100%; }
+  .jf-exchange .jf-exchange-hd {
+    background-image: url(../img/lottery-dh.png?v=20182294458270); }
+  .jf-exchange .jf-exchange-bd {
+    color: #fff;
+    font-size: 0.4375rem;
+    line-height: 1.5; }
+    .jf-exchange .jf-exchange-bd .label-text {
+      display: block;
+      padding-bottom: 0.4375rem; }
+    .jf-exchange .jf-exchange-bd .lottery-tab {
+      margin-bottom: 0; }
+  .jf-exchange .lottery-tab td {
+    height: 1.5625rem; }
+  .jf-exchange .lottery-tab td img {
+    max-width: 1.35938rem;
+    max-height: 1.1875rem; }
+
+.lottery-tab {
+  *margin-bottom: 1.5625rem;
+  width: 100%;
+  background: #fe767a;
+  -webkit-border-radius: 0.125rem;
+  border-radius: 0.125rem; }
+  .lottery-tab td, .lottery-tab th {
+    position: relative;
+    height: 0.78125rem;
+    line-height: 0.78125rem;
+    border-right: 1px solid #fb4e54;
+    border-bottom: 1px solid #fb4e54;
+    vertical-align: middle; }
+  .lottery-tab th {
+    color: #fb4e54;
+    font-size: 0.40625rem;
+    background: #fff489; }
+    .lottery-tab th:first-child {
+      -webkit-border-top-left-radius: 0.125rem;
+      border-top-left-radius: 0.125rem; }
+    .lottery-tab th:last-child {
+      -webkit-border-top-right-radius: 0.125rem;
+      border-top-right-radius: 0.125rem; }
+  .lottery-tab td {
+    font-size: 0.34375rem;
+    text-align: center; }
+    .lottery-tab td img {
+      vertical-align: middle; }
+    .lottery-tab td .thub-box {
+      position: absolute;
+      top: 50%;
+      margin-top: -0.59375rem;
+      left: 0.85938rem;
+      width: 1.35938rem;
+      height: 1.1875rem;
+      display: table; }
+      .lottery-tab td .thub-box .wrapper {
+        display: table-cell;
+        vertical-align: middle;
+        height: 100%;
+        height: 100%; }
+    .lottery-tab td span.prize-name {
+      position: absolute;
+      top: 0;
+      right: 0.625rem;
+      height: 100%;
+      width: 2.96875rem;
+      text-align: center;
+      line-height: 1.5625rem; }

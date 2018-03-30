@@ -1,0 +1,264 @@
+/*
+ * 积分抽奖和积分规则
+*/
+
+$basic: 64;
+body {
+    width: 10rem;
+    margin: 0 auto;
+    background: #fb4e54;
+    min-height: 100vh;
+}
+.jf-lottery-hd {
+    padding-top: 12rem / $basic;
+    width: 100%;
+    text-align: center;
+    .user-header {
+        width: 143rem / $basic;
+        height: 143rem / $basic;
+        border-radius: 100%;
+    }
+    .score-box {
+        margin-bottom: 20rem / $basic;
+        line-height: 1.5;
+        color: #fff;
+        font-size: 36rem / $basic;
+    }
+    .score {
+        font-style: normal;
+        color: #fff489;
+    }
+}
+.jf-lottery-bd {
+    width: 100%;
+    height:  713rem / $basic;
+    padding-bottom: 30px;
+    background: url(../img/jf-bg.png) no-repeat center;
+    background-size: 595rem / $basic 713rem / $basic;
+}
+
+/*
+ * 积分抽奖设置
+*/
+.lottery-container {
+    width: 100%;
+    height: auto;
+    padding: 33rem / $basic 0 105rem / $basic 0;
+    width: 588rem / $basic;
+    margin: 0 auto;
+} 
+.lottery-join {
+    width: 100%;
+    .lottery-join-hd {
+        width: 100%;
+        height: 222rem / $basic;
+        margin-bottom: 60rem / $basic;
+        background: url(../img/lottery-banner.png) no-repeat center;
+        background-size: 563rem / $basic 222rem / $basic;
+    }
+    .lottery-join-bd {
+        color: #fff;
+        font-size: 28rem / $basic;
+        line-height: 1.5;
+        .label-text {
+            display: block;
+            padding-bottom: 28rem / $basic;
+        }
+    }
+   
+}
+// 标题公共样式
+.jf-title {
+    width: 100%;
+    height: 100rem / $basic;
+    margin-bottom: 50rem / $basic;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 388rem / $basic 100rem / $basic;
+    &.lucky-prize {
+        background-image: url(../img/lucky-cj.png);
+    }
+    &.lucky-cj-title {
+        background-image: url(../img/lottery-cj.png);
+    }
+    &.lucky-jl {
+        background-image: url(../img/lottery-person-jl.png);
+    }
+}
+// 幸运抽奖、个人奖励
+.lucky-cj,.person-jl {
+    margin-bottom: 68rem / $basic;
+    // .thub-box {
+    //     left: 38rem / $basic !important;
+    //     width: 88rem / $basic !important;
+    //     height: 59rem / $basic !important;
+    //     margin-top: -30rem / $basic !important;
+    // }
+    .lottery-tab {
+        td {
+            height: 100rem / $basic;
+        }
+        td img {
+            max-width: 88rem / $basic;
+            max-height: 59rem / $basic;
+        }
+    }
+}
+.person-jl {
+    .lottery-tab {
+        td {
+            height: 118rem / $basic;
+            .prize-name {
+                height: 118rem / $basic;
+                line-height: 118rem / $basic;
+            }
+            .thub-box {
+                width: 87rem / $basic;
+                height: 76rem / $basic;
+                margin-top: -38rem / $basic !important;
+            }
+            img {
+                max-width: 87rem / $basic;
+                max-height: 76rem / $basic;
+            }
+        }
+    }
+}
+// 积分抽奖
+.jf-cj {
+    margin-bottom: 74rem / $basic;
+    .prize-show {
+        .item {
+            width: 100%;
+            margin-top: 16rem / $basic;
+            height: 215rem / $basic;
+            background: #fe767a;
+            border-radius: 8rem / $basic;
+        }
+        .prize-thumbnail {
+            display: table;
+            float: left;
+            width: 162rem / $basic;
+            height: 100%;
+            text-align: center;
+            .wrapper {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            img {
+                max-width: 100%;
+                max-height: 160rem / $basic;
+            }
+        }
+        .prize-detail {
+            height: 100%;
+            margin-left: 162rem / $basic;
+            padding: 16rem / $basic 20rem / $basic 0 20rem / $basic;
+            color: #fff;
+            font-size: 22rem / $basic;
+            .prize-name {
+                width: 230rem / $basic;
+                height: 32rem / $basic;
+                margin-bottom: 16rem / $basic;
+                line-height: 32rem / $basic;
+                text-align: center;
+                background: #fb4e54;
+                border-radius: 20rem / $basic;
+            }
+            .prize-intro {
+                width: 95%;
+                line-height: 1.5;
+                text-align: justify;
+            }
+        }
+    }
+    
+}
+// 积分兑换
+.jf-exchange {
+    width: 100%;
+    .jf-exchange-hd {
+        background-image: url(../img/lottery-dh.png);
+    }
+    .jf-exchange-bd {
+        color: #fff;
+        font-size: 28rem / $basic;
+        line-height: 1.5;
+        .label-text {
+            display: block;
+            padding-bottom: 28rem / $basic;
+        }
+        .lottery-tab {
+            margin-bottom: 0
+        }
+    }
+    .lottery-tab {
+        td {
+            height: 100rem / $basic;
+        }
+        td img {
+            max-width: 87rem / $basic;
+            max-height: 76rem / $basic;
+        }
+    }
+    
+}
+
+// table公共样式
+.lottery-tab {
+    *margin-bottom: 100rem / $basic;
+    width: 100%;
+    background: #fe767a;
+    border-radius: 8rem / $basic;
+    td,th {
+        position: relative;
+        height: 50rem / $basic;
+        line-height: 50rem / $basic;
+        border-right: 1px solid #fb4e54;
+        border-bottom: 1px solid #fb4e54;
+        vertical-align: middle;
+    }
+    th {
+        color: #fb4e54;
+        font-size: 26rem / $basic;
+        background: #fff489;
+        &:first-child {
+            border-top-left-radius: 8rem / $basic;
+        }
+        &:last-child {
+            border-top-right-radius: 8rem / $basic;
+        }
+    }
+    td {
+        font-size: 22rem / $basic;
+        text-align: center;
+        img {
+            vertical-align: middle;
+        }
+        // tab中图片公共样式
+        .thub-box {
+            position: absolute;
+            top: 50%;
+            margin-top: -38rem / $basic;
+            left: 55rem / $basic;
+            width: 87rem / $basic;
+            height: 76rem / $basic;
+            display: table;
+            .wrapper {
+                display: table-cell;
+                vertical-align: middle;
+                height: 100%;
+                height: 100%;
+            }
+        }
+        span.prize-name {
+            position: absolute;
+            top: 0;
+            right: 40rem / $basic;
+            height: 100%;
+            width: 190rem / $basic;
+            text-align: center;
+            line-height: 100rem / $basic;
+        }
+    }
+}

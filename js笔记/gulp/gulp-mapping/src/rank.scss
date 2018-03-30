@@ -1,0 +1,522 @@
+$basic: 108;
+body{
+  width: 10rem;
+  margin: 0 auto;
+  background: #ff4d4a;
+  
+}
+.rank-container{
+  width: 100%;
+  min-height: 100vh;
+}
+.rank-hd{
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 120rem / $basic;
+  img{
+    width: 100%;
+    display: block;
+  }
+  .hd-decoration {
+    position: absolute;
+    right: 0;
+    bottom: -143rem / $basic;
+    width: 81rem / $basic;
+    height: 143rem / $basic;
+    background: url(../img/prize-cd.png) center no-repeat;
+    background-size: contain;
+    z-index: 12;
+  }
+}
+
+.rank-bd {
+  .npc {
+    width: 100%;
+    text-align: center;
+    .npc-hd {
+      margin: 0 auto;
+      margin-bottom: 100rem / $basic;
+      width: 779rem / $basic;
+      height: 173rem / $basic;
+      background: url(../img/npc-title.png) no-repeat center;
+      background-size: contain;
+    }
+    .npc-bd {
+      width: 100%;
+      padding: 0 48rem / $basic 144rem / $basic 48rem / $basic;
+      overflow: hidden;
+      .npc-item {
+        position: relative;
+        float: left;
+        &:nth-child(2n) {
+          float: right;
+        }
+        width: 483rem / $basic;
+        height: 244rem / $basic;
+        margin-bottom: 20rem / $basic;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        cursor:pointer;
+        &.item-knowledge {
+          background-image: url(../img/npc-know.png);
+        }
+        &.item-dt {
+          background-image: url(../img/npc-dt.png);
+        }
+        &.item-jy {
+          background-image: url(../img/npc-jy.png);
+        }
+        &.item-video {
+          background-image: url(../img/npc-video.png);
+        }
+      }
+      .npc-btn {
+        position: absolute;
+        bottom: 65rem / $basic;
+        width: 130rem / $basic;
+        height: 54rem / $basic;
+        line-height: 54rem / $basic;
+        text-decoration: none;
+        outline: none;
+        border-radius: 54rem / $basic;
+        color: #fff;
+        text-align: center;
+        font-size: 30rem / $basic;
+        font-weight: bold;
+        background: #f6c42e;
+        &.npc-btn-dt {
+          background: #74a6e2;
+        }
+        &.npc-btn-jy {
+          background: #f6c42e;
+        }
+        &.npc-btn-vi {
+          background: #f06acc;
+        }
+        &.npc-btn-kn,&.npc-btn-vi {
+          left: 70rem / $basic;
+        }
+        &.npc-btn-dt,&.npc-btn-jy {
+          left: 40rem / $basic;
+        }
+      }
+      
+
+    }
+  }
+  .answer {
+    position: relative;
+    width: 100%;
+    height: 924rem / $basic;
+    margin-bottom: 180rem / $basic;
+    .wrapper {
+      position: relative;
+      width: 986rem / $basic;
+      height: 100%;
+      margin: 0 auto;
+      background: url(../img/answer-bg.png) no-repeat center;
+      background-size: contain;
+      z-index: 11;
+      .answer-count {
+        position: absolute;
+        bottom: 9%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: .52407rem;
+        color: #fe3350;
+        line-height: 1.2;
+      }
+    }
+    .btn-answer {
+      position: absolute;
+      left: 50%;
+      bottom: 313rem / $basic;
+      margin-left: -213rem / $basic;
+      width: 426rem / $basic;
+      height: 110rem / $basic;
+      background: url(../img/btn-answer.png) no-repeat center;
+      background-size: contain;
+      &.btn-answer-disabled {
+        background-image: url(../img/btn-answer-disabled.png)
+      }
+    }
+    .answer-decoraton {
+      position: absolute;
+      left: 0;
+      top: -134rem / $basic;
+      width: 85rem / $basic;
+      height: 137rem / $basic;
+      background: url(../img/answer-cd.png) no-repeat center;
+      background-size: contain;
+      z-index: 10;
+    }
+  }
+  .prize {
+    width: 100%;
+    height: 220rem / $basic;
+    padding: 0 47rem / $basic;
+    margin-bottom: 180rem / $basic;
+    .prize-item {
+      position: relative;
+      width: 488rem / $basic;
+      height: 100%;
+      z-index: 13;
+      &.item-jp {
+        float: right;
+        background-image: url(../img/prize-jp.png);
+        .prize-btn {
+          color: #817eff;
+        }
+      }
+      &.item-jf {
+        float: left;
+        background-image: url(../img/prize-jf.png);
+      }
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+    .prize-btn {
+        position: absolute;
+        left: 54rem / $basic;
+        top: 105rem / $basic;
+        width: 112rem / $basic;
+        height: 50rem / $basic;
+        line-height: 50rem / $basic;
+        text-decoration: none;
+        outline: none;
+        border-radius: 50rem / $basic;
+        color: #ffac03;
+        text-align: center;
+        font-size: 30rem / $basic;
+        font-weight: bold;
+        background: #fff;
+    }
+    .prize-decoration {
+      position: absolute;
+      right: 0;
+      top: -175rem / $basic;
+      width: 81rem / $basic;
+      height: 143rem / $basic;
+      background: url(../img/prize-cd.png) no-repeat center;
+      background-size: contain;
+      z-index: 12;
+    }
+  }
+}
+// 签到-每日一题
+.answer-signed {
+  margin-bottom: 126rem / $basic;
+  padding: 0 30rem / $basic;
+  .btn-groups {
+    width: 100%;
+    overflow: hidden;
+  }
+  .btn-answer {
+    float: left;
+    padding: 12rem / $basic 0 10rem / $basic 0;
+    width: 4.6rem;
+    height: 189rem / $basic;
+    text-align: center;
+    font-size: 44rem / $basic;
+    font-weight: bold;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    &:first-child {
+      margin-left: 3px;
+    }
+    &:last-child {
+      float: right;
+    }
+    &.btn-sign-disabled {
+     display: none;
+    }
+  }
+  .btn-answer-high {
+    color: #e02d29;
+    background-image: url("../img/btn-qd.png");
+  }
+  .btn-subject {
+    color: #fff;
+  }
+  .btn-answer-default {
+    color: #fff;
+    *background-image: url("../img/btn-qd-gray.png");
+    .sign-tips-signed {
+    }
+  }
+  .sign-tips {
+    display: block;
+    width: 484rem / $basic;
+    padding-left: 6rem / $basic;
+    color: #e02d2a;
+    font-size: 36rem / $basic;
+    text-align: center;
+    font-weight: normal;
+    &.sign-tips-signed {
+      color: #e02d2a;
+    }
+  }
+  
+}
+// 排行榜
+.rank-box {
+  position: relative;
+  padding: 0 60rem / $basic;
+  padding-bottom: 110rem / $basic;
+  .rank-decoration {
+    position: absolute;
+      left: 0;
+      top: 0;
+      width: 85rem / $basic;
+      height: 137rem / $basic;
+      background: url(../img/answer-cd.png) no-repeat center;
+      background-size: contain;
+      z-index: 10;
+  }
+  .rank-box-hd {
+    margin: 0 auto;
+    width: 776rem / $basic;
+    height: 176rem / $basic;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    &.hd-dt {
+      background-image: url(../img/rank-dt-title.png);
+    }
+    &.hd-sign {
+      margin-bottom: 85rem / $basic;
+      background-image: url(../img/rank-sign-title.png);
+    }
+  }
+  .rank-tab {
+    margin: 0 auto;
+    padding: 0 130rem / $basic;
+    width: 962rem / $basic;
+    height: 150rem / $basic;
+    .tab-item {
+      position: relative;
+      float: left;
+      height: 100%;
+      line-height: 150rem / $basic;
+      color: #fff;
+      opacity: .4;
+      font-size: 48rem / $basic;
+      .tips-up {
+         position: absolute;
+         bottom: -12rem / $basic;
+         left: 32.2%;
+         display: none;
+          width: 0;
+          height: 0;
+          border-left: 35rem / $basic solid transparent;
+          border-right: 35rem / $basic solid transparent;
+          border-bottom: 40rem / $basic solid #fff;
+      }
+      &.active {
+        opacity: 1;
+        .tips-up {
+          display: block;
+        }
+       
+      }
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+  .rank-content {
+    width: 962rem / $basic;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 12rem / $basic;
+    .rank-personal {
+      display: none;
+    }
+
+  }
+  .rank-lists {
+    width: 100%;
+  }
+  .rank-item {
+    margin-bottom: 15rem / $basic;
+    padding-right: 10rem / $basic;
+    height: 220rem / $basic;
+    background: #fff;
+    border-radius: 20rem / $basic;
+    &.cup-prize .cup {
+      display: block !important;
+    }
+    .item-sort {
+      position: relative;
+      float: left;
+      width: 192rem / $basic;
+      height: 100%;
+      padding-right: 10rem / $basic;
+     
+      .cup {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 52%;
+        margin-left: -48rem / $basic;
+        margin-top: -57rem / $basic;
+        width: 88rem / $basic;
+        height: 114rem / $basic;
+      }
+      .line {
+        position: absolute;
+        right: 10rem / $basic;
+        top: 9%;
+        width: 1px;
+        height: 180rem / $basic;
+        border-right: 1px dashed #fd7889;
+      }
+      .circle {
+        position: absolute;
+        
+        width: 24rem / $basic;
+        height: 24rem / $basic;
+        border-radius: 100%;
+        background: #ff4d4b;
+        &.circle-top {
+          top: -12rem / $basic;;
+        right: 0;
+        }
+        &.circle-bottom {
+          bottom: -12rem / $basic;;
+          right: 0;
+        }
+      }
+      .rank-queue {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 220rem / $basic;
+        text-align: center;
+        color: #333;
+        font-size: 60rem / $basic;
+        font-weight: bold;
+      }
+    }
+    .item-content {
+      position: relative;
+      margin-left: 192rem / $basic;
+      height: 100%;
+      padding: 38rem / $basic 0 26rem / $basic 10rem / $basic;
+      .detail {
+        width:85%;
+      }
+      .detail-label {
+        width: 460rem / $basic;
+        color: #000;
+        font-size: 48rem / $basic;
+        margin-bottom: 15rem / $basic;
+        font-weight: normal;
+        line-height: 1.2;
+      }
+      .count-box {
+        display: block;
+        margin-bottom: 20rem / $basic;
+        color: #676767;
+        font-size: 32rem / $basic;
+        line-height: 1.2;
+        i {font-style: normal;}
+      }
+      .percent {
+        position: absolute;
+        right: 0;
+        top: 40%;
+        color: #fe3350;
+        font-size: 50rem / $basic;
+        letter-spacing: 1px;
+      }
+      .progress-bar {
+        position: relative;
+        width: 458rem / $basic;
+        height: 18rem / $basic;
+        background: #ddd;
+        border-radius: 20rem / $basic;
+        .bar-inner {
+          height: 100%;
+          background: #ffb750;
+          border-radius: 20rem / $basic;
+        }
+      }
+    }
+  }
+
+}
+// 排行榜-答题
+.rank-dt {
+ .detail {
+    *padding-left: 45rem / $basic;
+  }
+  .awards {
+    position: absolute;
+    right: -20rem / $basic;
+    top: 50%;
+    width: 38%;
+    margin-top: -30rem / $basic;
+    height: 60rem / $basic;
+    line-height: 60rem / $basic;
+    font-size: 38rem / $basic;
+    color: #fe3350;
+    overflow: hidden;
+    .count { font-style: normal; font-size: .46296rem;}
+  }
+  .user-info {
+    position: absolute;
+    top: 50%;
+    margin-top: -30rem / $basic;
+    width: 100%;
+    height: 60rem / $basic;
+    line-height: 60rem / $basic;
+    color: #000;
+    font-size: 46rem / $basic;
+    line-height: 1.2;
+    overflow:hidden;
+    .user-name {
+      float: left;
+      width: 220rem / $basic;
+      font-weight: normal;
+      margin-bottom: 30rem / $basic;
+      line-height: 1.2;
+      font-size: .44444rem;
+      overflow:hidden;
+    }
+    .user-company {
+      float: left;
+      width: 240rem / $basic;
+      font-size: 35rem / $basic;
+      color: #666;
+      height: 60rem / $basic;
+      line-height: 60rem / $basic;
+      text-align: center;
+      font-weight: 400;
+      overflow:hidden;
+    }
+  }
+  .text-ellipsis {
+    display: block;
+  }
+}
+.rank-ft {
+  padding-bottom: 140rem / $basic;
+  width: 100%;
+  text-align: center;
+  .copyright {
+    width: 788rem / $basic;
+    height: 170rem / $basic;
+  }
+}
+.demo {
+  display: block;
+  width:100%;height: 200px; border: 1px solid #fff;
+  background: url(http://g.10086.cn/h5/active/szf/img/logo.png) no-repeat center;
+}

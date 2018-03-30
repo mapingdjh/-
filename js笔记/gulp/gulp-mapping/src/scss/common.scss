@@ -1,0 +1,14 @@
+$basic: 64;
+@import './components/reset';
+@import './components/dialog';
+@import './components/loading';
+@import './font/iconfont';
+
+/*中英文超长省略号显示*/
+.text-ellipsis{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+  }
