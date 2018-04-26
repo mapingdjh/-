@@ -1,5 +1,6 @@
 # 面向对象
-## 对象复制 	
+## 一、对象复制 	
+```javascript
 	// 将所有对象s的属性复制给对象r
     var person = {
         name: "maping",
@@ -26,8 +27,9 @@
         return r;
     }
     console.log(mixs(another,person,true));
-
-## 对象深浅拷贝
+```
+## 二、对象深浅拷贝
+```javascript
     var Chinese = {
         nation:'中国',
         province: {
@@ -37,9 +39,9 @@
         mainCity: ["北京","上海","广州","深圳"]
 
     };
-
-### 1、浅拷贝(如果对象中的属性使索引类型，会直接把地址赋值给子对象的属性，子对象和父对象属性公用该地址)
-
+```
+### 2、1、浅拷贝(如果对象中的属性使索引类型，会直接把地址赋值给子对象的属性，子对象和父对象属性公用该地址)
+```javascript
     function extendCopy(parent){
         var child= {};
         for(var key in parent){
@@ -58,8 +60,9 @@
     console.log(doc.province);
     console.log(doc);
     console.log(Chinese);
-
-#### Object.assign()浅拷贝
+```
+#### 2.2、Object.assign()浅拷贝
+```javascript
 	var o1 = { a: 1 };
     var o2 = { b: 2 };
 	var o3 = { c: 3 };
@@ -79,9 +82,18 @@
 	  // 改变任何一个，他们同时发生变化
 	   console.log(res);   // {a:1,b:2,c:3,demo:{name: 'maping'}}
 	   console.log(o3);   // {a:1,b:2,c:3,demo:{name: 'maping'}}
-
-### 2、深拷贝
-
+```
+#### 2.3、ES6 Rest参数
+```javascript
+// 当obj1的属性是基本数据类型，改变obj1的属性不会影响obj2
+const obj1 = {a: 1, b: 2};
+const obj2 = {...obj1};
+// 当obj3的属性是枚举类型，改变obj3的属性会影响obj4
+const obj3 = {stu: {name: 'djh'} };
+const obj4 = {...obj1};
+```
+### 2.4、深拷贝
+```javascript
     var Chinese = {
         nation:'中国',
         province: {
@@ -115,6 +127,15 @@
 	var chinese = deepCopy(Chinese);
 	console.log("****调用****");
 	console.log(chinese);
+```
+### 2.5、深拷贝2
+```javascript
+function deepCopy (data) {
+  return JSON.parse(JSON.stringify(data));
+}
+const obj3 = {stu: {name: 'djh'} };
+const obj4 = deepCopy(obj3)
+```
 ## 面试题
 ```javascript
 var param = 1;
