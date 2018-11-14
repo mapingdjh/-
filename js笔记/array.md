@@ -62,7 +62,6 @@
 
 ## 二、查找数组元素
 ### 2.1、IE8及其以下查找    
- ```javascript
     Array.prototype.indexOf = function(){
         //重写的函数只接收一个参数，否则抛出异常
         if(arguments.length != 1){
@@ -80,7 +79,7 @@
     }
 
 <br>
-
+   
     Array.prototype.indexOf = Array.prototype.indexOf || function (searchElement, fromIndex) {
 	if ( this === undefined || this === null ) {
 		throw new TypeError( '"this" is null or not defined' );
@@ -110,7 +109,6 @@
 
 	return -1;
     };
-     ```
 
 
 > 测试代码：<br>
