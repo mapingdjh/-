@@ -43,6 +43,19 @@
 > var arr =["ddd","eee","fff","bbb","aaa"];<br>
 >  arr.remove(2);<br>
     console.log(arr);
+    
+   ### 1.3、通过filter来过滤掉指定的数组元素
+   ```javascript
+   let arr = [1,2,3,4,5];
+   let delArrItem = arrItem => arr.filter( item => {
+	if(item == arrItem){
+		return false;
+	}
+      return true;
+    })
+    // 过滤下标为1的元素
+    arr = delArrItem(1)
+   ```
 
 ## 二、查找数组元素
 ### 2.1、IE8及其以下查找    
