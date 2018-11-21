@@ -117,6 +117,16 @@ Simple.defaultProps = {
 父组件中通过forceUpdate()让每个组件强行重新渲染，props没有发生变化，但是子组件componemtWillReceiveProps也同样执行了，详见深入浅出React和Redux p32：
 
 	<button onClick={()=>this.forceUpdate()}>click</button>
+可通过shouldComponentUpdate方法优化：
+``` javascript
+shouldComponentUpdate(nextProps){ // 应该使用这个方法，否则无论props是否有变化都将会导致组件跟着重新渲染
+        if(nextProps.someThings === this.props.someThings){
+          return false
+        }
+    }
+```    
+
+
 
 ##### 输入参数 nextProps 是即将被设置的属性，旧的属性还是可以通过 this.props 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 this.setState() 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 render() 调用
 
