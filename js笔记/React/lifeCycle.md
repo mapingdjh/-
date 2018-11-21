@@ -111,14 +111,14 @@ Simple.defaultProps = {
 * componentDidUpdate
 
 ### 2.1、componemtWillReceiveProps(nextProps)
-#####当组件props发生改变，也会触发componemtWillReceiveProps
+##### 当组件props发生改变，也会触发componemtWillReceiveProps
 ##### 父组件的render函数被调用，render函数里面被渲染的子组件就会经历更新过程，不管父组件传给子组件的props有没有改变，都会触发子组件的componentWillReciveProps函数
 
 父组件中通过forceUpdate()让每个组件强行重新渲染，props没有发生变化，但是子组件componemtWillReceiveProps也同样执行了，详见深入浅出React和Redux p32：
 
 	<button onClick={()=>this.forceUpdate()}>click</button>
 
-#####输入参数 nextProps 是即将被设置的属性，旧的属性还是可以通过 this.props 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 this.setState() 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 render() 调用
+##### 输入参数 nextProps 是即将被设置的属性，旧的属性还是可以通过 this.props 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 this.setState() 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 render() 调用
 
 ```javascript
  componentWillReceiveProps(nextProps) {
