@@ -133,6 +133,9 @@ Simple.defaultProps = {
 * 该方法返回true更新组件，返回false组件不会更新，默认返回true
 * 该方法可以提高React性能，详情深入浅出React和Redux p32-33
 
+### 2.3、componentWillUpdate(nextProps，nextState)
+* shouldComponentUpdate返回true或者调用forceUpdate之后，componentWillUpdate会被调用
+
 ## 三、卸载过程
 * componentWillUnmount
 
