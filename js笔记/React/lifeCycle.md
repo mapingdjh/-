@@ -39,7 +39,7 @@ constructor(props) {
 这个两个函数只有在React.createClass()方法中有用，我们Es6通过class创建组件，所以这两个方法不会起作用，简单了解，不做重点关注
 
 * getInitialState: 初始化state，es6中在constructor中就可以初始化state
-* getgetDefaultProps： 设置props的初始值，是全局调用一次;es6中通过组件名.defaultProps来设置默认props
+* getDefaultProps： 设置props的初始值，是全局调用一次;es6中通过组件名.defaultProps来设置默认props
 
 ```javascript
 // React.createClass
