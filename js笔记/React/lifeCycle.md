@@ -39,7 +39,7 @@ constructor(props) {
 这个两个函数只有在React.createClass()方法中有用，我们Es6通过class创建组件，所以这两个方法不会起作用，简单了解，不做重点关注
 
 * getInitialState: 初始化state，es6中在constructor中就可以初始化state
-* getgetDefaultProps： 设置props的初始值，是全局调用一次;es6中通过组件名.defaultProps来设置默认props
+* getDefaultProps： 设置props的初始值，是全局调用一次;es6中通过组件名.defaultProps来设置默认props
 
 ```javascript
 // React.createClass
@@ -111,14 +111,24 @@ Simple.defaultProps = {
 * componentDidUpdate
 
 ### 2.1、componemtWillReceiveProps(nextProps)
-#####当组件props发生改变，也会触发componemtWillReceiveProps
+##### 当组件props发生改变，也会触发componemtWillReceiveProps
 ##### 父组件的render函数被调用，render函数里面被渲染的子组件就会经历更新过程，不管父组件传给子组件的props有没有改变，都会触发子组件的componentWillReciveProps函数
 
 父组件中通过forceUpdate()让每个组件强行重新渲染，props没有发生变化，但是子组件componemtWillReceiveProps也同样执行了，详见深入浅出React和Redux p32：
 
 	<button onClick={()=>this.forceUpdate()}>click</button>
+可通过shouldComponentUpdate方法优化：
+``` javascript
+shouldComponentUpdate(nextProps){ // 应该使用这个方法，否则无论props是否有变化都将会导致组件跟着重新渲染
+        if(nextProps.someThings === this.props.someThings){
+          return false
+        }
+    }
+```    
 
-#####输入参数 nextProps 是即将被设置的属性，旧的属性还是可以通过 this.props 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 this.setState() 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 render() 调用
+
+
+##### 输入参数 nextProps 是即将被设置的属性，旧的属性还是可以通过 this.props 来获取。在这个回调函数里面，你可以根据属性的变化，通过调用 this.setState() 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 render() 调用
 
 ```javascript
  componentWillReceiveProps(nextProps) {
@@ -132,6 +142,9 @@ Simple.defaultProps = {
 ### 2.2、shouldComponentUpdate(nextProps，nextState)
 * 该方法返回true更新组件，返回false组件不会更新，默认返回true
 * 该方法可以提高React性能，详情深入浅出React和Redux p32-33
+
+### 2.3、componentWillUpdate(nextProps，nextState)
+* shouldComponentUpdate返回true或者调用forceUpdate之后，componentWillUpdate会被调用
 
 ## 三、卸载过程
 * componentWillUnmount

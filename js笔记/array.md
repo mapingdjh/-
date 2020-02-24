@@ -1,6 +1,7 @@
 # 数组 #
 ## 一、删除数组元素
 ### 1.1、根据数组下标或者指定的数组元素来删除数组
+ ```javascript
      Array.prototype.remove = function(){
         for(var i= 0,len=this.length;i<len;i+=1) {
             // 如果obj是数组下标，temp为i，否则temp取数组内容
@@ -15,13 +16,14 @@
             }
         }
     };
-
+ ```
 >测试代码： <br>
 >var arr =["ddd","eee","fff","bbb","aaa"];<br>
     arr.remove(3);<br>
    //arr.remove("bbb");
 
 ### 1.2、根据数组下标来删除数组
+ ```javascript
     Array.prototype.remove = function(b) { 
 		var a = this.indexOf(b); 
 		if (a >= 0) { 
@@ -38,11 +40,25 @@
         }
         */
 	}; 
+ ```	
 
 > 测试代码：<br>
 > var arr =["ddd","eee","fff","bbb","aaa"];<br>
 >  arr.remove(2);<br>
     console.log(arr);
+    
+   ### 1.3、通过filter来过滤掉指定的数组元素
+   ```javascript
+   let arr = [1,2,3,4,5];
+   let delArrItem = arrItem => arr.filter( item => {
+	if(item == arrItem){
+		return false;
+	}
+      return true;
+    })
+    // 过滤下标为1的元素
+    arr = delArrItem(1)
+   ```
 
 ## 二、查找数组元素
 ### 2.1、IE8及其以下查找    
@@ -63,7 +79,7 @@
     }
 
 <br>
-
+   
     Array.prototype.indexOf = Array.prototype.indexOf || function (searchElement, fromIndex) {
 	if ( this === undefined || this === null ) {
 		throw new TypeError( '"this" is null or not defined' );

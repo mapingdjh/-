@@ -38,8 +38,8 @@ module.exports = {
   
   version: version,
   baseURL: {
-    prod: 'http://g.10086.cn',
-    test: 'http://h5test.migufun.com:8008'
+    prod: '',
+    test: ''
   },
   
   // 服务器配置 
@@ -51,7 +51,7 @@ module.exports = {
     /* 代理配置 */
     proxy: {
       '/gateway/json': {
-        target: 'http://223.111.8.105',
+        target: '',
         changeOrigin:true
       }
     }
