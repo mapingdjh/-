@@ -3,4 +3,4 @@
 ### list of the snippets
 * css
 * JavaScript
- * [reduce](./Array/reduce.md) 
+  * [reduce](./Array/reduce.md) 
