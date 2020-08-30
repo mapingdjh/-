@@ -1,7 +1,8 @@
 # reduce #
 ## 一、 概念
 ### 1.1、什么是reduce，它是做什么的
-> 对数组中的每一个元素都执行一次指定的函数reducer，并把执行结果保存下来
+> 对数组中的每一个元素都执行一次指定的函数reducer，并把执行结果保存到一个变量acc中（累计器）
+> 返回acc，数组格式
 
 
 
@@ -15,10 +16,11 @@ arr.reduce(callback(acc,cur,index arr), initValue)
   * arr: 当前数组
 * initValue:
   * 第一次执行函数，给acc赋值
-  * 如果没有设置，acc将会取数组元素第一个值，此时cur会去数组中第二值，索引从1开始； 如果数组为空，会报错
+  * 如果没有设置，acc将会取数组元素第一个值，此时cur会取数组中第二值，索引从1开始； 如果数组为空，会报错
   * 建议设置initValue
   
 ### 1.3、理解
+
  > 与map等方法一样，都是遍历数组，对数组中每一个元素执行一个函数
  > 它可把每次执行函数结果都保存累计下来， 就像for循环计算数组元素和，定一个变量，保存累加的和一样；
  > initValue很重要，他的类型就是我们要通过reduce计算获取最终的值类型，比如求和(Number), 数组扁平化(设置数组)
@@ -29,6 +31,7 @@ arr.reduce(callback(acc,cur,index arr), initValue)
 
 ### 2.1、计算数组元素和
 ```js
+
 	// 计算数组元素和
     let arr = [1,2,4,3]
     let sum = arr.reduce(((acc, cur) => acc + cur), 0)
@@ -43,6 +46,7 @@ arr.reduce(callback(acc,cur,index arr), initValue)
 ```
 ### 2.2、 数组扁平化(二维数组转化一维数组)
 ```js
+
 	let flattArr = [[0, 1], [2, 3], [4, 5]];
     let flattened = flattArr.reduce(
         (acc, cur) => acc.concat(cur)
@@ -61,6 +65,7 @@ arr.reduce(callback(acc,cur,index arr), initValue)
 ```
 ### 2.3、计算数组中每个元素出现的次数
 ```js
+
 	var arrCounts = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
     //返回数据结构： {Alice:2, Bob: 1 }
     let count = arrCounts.reduce(
@@ -73,6 +78,7 @@ arr.reduce(callback(acc,cur,index arr), initValue)
 ```
 ### 2.4、对数组对象按指定的属性分类
 ```js
+
     // 对数组对象按指定的属性分类
     let people = [
         { name: 'Alice', age: 21 },
@@ -102,6 +108,7 @@ arr.reduce(callback(acc,cur,index arr), initValue)
 ```
 ### 2.5、 数组和数组对象（按照指定属性）去重
 ```js
+
     let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
     let uniArray = myArray.reduce(
         (acc, cur) => {
